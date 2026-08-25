@@ -1,12 +1,13 @@
 import { Bookmark, LogIn } from 'lucide-react'
 import { GuideCard } from '../components/GuideCard'
 import { useAuth } from '../context/AuthContext'
+import { useContent } from '../context/ContentContext'
 import { useSavedGuides } from '../context/SavedGuidesContext'
-import { guideIndex } from '../data/guides'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export function SavedPage() {
   const { user, available, signInWithGoogle } = useAuth()
+  const { guideIndex } = useContent()
   const { savedIds } = useSavedGuides()
   const savedGuides = guideIndex.filter((guide) => savedIds.has(guide.id))
   usePageMeta('Saved projects | Built True Workshop', 'Your saved Built True Workshop guides and projects.', true)

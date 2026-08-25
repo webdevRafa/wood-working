@@ -9,8 +9,8 @@ import {
   X,
 } from 'lucide-react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
-import { guideIndex } from '../data/guides'
 import { useAuth } from '../context/AuthContext'
+import { useContent } from '../context/ContentContext'
 import { ConsentBanner } from './ConsentBanner'
 import { trackEvent } from '../lib/analytics'
 
@@ -33,6 +33,7 @@ const navItems = [
 function SearchDialog({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState('')
   const navigate = useNavigate()
+  const { guideIndex } = useContent()
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
@@ -50,7 +51,7 @@ function SearchDialog({ onClose }: { onClose: () => void }) {
         [guide.title, guide.dek, ...guide.tags].join(' ').toLowerCase().includes(normalized),
       )
       .slice(0, 8)
-  }, [query])
+  }, [guideIndex, query])
 
   return (
     <div className="fixed inset-0 z-[100] bg-walnut/55 p-3 backdrop-blur-sm sm:p-8" role="dialog" aria-modal="true" aria-label="Search guides">

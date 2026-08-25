@@ -39,6 +39,7 @@ const app = getApps()[0] ?? initializeApp({ credential, projectId: expectedProje
 const db = getFirestore(app)
 const writer = db.bulkWriter()
 let written = 0
+let indexWritten = 0
 
 writer.onWriteError((error) => {
   if (error.failedAttempts < 3) return true
@@ -55,7 +56,31 @@ for (const guide of guides) {
     importedAt: FieldValue.serverTimestamp(),
   }
   writer.set(db.collection('guides').doc(guide.id), data, { merge: true })
+  const indexData = {
+    id: guide.id,
+    slug: guide.slug,
+    canonicalPath: guide.canonicalPath,
+    type: guide.type,
+    status: guide.status,
+    indexStatus: guide.indexStatus,
+    title: guide.title,
+    dek: guide.dek,
+    categoryId: guide.categoryId,
+    clusterId: guide.clusterId,
+    tags: guide.tags,
+    intent: guide.intent,
+    skillLevel: guide.skillLevel ?? null,
+    activeMinutes: guide.activeMinutes ?? null,
+    totalMinutes: guide.totalMinutes ?? null,
+    costBand: guide.costBand ?? null,
+    evidenceStatus: guide.evidenceStatus,
+    updatedAt: Timestamp.fromDate(new Date(guide.updatedAt)),
+    publishedAt: guide.publishedAt ? Timestamp.fromDate(new Date(guide.publishedAt)) : null,
+    importedAt: FieldValue.serverTimestamp(),
+  }
+  writer.set(db.collection('guideIndex').doc(guide.id), indexData, { merge: true })
   written += 1
+  indexWritten += 1
 }
 
 await writer.close()
@@ -64,8 +89,9 @@ await db.collection('imports').doc(importId).set({
   collection: 'guides',
   sourceFile: file.split(/[\\/]/).pop(),
   guideCount: written,
+  guideIndexCount: indexWritten,
   projectId: credentialProject ?? expectedProject,
   completedAt: FieldValue.serverTimestamp(),
   mode: 'merge',
 })
-console.log(`Imported ${written} guides into ${expectedProject} with merge semantics. No documents were deleted.`)
+console.log(`Imported ${written} guides and ${indexWritten} discovery records into ${expectedProject} with merge semantics. No documents were deleted.`)

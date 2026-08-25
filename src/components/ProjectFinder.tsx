@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ArrowRight, Check, RotateCcw } from 'lucide-react'
 import { Link } from 'react-router'
-import { guideIndex } from '../data/guides'
+import { useContent } from '../context/ContentContext'
 
 const questions = [
   {
@@ -39,6 +39,7 @@ type Answers = Partial<Record<AnswerKey, string>>
 export function ProjectFinder({ embedded = false }: { embedded?: boolean }) {
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
+  const { guideIndex } = useContent()
   const done = step >= questions.length
 
   const matches = useMemo(() => {
@@ -54,7 +55,7 @@ export function ProjectFinder({ embedded = false }: { embedded?: boolean }) {
       })
       .sort((a, b) => b.score - a.score || Number(a.guide.id) - Number(b.guide.id))
       .slice(0, 3)
-  }, [answers])
+  }, [answers, guideIndex])
 
   const reset = () => {
     setAnswers({})

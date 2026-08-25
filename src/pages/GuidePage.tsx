@@ -14,9 +14,10 @@ import {
 import { Link, useParams } from 'react-router'
 import { BoardFootCalculator } from '../components/BoardFootCalculator'
 import { GuideCard } from '../components/GuideCard'
-import { getGuideById, getGuideBySlug, guideIndex } from '../data/guides'
+import { useContent } from '../context/ContentContext'
 import { useSavedGuides } from '../context/SavedGuidesContext'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { usePublishedGuide } from '../hooks/usePublishedGuide'
 
 const sectionLabels: Record<string, string> = {
   project: 'Projects',
@@ -40,7 +41,8 @@ const parentPaths: Record<string, string> = {
 
 export function GuidePage() {
   const { slug = '' } = useParams()
-  const guide = getGuideBySlug(slug)
+  const { guide, loading } = usePublishedGuide(slug)
+  const { guideIndex } = useContent()
   const { isSaved, toggleSaved } = useSavedGuides()
   const [saveMessage, setSaveMessage] = useState('')
   usePageMeta(
@@ -51,10 +53,16 @@ export function GuidePage() {
 
   const related = useMemo(() => {
     if (!guide) return []
-    const explicit = guide.relatedGuideIds.map(getGuideById).filter((item) => item !== undefined)
+    const explicit = guide.relatedGuideIds
+      .map((id) => guideIndex.find((item) => item.id === id))
+      .filter((item) => item !== undefined)
     if (explicit.length) return explicit
     return guideIndex.filter((item) => item.id !== guide.id && (item.clusterId === guide.clusterId || item.type === guide.type)).slice(0, 3)
-  }, [guide])
+  }, [guide, guideIndex])
+
+  if (loading && !guide) {
+    return <main className="mx-auto min-h-[60vh] max-w-3xl px-5 py-24 text-center sm:px-8"><p className="section-label">Opening the guide</p><h1 className="mt-4 font-display text-5xl font-black text-walnut">Pulling this page from the workshop library…</h1></main>
+  }
 
   if (!guide) {
     return <main className="mx-auto max-w-3xl px-5 py-24 text-center sm:px-8"><p className="section-label">Wrong turn</p><h1 className="mt-4 font-display text-5xl font-black text-walnut">That guide is not on the bench.</h1><p className="mt-5 text-steel">The link may have changed, or the draft may not exist yet.</p><Link to="/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-pine px-6 py-4 text-sm font-black text-white"><ArrowLeft size={17} />Back to the workshop</Link></main>

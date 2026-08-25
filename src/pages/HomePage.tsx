@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router'
 import { GuideCard } from '../components/GuideCard'
-import { guideIndex } from '../data/guides'
+import { useContent } from '../context/ContentContext'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const paths = [
@@ -19,6 +19,7 @@ const paths = [
 ]
 
 export function HomePage() {
+  const { guideIndex } = useContent()
   usePageMeta(
     'Built True Workshop | Build with confidence',
     'Practical woodworking projects, honest tool guidance, and shop-tested skills for building with confidence.',
@@ -39,7 +40,7 @@ export function HomePage() {
               <Link to="/shop/" className="inline-flex items-center justify-center rounded-full border border-walnut/20 bg-white px-6 py-4 text-sm font-black text-walnut transition hover:border-pine hover:text-pine">Set up my shop</Link>
             </div>
             <div className="mt-10 grid max-w-xl grid-cols-3 border-t border-walnut/15 pt-6">
-              {[["500", "planned guides"], ["No hype", "testing promise"], ["Free", "starter plans"]].map(([value, label]) => <div key={label} className="pr-3"><strong className="block font-display text-xl font-black text-walnut sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-steel sm:text-[11px]">{label}</span></div>)}
+              {[["500", "guide roadmap"], ["No hype", "testing promise"], ["Free", "starter plans"]].map(([value, label]) => <div key={label} className="pr-3"><strong className="block font-display text-xl font-black text-walnut sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-steel sm:text-[11px]">{label}</span></div>)}
             </div>
           </div>
 
