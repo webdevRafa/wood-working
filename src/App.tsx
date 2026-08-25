@@ -4,6 +4,7 @@ import { GuidePage } from './pages/GuidePage'
 import { HomePage } from './pages/HomePage'
 import { HubPage } from './pages/HubPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { SavedPage } from './pages/SavedPage'
 import { StartHerePage } from './pages/StartHerePage'
 import { StaticPage } from './pages/StaticPage'
 
@@ -13,6 +14,7 @@ function App() {
       <Route element={<SiteLayout />}>
         <Route index element={<HomePage />} />
         <Route path="start-here" element={<StartHerePage />} />
+        <Route path="saved" element={<SavedPage />} />
 
         <Route path="projects" element={<HubPage eyebrow="Make something useful" title="Projects" description="Measured builds with realistic difficulty, minimum-tool paths, cut lists, and recovery notes for the mistakes that happen in real shops." types={['project']} />} />
         <Route path="projects/:slug" element={<GuidePage />} />

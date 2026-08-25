@@ -2,13 +2,17 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
   Bookmark,
+  LogOut,
   Menu,
   Search,
   UserRound,
   X,
 } from 'lucide-react'
-import { Link, NavLink, Outlet, useNavigate } from 'react-router'
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 import { guideIndex } from '../data/guides'
+import { useAuth } from '../context/AuthContext'
+import { ConsentBanner } from './ConsentBanner'
+import { trackEvent } from '../lib/analytics'
 
 export function BrandMark() {
   return (
@@ -99,6 +103,8 @@ function SearchDialog({ onClose }: { onClose: () => void }) {
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [accountOpen, setAccountOpen] = useState(false)
+  const { user, pending, available, error, signInWithGoogle, signOut } = useAuth()
 
   return (
     <>
@@ -128,12 +134,13 @@ function Header() {
             <button type="button" onClick={() => setSearchOpen(true)} className="grid h-10 w-10 place-items-center rounded-full text-walnut transition hover:bg-sawdust" aria-label="Search Built True Workshop">
               <Search size={19} strokeWidth={2.3} />
             </button>
-            <button type="button" className="grid h-10 w-10 place-items-center rounded-full text-walnut transition hover:bg-sawdust" aria-label="Saved projects">
-              <Bookmark size={19} strokeWidth={2.3} />
-            </button>
-            <button type="button" className="grid h-10 w-10 place-items-center rounded-full text-walnut transition hover:bg-sawdust" aria-label="Account">
-              <UserRound size={19} strokeWidth={2.3} />
-            </button>
+            <Link to="/saved/" className="grid h-10 w-10 place-items-center rounded-full text-walnut transition hover:bg-sawdust" aria-label="Saved projects"><Bookmark size={19} strokeWidth={2.3} /></Link>
+            <div className="relative">
+              <button type="button" onClick={() => setAccountOpen((open) => !open)} className="grid h-10 w-10 place-items-center rounded-full text-walnut transition hover:bg-sawdust" aria-expanded={accountOpen} aria-label="Account">
+                {user?.photoURL ? <img src={user.photoURL} referrerPolicy="no-referrer" alt="" className="h-8 w-8 rounded-full object-cover" /> : <UserRound size={19} strokeWidth={2.3} />}
+              </button>
+              {accountOpen ? <div className="absolute right-0 top-12 w-72 rounded-xl border border-walnut/10 bg-white p-4 shadow-xl"><p className="text-[10px] font-black uppercase tracking-[0.16em] text-pine">Your workshop</p>{pending ? <p className="mt-3 text-sm text-steel">Checking sign-in…</p> : user ? <><strong className="mt-3 block text-sm text-walnut">{user.displayName ?? 'Signed-in woodworker'}</strong><span className="mt-1 block truncate text-xs text-steel">{user.email}</span><button onClick={() => void signOut()} className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-walnut/15 px-4 py-3 text-sm font-black text-walnut"><LogOut size={16} />Sign out</button></> : <><p className="mt-3 text-sm leading-6 text-steel">Sign in to save guides and keep project progress across devices.</p><button disabled={!available} onClick={() => void signInWithGoogle()} className="mt-4 w-full rounded-full bg-pine px-4 py-3 text-sm font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Continue with Google</button></>}{error ? <p className="mt-3 text-xs leading-5 text-[#b33a2b]">{error}</p> : null}</div> : null}
+            </div>
             <Link to="/start-here/" className="ml-2 rounded-full bg-pine px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#243f34]">
               Start here
             </Link>
@@ -187,11 +194,18 @@ function Footer() {
 }
 
 export function SiteLayout() {
+  const location = useLocation()
+
+  useEffect(() => {
+    void trackEvent('page_view', { page_path: location.pathname })
+  }, [location.pathname])
+
   return (
     <div className="min-h-screen bg-paper font-sans text-charcoal">
       <Header />
       <Outlet />
       <Footer />
+      <ConsentBanner />
     </div>
   )
 }

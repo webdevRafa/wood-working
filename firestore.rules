@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function owns(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /guides/{guideId} {
+      allow read: if resource.data.status == 'published';
+      allow write: if false;
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /authors/{authorId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /media/{mediaId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /users/{uid} {
+      allow read, create, update, delete: if owns(uid);
+
+      match /savedGuides/{guideId} {
+        allow read, delete: if owns(uid);
+        allow create, update: if owns(uid)
+          && request.resource.data.keys().hasOnly(['guideId', 'slug', 'title', 'savedAt'])
+          && request.resource.data.guideId == guideId
+          && request.resource.data.slug is string
+          && request.resource.data.title is string
+          && request.resource.data.title.size() <= 180;
+      }
+    }
+
+    match /imports/{importId} {
+      allow read, write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

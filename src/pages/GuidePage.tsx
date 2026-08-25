@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import {
   AlertTriangle,
   ArrowLeft,
@@ -15,6 +15,7 @@ import { Link, useParams } from 'react-router'
 import { BoardFootCalculator } from '../components/BoardFootCalculator'
 import { GuideCard } from '../components/GuideCard'
 import { getGuideById, getGuideBySlug, guideIndex } from '../data/guides'
+import { useSavedGuides } from '../context/SavedGuidesContext'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const sectionLabels: Record<string, string> = {
@@ -40,6 +41,8 @@ const parentPaths: Record<string, string> = {
 export function GuidePage() {
   const { slug = '' } = useParams()
   const guide = getGuideBySlug(slug)
+  const { isSaved, toggleSaved } = useSavedGuides()
+  const [saveMessage, setSaveMessage] = useState('')
   usePageMeta(
     guide?.seoTitle ?? 'Guide not found | Built True Workshop',
     guide?.metaDescription ?? 'The requested guide could not be found.',
@@ -70,7 +73,7 @@ export function GuidePage() {
               <h1 className="mt-5 max-w-4xl font-display text-[clamp(2.9rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.055em] text-walnut">{guide.title}</h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-steel sm:text-xl">{guide.dek}</p>
             </div>
-            <div className="flex gap-2 lg:justify-end"><button className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-walnut/20 bg-white px-4 py-3 text-sm font-black text-walnut hover:border-pine lg:flex-none"><Bookmark size={17} />Save</button><button onClick={() => window.print()} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-walnut/20 bg-white px-4 py-3 text-sm font-black text-walnut hover:border-pine lg:flex-none"><Printer size={17} />Print</button></div>
+            <div className="lg:text-right"><div className="flex gap-2 lg:justify-end"><button onClick={() => void toggleSaved(guide.id, guide.slug, guide.title).then((result) => setSaveMessage(result === 'sign-in-required' ? 'Sign in to save this guide.' : result === 'saved' ? 'Guide saved.' : 'Guide removed.'))} className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full border px-4 py-3 text-sm font-black lg:flex-none ${isSaved(guide.id) ? 'border-pine bg-pine text-white' : 'border-walnut/20 bg-white text-walnut hover:border-pine'}`}><Bookmark size={17} fill={isSaved(guide.id) ? 'currentColor' : 'none'} />{isSaved(guide.id) ? 'Saved' : 'Save'}</button><button onClick={() => window.print()} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-walnut/20 bg-white px-4 py-3 text-sm font-black text-walnut hover:border-pine lg:flex-none"><Printer size={17} />Print</button></div>{saveMessage ? <p role="status" className="mt-2 text-xs font-bold text-steel">{saveMessage}</p> : null}</div>
           </div>
 
           <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-walnut/10 bg-walnut/10 sm:grid-cols-2 lg:grid-cols-4">

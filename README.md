@@ -1,75 +1,48 @@
-# React + TypeScript + Vite
+# Built True Workshop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Practical woodworking projects, honest tool guidance, and shop-building resources. The application uses Vite, React, TypeScript, Tailwind CSS, Firebase, and Vercel.
 
-Currently, two official plugins are available:
+## Local setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Copy `.env.example` to `.env.local` and provide the Firebase web-app values. `.env.local` is explicitly ignored by Git.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Checks
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run lint
+npm run build
 ```
+
+The production build prerenders public routes, adds page metadata and structured data, and writes `dist/sitemap.xml` plus `dist/robots.txt`. On Vercel it uses `VERCEL_PROJECT_PRODUCTION_URL`; a custom canonical origin can be supplied as `VITE_SITE_URL`.
+
+## Content workflow
+
+The long-term source is `content/guides.json`. All bulk-created records default to `draft` and `noindex` until they pass the editorial quality gate in `PROJECT_BLUEPRINT.md`.
+
+```bash
+npm run content:validate
+npm run content:import:dry
+```
+
+The write command requires `FIREBASE_SERVICE_ACCOUNT_PATH` to point to a credential file outside the repository:
+
+```bash
+npm run content:import
+```
+
+The import is idempotent by stable guide ID, uses merge semantics, records an import receipt, and never deletes Firestore documents.
+
+## Firebase security
+
+Firestore and Storage rules are defined in `firestore.rules` and `storage.rules`. Deploy them with an identity that has Firebase Rules and Service Usage permissions. Client reads of guides are limited to `status = published`; personal saved guides are limited to the signed-in owner.
+
+The Firebase Admin service-account file must never be copied into this repository, bundled into the browser, or added to Vercel as a `VITE_` variable.
+
+## Strategy
+
+See `PROJECT_BLUEPRINT.md` for the brand system, page wireframes, SEO architecture, editorial quality gate, Firestore model, launch phases, and 500-page content backlog.
