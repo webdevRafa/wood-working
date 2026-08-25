@@ -84,6 +84,8 @@ export function GuidePage() {
             <div className="lg:text-right"><div className="flex gap-2 lg:justify-end"><button onClick={() => void toggleSaved(guide.id, guide.slug, guide.title).then((result) => setSaveMessage(result === 'sign-in-required' ? 'Sign in to save this guide.' : result === 'saved' ? 'Guide saved.' : 'Guide removed.'))} className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full border px-4 py-3 text-sm font-black lg:flex-none ${isSaved(guide.id) ? 'border-pine bg-pine text-white' : 'border-walnut/20 bg-white text-walnut hover:border-pine'}`}><Bookmark size={17} fill={isSaved(guide.id) ? 'currentColor' : 'none'} />{isSaved(guide.id) ? 'Saved' : 'Save'}</button><button onClick={() => window.print()} className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-walnut/20 bg-white px-4 py-3 text-sm font-black text-walnut hover:border-pine lg:flex-none"><Printer size={17} />Print</button></div>{saveMessage ? <p role="status" className="mt-2 text-xs font-bold text-steel">{saveMessage}</p> : null}</div>
           </div>
 
+          {guide.coverImage ? <figure className="mt-10 aspect-[3/2] overflow-hidden rounded-[1.5rem] border border-walnut/10 bg-sawdust shadow-[0_24px_70px_rgba(36,26,21,0.12)] sm:aspect-[16/7]"><img src={guide.coverImage} alt={guide.coverAlt ?? ''} fetchPriority="high" className="h-full w-full object-cover" /></figure> : null}
+
           <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-walnut/10 bg-walnut/10 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Wrench, label: 'Difficulty', value: guide.skillLevel ?? 'All levels' },

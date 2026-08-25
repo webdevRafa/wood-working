@@ -54,6 +54,8 @@ export type Guide = {
   indexStatus: 'index' | 'noindex'
   title: string
   dek: string
+  coverImage?: string
+  coverAlt?: string
   seoTitle: string
   metaDescription: string
   categoryId: string
@@ -94,6 +96,8 @@ export type GuideIndexItem = Pick<
   | 'indexStatus'
   | 'title'
   | 'dek'
+  | 'coverImage'
+  | 'coverAlt'
   | 'categoryId'
   | 'clusterId'
   | 'tags'

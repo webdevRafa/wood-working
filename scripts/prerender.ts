@@ -12,6 +12,7 @@ type Page = {
   path: string
   title: string
   description: string
+  image?: string
   noindex?: boolean
   body: string
   jsonLd?: Record<string, unknown>
@@ -22,7 +23,10 @@ const absolute = (path: string) => `${siteUrl}${path.startsWith('/') ? path : `/
 
 function guideBody(guide: Guide) {
   const sectionPath = guide.canonicalPath.split('/').filter(Boolean)[0]
-  return `<main data-prerendered="guide" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1180px] items-center gap-3 px-5 py-5 sm:px-8"><span class="grid h-11 w-11 overflow-hidden rounded-[0.45rem] bg-paper p-0.5 ring-1 ring-walnut/10"><img src="/brand/built-true-mark.png" alt="" width="44" height="44" class="h-full w-full object-contain" /></span><strong class="font-display text-lg font-black">Built True Workshop</strong></div></header><article class="mx-auto max-w-[900px] px-5 py-14 sm:px-8 sm:py-20"><nav aria-label="Breadcrumb" class="text-xs font-bold uppercase tracking-[0.12em] text-steel"><a class="text-pine" href="/">Home</a> / <a class="text-pine" href="/${sectionPath}/">${escapeHtml(sectionPath)}</a></nav><p class="mt-10 text-[10px] font-black uppercase tracking-[0.18em] text-amber">${escapeHtml(guide.type)} · ${escapeHtml(guide.intent)}</p><h1 class="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.055em]">${escapeHtml(guide.title)}</h1><p class="mt-6 max-w-3xl text-xl leading-8 text-steel">${escapeHtml(guide.dek)}</p><p class="mt-8 rounded-xl border border-amber/25 bg-sawdust p-5 text-sm leading-6"><strong>Affiliate disclosure:</strong> ${escapeHtml(guide.affiliateDisclosure)}</p>${guide.safetyNotes.length ? `<section class="mt-12"><h2 class="font-display text-3xl font-black">Before you start</h2><ul class="mt-5 grid gap-3 text-steel">${guide.safetyNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul></section>` : ''}${guide.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="mt-12 border-t border-walnut/10 pt-8"><h2 class="font-display text-3xl font-black">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-4 text-lg leading-8 text-steel">${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul class="mt-5 grid gap-3 text-steel">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}</section>`).join('')}</article></main>`
+  const cover = guide.coverImage
+    ? `<figure class="mt-10 overflow-hidden rounded-2xl bg-sawdust"><img src="${escapeHtml(guide.coverImage)}" alt="${escapeHtml(guide.coverAlt ?? '')}" width="1200" height="800" class="aspect-[3/2] w-full object-cover" /></figure>`
+    : ''
+  return `<main data-prerendered="guide" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1180px] items-center gap-3 px-5 py-5 sm:px-8"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></div></header><article class="mx-auto max-w-[900px] px-5 py-14 sm:px-8 sm:py-20"><nav aria-label="Breadcrumb" class="text-xs font-bold uppercase tracking-[0.12em] text-steel"><a class="text-pine" href="/">Home</a> / <a class="text-pine" href="/${sectionPath}/">${escapeHtml(sectionPath)}</a></nav><p class="mt-10 text-[10px] font-black uppercase tracking-[0.18em] text-amber">${escapeHtml(guide.type)} · ${escapeHtml(guide.intent)}</p><h1 class="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.055em]">${escapeHtml(guide.title)}</h1><p class="mt-6 max-w-3xl text-xl leading-8 text-steel">${escapeHtml(guide.dek)}</p>${cover}<p class="mt-8 rounded-xl border border-amber/25 bg-sawdust p-5 text-sm leading-6"><strong>Affiliate disclosure:</strong> ${escapeHtml(guide.affiliateDisclosure)}</p>${guide.safetyNotes.length ? `<section class="mt-12"><h2 class="font-display text-3xl font-black">Before you start</h2><ul class="mt-5 grid gap-3 text-steel">${guide.safetyNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul></section>` : ''}${guide.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="mt-12 border-t border-walnut/10 pt-8"><h2 class="font-display text-3xl font-black">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-4 text-lg leading-8 text-steel">${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul class="mt-5 grid gap-3 text-steel">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}</section>`).join('')}</article></main>`
 }
 
 function articleJsonLd(guide: Guide) {
@@ -35,8 +39,8 @@ function articleJsonLd(guide: Guide) {
     dateModified: guide.updatedAt,
     mainEntityOfPage: absolute(guide.canonicalPath),
     author: { '@type': 'Organization', name: 'Built True Workshop' },
-    publisher: { '@type': 'Organization', name: 'Built True Workshop', logo: { '@type': 'ImageObject', url: absolute('/brand/built-true-mark.png') } },
-    image: absolute('/og.png'),
+    publisher: { '@type': 'Organization', name: 'Built True Workshop' },
+    image: absolute(guide.coverImage ?? '/og.png'),
   }
 }
 
@@ -55,7 +59,7 @@ const pages: Page[] = hubs.map((hub) => {
   const links = hub.types.length ? guides.filter((guide) => hub.types.includes(guide.type)) : guides.slice(0, 8)
   return {
     ...hub,
-    body: `<main data-prerendered="hub" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-5 py-5 sm:px-8"><a href="/" class="flex items-center gap-3"><span class="grid h-11 w-11 overflow-hidden rounded-[0.45rem] bg-paper p-0.5 ring-1 ring-walnut/10"><img src="/brand/built-true-mark.png" alt="" width="44" height="44" class="h-full w-full object-contain" /></span><strong class="font-display text-lg font-black">Built True Workshop</strong></a><span class="text-xs font-black uppercase tracking-[0.14em] text-pine">Build with confidence</span></div></header><section class="border-b border-walnut/10 bg-sawdust"><div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 sm:py-24"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-pine">Practical woodworking, honestly taught</p><h1 class="mt-4 max-w-5xl font-display text-[clamp(3.2rem,8vw,6.2rem)] font-black leading-[0.9] tracking-[-0.06em]">${escapeHtml(hub.title.split(' | ')[0])}</h1><p class="mt-6 max-w-2xl text-lg leading-8 text-steel">${escapeHtml(hub.description)}</p></div></section><nav aria-label="Guide directory" class="mx-auto max-w-[1280px] px-5 py-12 sm:px-8"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-amber">Start at the bench</p><ul class="mt-5 grid gap-4 md:grid-cols-2">${links.map((guide) => `<li><a class="block rounded-xl border border-walnut/10 bg-white p-5 font-display text-xl font-black leading-tight hover:border-pine" href="${escapeHtml(guide.canonicalPath)}">${escapeHtml(guide.title)}</a></li>`).join('')}</ul></nav></main>`,
+    body: `<main data-prerendered="hub" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-5 py-5 sm:px-8"><a href="/" class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></a><span class="text-xs font-black uppercase tracking-[0.14em] text-pine">Build with confidence</span></div></header><section class="border-b border-walnut/10 bg-sawdust"><div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 sm:py-24"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-pine">Practical woodworking, honestly taught</p><h1 class="mt-4 max-w-5xl font-display text-[clamp(3.2rem,8vw,6.2rem)] font-black leading-[0.9] tracking-[-0.06em]">${escapeHtml(hub.title.split(' | ')[0])}</h1><p class="mt-6 max-w-2xl text-lg leading-8 text-steel">${escapeHtml(hub.description)}</p></div></section><nav aria-label="Guide directory" class="mx-auto max-w-[1280px] px-5 py-12 sm:px-8"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-amber">Start at the bench</p><ul class="mt-5 grid gap-4 md:grid-cols-2">${links.map((guide) => `<li><a class="block rounded-xl border border-walnut/10 bg-white p-5 font-display text-xl font-black leading-tight hover:border-pine" href="${escapeHtml(guide.canonicalPath)}">${escapeHtml(guide.title)}</a></li>`).join('')}</ul></nav></main>`,
   }
 })
 
@@ -79,6 +83,7 @@ for (const guide of guides) {
     path: guide.canonicalPath,
     title: guide.seoTitle,
     description: guide.metaDescription,
+    image: guide.coverImage,
     noindex: guide.indexStatus !== 'index',
     body: guideBody(guide),
     jsonLd: articleJsonLd(guide),
@@ -87,7 +92,7 @@ for (const guide of guides) {
 
 function render(page: Page) {
   const canonical = absolute(page.path)
-  const image = absolute('/og.png')
+  const image = absolute(page.image ?? '/og.png')
   let html = template
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(page.title)}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`)

@@ -41,6 +41,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '001',
     slug: 'woodworking-for-absolute-beginners',
+    coverImage: '/images/guides/001-beginner-workshop.jpg',
+    coverAlt: 'Beginner woodworking crate project surrounded by essential tools on a workshop bench',
     type: 'skill',
     title: 'Woodworking for Absolute Beginners: Your First Safe Weekend in the Shop',
     dek: 'A calm, realistic path from an empty bench to a finished first project—without buying a room full of tools.',
@@ -120,6 +122,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '002',
     slug: 'first-10-woodworking-tools',
+    coverImage: '/images/guides/002-first-tools.jpg',
+    coverAlt: 'Essential beginner woodworking tools arranged on a maple workbench',
     type: 'comparison',
     title: 'The First 10 Woodworking Tools to Buy—in the Order They Earn Their Keep',
     dek: 'A project-led purchase order for a small home shop, with the tools you can postpone and the hidden costs to plan for.',
@@ -186,6 +190,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '031',
     slug: 'board-foot-calculator-and-lumber-guide',
+    coverImage: '/images/guides/031-board-foot-lumber.jpg',
+    coverAlt: 'Rough walnut and oak boards being measured for a board-foot calculation',
     type: 'material',
     title: 'Board-Foot Calculator and Lumber Buying Guide',
     dek: 'Convert rough-lumber dimensions into a realistic purchase quantity, including waste, defects, and milling loss.',
@@ -234,6 +240,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '101',
     slug: 'table-saw-basics-first-cut',
+    coverImage: '/images/guides/101-table-saw-basics.jpg',
+    coverAlt: 'Table saw prepared for a safe first cut with its guard, push block, and safety glasses',
     type: 'skill',
     title: 'Table Saw Basics: A Safety-First First Cut',
     dek: 'Understand the cut, set the machine, control the stock, and know when another saw is the safer choice.',
@@ -302,6 +310,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '151',
     slug: 'trim-router-vs-full-size-router',
+    coverImage: '/images/guides/151-router-comparison.jpg',
+    coverAlt: 'Compact trim router and full-size plunge router compared side by side',
     type: 'comparison',
     title: 'Trim Router vs. Full-Size Router: Which Should You Buy First?',
     dek: 'Choose by the cuts you need, not by maximum horsepower or the number of bases in the box.',
@@ -358,6 +368,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '176',
     slug: 'jointer-vs-planer',
+    coverImage: '/images/guides/176-jointer-planer.jpg',
+    coverAlt: 'Jointer and thickness planer positioned side by side in a woodworking shop',
     type: 'comparison',
     title: 'Jointer vs. Planer: What Each Machine Actually Makes Flat',
     dek: 'A visual decision guide to reference faces, parallel faces, straight edges, and the machine that creates each one.',
@@ -414,6 +426,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '276',
     slug: 'wood-sandpaper-grits-explained',
+    coverImage: '/images/guides/276-sandpaper-grits.jpg',
+    coverAlt: 'Coarse, medium, and fine abrasives beside a walnut sanding progression',
     type: 'material',
     title: 'Wood Sandpaper Grits Explained: Start, Stop, and Skip',
     dek: 'Choose a starting grit from the defect—not habit—and stop where your finish schedule needs you to stop.',
@@ -474,6 +488,8 @@ export const guides: Guide[] = [
   createGuide({
     id: '301',
     slug: 'beginner-coffee-table-with-shelf',
+    coverImage: '/images/guides/301-coffee-table.jpg',
+    coverAlt: 'Finished walnut coffee table with a lower shelf in a warm living room',
     type: 'project',
     title: 'Build a Beginner Coffee Table With a Lower Shelf',
     dek: 'A forgiving weekend build with a stable base, useful storage, and three tool paths for different shops.',
@@ -595,6 +611,8 @@ export const guideIndex: GuideIndexItem[] = guides.map((guide) => ({
   indexStatus: guide.indexStatus,
   title: guide.title,
   dek: guide.dek,
+  coverImage: guide.coverImage,
+  coverAlt: guide.coverAlt,
   categoryId: guide.categoryId,
   clusterId: guide.clusterId,
   tags: guide.tags,

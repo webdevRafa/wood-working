@@ -65,6 +65,8 @@ for (const guide of guides) {
     indexStatus: guide.indexStatus,
     title: guide.title,
     dek: guide.dek,
+    coverImage: guide.coverImage ?? null,
+    coverAlt: guide.coverAlt ?? null,
     categoryId: guide.categoryId,
     clusterId: guide.clusterId,
     tags: guide.tags,

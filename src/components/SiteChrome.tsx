@@ -16,15 +16,8 @@ import { trackEvent } from '../lib/analytics'
 
 export function BrandMark() {
   return (
-    <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-[0.45rem] bg-paper p-0.5 shadow-[0_5px_14px_rgba(36,26,21,0.12)] ring-1 ring-walnut/10">
-      <img
-        src="/brand/built-true-mark.png"
-        alt=""
-        aria-hidden="true"
-        width="44"
-        height="44"
-        className="h-full w-full object-contain"
-      />
+    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-sm bg-amber font-display text-sm font-black tracking-[-0.08em] text-walnut shadow-[inset_0_0_0_1px_rgba(36,26,21,0.2)]">
+      BT
     </span>
   )
 }
