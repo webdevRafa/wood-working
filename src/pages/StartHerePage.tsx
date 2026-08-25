@@ -1,0 +1,9 @@
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Link } from 'react-router'
+import { ProjectFinder } from '../components/ProjectFinder'
+import { usePageMeta } from '../hooks/usePageMeta'
+
+export function StartHerePage() {
+  usePageMeta('Start Here | Built True Workshop', 'Find a practical woodworking starting point based on your experience, time, and goal.')
+  return <main><section className="bg-walnut py-16 text-paper sm:py-24"><div className="mx-auto max-w-4xl px-5 text-center sm:px-8"><p className="section-label text-amber">Your first honest step</p><h1 className="mt-4 font-display text-[clamp(3.2rem,8vw,6.2rem)] font-black leading-[0.9] tracking-[-0.06em]">Start with the project—not a shopping spree.</h1><p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-paper/65">Answer three questions. We’ll match you to a useful guide and show the minimum tool path before any upgrade.</p></div></section><section className="bg-sawdust py-12 sm:py-16"><div className="mx-auto max-w-4xl px-5 sm:px-8"><ProjectFinder embedded /></div></section><section className="bg-paper py-16"><div className="mx-auto max-w-4xl px-5 sm:px-8"><p className="section-label">Before the first cut</p><div className="mt-7 grid gap-4 sm:grid-cols-3">{['Pick a build with fewer than 12 parts.', 'Practice the operation on scrap first.', 'Keep 25% of the budget for blades, bits, clamps, and finish.'].map((item) => <div key={item} className="rounded-xl border border-walnut/10 bg-white p-5"><CheckCircle2 className="text-pine" /><p className="mt-4 font-bold leading-6 text-walnut">{item}</p></div>)}</div><Link to="/skills/woodworking-for-absolute-beginners/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-pine px-6 py-4 text-sm font-black text-white">Read the absolute beginner guide<ArrowRight size={17} /></Link></div></section></main>
+}
