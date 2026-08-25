@@ -28,13 +28,12 @@ export function usePublishedGuide(slug: string) {
   useEffect(() => {
     let active = true
     if (!db) return
-    const publishedQuery = query(
+    const guideQuery = query(
       collection(db, 'guides'),
-      where('status', '==', 'published'),
       where('slug', '==', slug),
       limit(1),
     )
-    void getDocs(publishedQuery)
+    void getDocs(guideQuery)
       .then((snapshot) => {
         if (active) setResult({ slug, guide: snapshot.empty ? undefined : normalizeGuide(snapshot.docs[0].data()), settled: true })
       })

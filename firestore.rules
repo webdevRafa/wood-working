@@ -10,13 +10,17 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == uid;
     }
 
+    function isPublicGuide() {
+      return resource.data.status in ['draft', 'review', 'published'];
+    }
+
     match /guides/{guideId} {
-      allow read: if resource.data.status == 'published';
+      allow read: if isPublicGuide();
       allow write: if false;
     }
 
     match /guideIndex/{guideId} {
-      allow read: if resource.data.status == 'published';
+      allow read: if isPublicGuide();
       allow write: if false;
     }
 

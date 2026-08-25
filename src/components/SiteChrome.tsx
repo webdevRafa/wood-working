@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
   Bookmark,
@@ -196,6 +196,10 @@ function Footer() {
 
 export function SiteLayout() {
   const location = useLocation()
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   useEffect(() => {
     void trackEvent('page_view', { page_path: location.pathname })

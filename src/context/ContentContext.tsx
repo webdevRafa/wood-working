@@ -6,7 +6,7 @@ import type { GuideIndexItem } from '../types/content'
 
 type ContentContextValue = {
   guideIndex: GuideIndexItem[]
-  loadingPublished: boolean
+  loadingLibrary: boolean
 }
 
 const ContentContext = createContext<ContentContextValue | undefined>(undefined)
@@ -25,17 +25,21 @@ function normalizeIndexItem(data: Record<string, unknown>): GuideIndexItem | und
 }
 
 export function ContentProvider({ children }: { children: ReactNode }) {
-  const [publishedGuides, setPublishedGuides] = useState<GuideIndexItem[]>([])
-  const [loadingPublished, setLoadingPublished] = useState(Boolean(db))
+  const [libraryGuides, setLibraryGuides] = useState<GuideIndexItem[]>([])
+  const [loadingLibrary, setLoadingLibrary] = useState(Boolean(db))
 
   useEffect(() => {
     if (!db) return
     let active = true
-    const publishedQuery = query(collection(db, 'guideIndex'), where('status', '==', 'published'), limit(500))
-    void getDocs(publishedQuery)
+    const libraryQuery = query(
+      collection(db, 'guideIndex'),
+      where('status', 'in', ['draft', 'review', 'published']),
+      limit(500),
+    )
+    void getDocs(libraryQuery)
       .then((snapshot) => {
         if (!active) return
-        setPublishedGuides(
+        setLibraryGuides(
           snapshot.docs
             .map((item) => normalizeIndexItem(item.data()))
             .filter((item): item is GuideIndexItem => item !== undefined),
@@ -45,7 +49,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         // Local editorial previews remain usable if Firebase is unavailable or rules are not deployed yet.
       })
       .finally(() => {
-        if (active) setLoadingPublished(false)
+        if (active) setLoadingLibrary(false)
       })
     return () => {
       active = false
@@ -54,11 +58,19 @@ export function ContentProvider({ children }: { children: ReactNode }) {
 
   const guideIndex = useMemo(() => {
     const merged = new Map(seedGuideIndex.map((guide) => [guide.id, guide]))
-    for (const guide of publishedGuides) merged.set(guide.id, guide)
-    return [...merged.values()]
-  }, [publishedGuides])
+    for (const guide of libraryGuides) {
+      const seed = merged.get(guide.id)
+      merged.set(guide.id, {
+        ...seed,
+        ...guide,
+        coverImage: guide.coverImage ?? seed?.coverImage,
+        coverAlt: guide.coverAlt ?? seed?.coverAlt,
+      })
+    }
+    return [...merged.values()].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }))
+  }, [libraryGuides])
 
-  return <ContentContext.Provider value={{ guideIndex, loadingPublished }}>{children}</ContentContext.Provider>
+  return <ContentContext.Provider value={{ guideIndex, loadingLibrary }}>{children}</ContentContext.Provider>
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
