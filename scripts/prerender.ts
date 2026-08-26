@@ -1,10 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
-import { guides } from '../src/data/guides'
 import type { Guide } from '../src/types/content'
 
 const outputDir = join(process.cwd(), 'dist')
 const template = await readFile(join(outputDir, 'index.html'), 'utf8')
+const guides = JSON.parse(await readFile(join(process.cwd(), 'content', 'guides.json'), 'utf8')) as Guide[]
 const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL
 const siteUrl = (process.env.VITE_SITE_URL || (productionHost ? `https://${productionHost}` : 'http://localhost:5173')).replace(/\/$/, '')
 

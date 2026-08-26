@@ -12,6 +12,7 @@
     "content:import:dry": "node scripts/import-guides.mjs --dry-run --file content/guides.json",
     "content:import": "node scripts/import-guides.mjs --commit --file content/guides.json",
     "content:verify": "node scripts/verify-firestore.mjs --expected=500",
+    "content:verify:public": "node scripts/verify-public-library.mjs --expected=500",
     "lint": "eslint .",
     "preview": "vite preview"
   },
