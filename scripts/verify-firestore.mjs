@@ -5,19 +5,23 @@ import { getFirestore } from 'firebase-admin/firestore'
 
 const expectedArg = process.argv.find((argument) => argument.startsWith('--expected='))
 const expected = expectedArg ? Number(expectedArg.split('=')[1]) : undefined
+const expectedIndexableArg = process.argv.find((argument) => argument.startsWith('--expected-indexable='))
+const expectedIndexable = expectedIndexableArg ? Number(expectedIndexableArg.split('=')[1]) : undefined
 const keyPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH
 if (!keyPath) throw new Error('Set FIREBASE_SERVICE_ACCOUNT_PATH before verifying Firestore.')
 const serviceAccount = JSON.parse(await readFile(resolve(keyPath), 'utf8'))
 if (serviceAccount.project_id !== 'wood-working-c2184') throw new Error('Service-account project mismatch.')
 const app = getApps()[0] ?? initializeApp({ credential: cert(serviceAccount), projectId: serviceAccount.project_id })
 const db = getFirestore(app)
-const [all, drafts, published, indexable, allIndex, draftIndex, publishedIndex, indexableIndex, indexDocuments, fullDocuments] = await Promise.all([
+const [all, drafts, reviews, published, indexable, allIndex, draftIndex, reviewIndex, publishedIndex, indexableIndex, indexDocuments, fullDocuments] = await Promise.all([
   db.collection('guides').count().get(),
   db.collection('guides').where('status', '==', 'draft').count().get(),
+  db.collection('guides').where('status', '==', 'review').count().get(),
   db.collection('guides').where('status', '==', 'published').count().get(),
   db.collection('guides').where('indexStatus', '==', 'index').count().get(),
   db.collection('guideIndex').count().get(),
   db.collection('guideIndex').where('status', '==', 'draft').count().get(),
+  db.collection('guideIndex').where('status', '==', 'review').count().get(),
   db.collection('guideIndex').where('status', '==', 'published').count().get(),
   db.collection('guideIndex').where('indexStatus', '==', 'index').count().get(),
   db.collection('guideIndex').select('coverImage', 'coverAlt').get(),
@@ -30,10 +34,11 @@ const missingCovers = indexDocuments.docs
   })
   .map((document) => document.id)
 const stats = {
-  guides: { total: all.data().count, drafts: drafts.data().count, published: published.data().count, indexable: indexable.data().count, obsoleteEditorialFields: fullDocuments.docs.filter((document) => document.data().editorial !== undefined).length },
+  guides: { total: all.data().count, drafts: drafts.data().count, reviews: reviews.data().count, published: published.data().count, indexable: indexable.data().count, obsoleteEditorialFields: fullDocuments.docs.filter((document) => document.data().editorial !== undefined).length },
   guideIndex: {
     total: allIndex.data().count,
     drafts: draftIndex.data().count,
+    reviews: reviewIndex.data().count,
     published: publishedIndex.data().count,
     indexable: indexableIndex.data().count,
     withCovers: indexDocuments.size - missingCovers.length,
@@ -43,9 +48,9 @@ const stats = {
 console.log(JSON.stringify(stats, null, 2))
 if (expected !== undefined && stats.guides.total < expected) throw new Error(`Expected at least ${expected} Firestore guides; found ${stats.guides.total}.`)
 if (expected !== undefined && stats.guideIndex.total < expected) throw new Error(`Expected at least ${expected} Firestore discovery records; found ${stats.guideIndex.total}.`)
-if (expected !== undefined && stats.guides.indexable < expected) throw new Error(`Expected at least ${expected} indexable Firestore guides; found ${stats.guides.indexable}.`)
-if (expected !== undefined && stats.guideIndex.indexable < expected) throw new Error(`Expected at least ${expected} indexable Firestore discovery records; found ${stats.guideIndex.indexable}.`)
+if (expectedIndexable !== undefined && stats.guides.indexable !== expectedIndexable) throw new Error(`Expected ${expectedIndexable} indexable Firestore guides; found ${stats.guides.indexable}.`)
+if (expectedIndexable !== undefined && stats.guideIndex.indexable !== expectedIndexable) throw new Error(`Expected ${expectedIndexable} indexable Firestore discovery records; found ${stats.guideIndex.indexable}.`)
 if (stats.guides.obsoleteEditorialFields > 0) throw new Error(`Found ${stats.guides.obsoleteEditorialFields} obsolete editorial instruction fields in Firestore.`)
 if (expected !== undefined && stats.guideIndex.withCovers < expected) throw new Error(`Expected at least ${expected} discovery records with cover images and alt text; found ${stats.guideIndex.withCovers}. Missing: ${missingCovers.slice(0, 20).join(', ')}`)
-if (stats.guides.drafts !== stats.guideIndex.drafts || stats.guides.published !== stats.guideIndex.published) throw new Error('Guide and discovery publication counts do not match.')
+if (stats.guides.drafts !== stats.guideIndex.drafts || stats.guides.reviews !== stats.guideIndex.reviews || stats.guides.published !== stats.guideIndex.published) throw new Error('Guide and discovery publication counts do not match.')
 console.log(`Firestore verification passed for ${serviceAccount.project_id}.`)

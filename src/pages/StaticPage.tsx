@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 type StaticPageKey =
+  | 'about'
   | 'testing'
   | 'editorial'
   | 'disclosure'
@@ -11,6 +12,16 @@ type StaticPageKey =
   | 'accessibility'
 
 const pages: Record<StaticPageKey, { eyebrow: string; title: string; description: string; sections: Array<{ heading: string; body: string[] }> }> = {
+  about: {
+    eyebrow: 'About Built True',
+    title: 'Useful guidance without borrowed authority',
+    description: 'Built True Workshop is an independent woodworking publication organized around safer projects, clearer decisions, and transparent evidence.',
+    sections: [
+      { heading: 'What we publish', body: ['The library covers beginner skills, project planning, materials, shop setup, troubleshooting, and tool decisions. A source-backed guide has passed the current editorial gate; a working draft remains visible for transparency but is excluded from search until its claims and reader outcome are reviewed.', 'We do not turn an automated draft into “expert advice” by changing its label. Exact product specifications, finish schedules, hardware geometry, and safety procedures must be checked against the current primary source.'] },
+      { heading: 'Who is behind the guidance', body: ['Built True Workshop publishes under an editorial organization rather than inventing a craftsperson biography. The current process combines authoritative technical references, topic-specific editing, calculation checks, title-promise checks, and explicit limits. Hands-on language appears only when a real test record exists.'] },
+      { heading: 'What independence means', body: ['The site can earn money from clearly disclosed affiliate links in the future. A commercial relationship never supplies the evidence for a recommendation, and an affiliate link must be qualified and placed after the reader has enough information to make the decision without clicking.'] },
+    ],
+  },
   testing: {
     eyebrow: 'Trust is the product',
     title: 'How we test, research, and make recommendations',
@@ -25,7 +36,7 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
   editorial: {
     eyebrow: 'Editorial policy', title: 'Useful enough to finish the job', description: 'Every indexable guide must help a real reader complete a task without returning to search for missing basics.',
     sections: [
-      { heading: 'Original value is required', body: ['A page must add a verified build, measurement, calculation, diagram, test, failure analysis, decision framework, or qualified experience. Rephrasing existing search results is not enough.'] },
+      { heading: 'Original value is required', body: ['A page must add a verified build, measurement, calculation, diagram, test, failure analysis, decision framework, or qualified experience. Rephrasing existing search results is not enough. Working drafts are kept out of the search index until they meet that standard.'] },
       { heading: 'The title is a contract', body: ['A numbered title contains the promised number of useful items. A budget guide contains a real line-item budget. A project includes starting dimensions, materials, a cut list, an assembly order, and mistakes to avoid. A comparison explains the tradeoffs instead of manufacturing a universal winner.'] },
       { heading: 'Specific beats padded', body: ['Guides prioritize measurements, compatibility, grain, cutter or abrasive choices, setup references, cost, and visible success checks. Repeated filler and interchangeable conclusions are removed even when that produces a shorter page.'] },
       { heading: 'Corrections stay visible', body: ['We correct consequential errors promptly and maintain a change note on material revisions. Readers can report unclear steps, wrong dimensions, broken links, or unsafe guidance from every guide.'] },
@@ -47,11 +58,11 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     ],
   },
   privacy: {
-    eyebrow: 'Privacy', title: 'Collect less. Explain the rest.', description: 'How Built True Workshop handles account, saved-guide, newsletter, and usage information.',
+    eyebrow: 'Privacy', title: 'Collect less. Explain the rest.', description: 'How Built True Workshop handles account, saved-guide, consent, and usage information.',
     sections: [
-      { heading: 'Data you choose to provide', body: ['An account may store your display name, email address, saved guides, progress, and private notes. Newsletter signup stores the email and consent preferences needed to deliver it.'] },
-      { heading: 'Usage information', body: ['The site may measure page views, completion events, search terms, outbound affiliate clicks, and errors. Analytics should avoid unnecessary personal data and follow the consent requirements that apply to the visitor.'] },
-      { heading: 'Controls', body: ['Users should be able to export or delete their saved content and unsubscribe from marketing email. Retention periods, subprocessors, contact details, and jurisdiction-specific rights must be finalized before launch.'] },
+      { heading: 'Data you choose to provide', body: ['Google sign-in can provide an account identifier, display name, profile image, and email address to Firebase Authentication. When you save a guide, the site stores the guide identifier, slug, title, and save time under your account. The current site does not collect newsletter addresses.'] },
+      { heading: 'Usage information', body: ['With the applicable consent, the site may measure page views and navigation events needed to understand whether the library works. Authentication and hosting providers also process technical information needed to secure and deliver the service.'] },
+      { heading: 'Controls', body: ['You can remove saved guides and sign out from the account menu. Browser consent preferences are stored on the device. Do not place project notes, credentials, health information, or other sensitive data into account fields.'] },
     ],
   },
   terms: {
@@ -74,5 +85,5 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
 export function StaticPage({ pageKey }: { pageKey: StaticPageKey }) {
   const page = pages[pageKey]
   usePageMeta(`${page.title} | Built True Workshop`, page.description)
-  return <main><header className="bg-sawdust py-16 sm:py-24"><div className="mx-auto max-w-4xl px-5 sm:px-8"><p className="section-label">{page.eyebrow}</p><h1 className="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.05em] text-walnut">{page.title}</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-steel">{page.description}</p></div></header><div className="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">{page.sections.map((section) => <section key={section.heading} className="border-t border-walnut/10 py-9 first:border-0 first:pt-0"><h2 className="font-display text-3xl font-black tracking-tight text-walnut">{section.heading}</h2>{section.body.map((paragraph) => <p key={paragraph} className="mt-5 max-w-3xl text-[17px] leading-8 text-charcoal/85">{paragraph}</p>)}</section>)}<div className="mt-8 rounded-2xl bg-walnut p-7 text-paper"><p className="font-display text-2xl font-black">Something unclear or wrong?</p><p className="mt-2 text-sm leading-6 text-paper/65">We would rather correct the record than defend a weak sentence.</p><Link to="/corrections/" className="mt-5 inline-flex rounded-full bg-amber px-5 py-3 text-sm font-black text-walnut">Open the corrections guide</Link></div></div></main>
+  return <main><header className="bg-sawdust py-16 sm:py-24"><div className="mx-auto max-w-4xl px-5 sm:px-8"><p className="section-label">{page.eyebrow}</p><h1 className="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.05em] text-walnut">{page.title}</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-steel">{page.description}</p></div></header><div className="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">{page.sections.map((section) => <section key={section.heading} className="border-t border-walnut/10 py-9 first:border-0 first:pt-0"><h2 className="font-display text-3xl font-black tracking-tight text-walnut">{section.heading}</h2>{section.body.map((paragraph) => <p key={paragraph} className="mt-5 max-w-3xl text-[17px] leading-8 text-charcoal/85">{paragraph}</p>)}</section>)}<div className="mt-8 rounded-2xl bg-walnut p-7 text-paper"><p className="font-display text-2xl font-black">Something unclear or wrong?</p><p className="mt-2 text-sm leading-6 text-paper/65">We would rather correct the record than defend a weak sentence.</p>{pageKey === 'corrections' ? <a href="https://github.com/webdevRafa/wood-working/issues/new" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex rounded-full bg-amber px-5 py-3 text-sm font-black text-walnut">Open a public correction issue</a> : <Link to="/corrections/" className="mt-5 inline-flex rounded-full bg-amber px-5 py-3 text-sm font-black text-walnut">Open the corrections guide</Link>}</div></div></main>
 }

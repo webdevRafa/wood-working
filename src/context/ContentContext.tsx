@@ -33,7 +33,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     let active = true
     const libraryQuery = query(
       collection(db, 'guideIndex'),
-      where('status', 'in', ['draft', 'review', 'published']),
+      where('status', 'in', ['review', 'published']),
       limit(500),
     )
     void getDocs(libraryQuery)

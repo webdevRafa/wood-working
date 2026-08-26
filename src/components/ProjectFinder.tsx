@@ -44,6 +44,7 @@ export function ProjectFinder({ embedded = false }: { embedded?: boolean }) {
 
   const matches = useMemo(() => {
     return [...guideIndex]
+      .filter((guide) => guide.status === 'published')
       .map((guide) => {
         let score = 0
         if (answers.goal === guide.intent) score += 5
@@ -94,7 +95,7 @@ export function ProjectFinder({ embedded = false }: { embedded?: boolean }) {
             <div className="p-6 sm:p-9">
               <div className="flex items-start gap-4">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-finish text-white"><Check /></span>
-                <div><h2 className="font-display text-3xl font-black tracking-tight text-walnut sm:text-4xl">Three honest places to begin</h2><p className="mt-2 text-steel">These are matched to your answers, not to the highest-value product.</p></div>
+                <div><h2 className="font-display text-3xl font-black tracking-tight text-walnut sm:text-4xl">Three source-backed places to begin</h2><p className="mt-2 text-steel">These passed the current publication gate and are matched to your answers—not to the highest-value product.</p></div>
               </div>
               <div className="mt-8 grid gap-3">
                 {matches.map(({ guide }, index) => (

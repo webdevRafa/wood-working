@@ -11,7 +11,7 @@ service cloud.firestore {
     }
 
     function isPublicGuide() {
-      return resource.data.status in ['draft', 'review', 'published'];
+      return resource.data.status in ['review', 'published'];
     }
 
     match /guides/{guideId} {

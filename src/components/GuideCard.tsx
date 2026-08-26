@@ -6,6 +6,7 @@ const tones = ['bg-[#d7c29f]', 'bg-[#a9b7a7]', 'bg-[#c9a778]', 'bg-[#d8c8b8]', '
 
 export function GuideCard({ guide, compact = false }: { guide: GuideIndexItem; compact?: boolean }) {
   const totalHours = guide.totalMinutes ? Math.max(1, Math.round(guide.totalMinutes / 60)) : undefined
+  const sourceBacked = guide.status === 'published' && guide.evidenceStatus === 'research-reviewed'
   return (
     <article className={`group overflow-hidden rounded-[1.4rem] border border-walnut/10 bg-white transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(36,26,21,0.1)] ${compact ? '' : 'h-full'}`}>
       <Link to={guide.canonicalPath} className="block h-full">
@@ -23,7 +24,7 @@ export function GuideCard({ guide, compact = false }: { guide: GuideIndexItem; c
           <h3 className={`mt-3 font-display font-black leading-tight text-walnut ${compact ? 'text-xl' : 'text-2xl'}`}>{guide.title}</h3>
           {!compact ? <p className="mt-3 line-clamp-3 leading-7 text-steel">{guide.dek}</p> : null}
           <div className="mt-6 flex items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-pine"><ShieldCheck size={14} /> Practical guide</span>
+            <span className={`inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.12em] ${sourceBacked ? 'text-pine' : 'text-steel'}`}><ShieldCheck size={14} /> {sourceBacked ? 'Source-backed guide' : 'Working draft'}</span>
             <ArrowRight size={17} className="text-pine transition group-hover:translate-x-1" />
           </div>
         </div>

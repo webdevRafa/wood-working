@@ -78,7 +78,7 @@ export function validateGuides(guides, options = {}) {
 
     const guideWords = countWords(guide)
     words += guideWords
-    if (guideWords < 450) warnings.push(`${label}: ${guideWords} words is below the 450-word draft target.`)
+    if (guide.status === 'published' && guideWords < 250) errors.push(`${label}: published guidance is too thin to deliver a complete reader outcome.`)
 
     if (guide.status === 'published') {
       if (guide.indexStatus !== 'index') warnings.push(`${label}: published but noindex.`)

@@ -45,11 +45,12 @@ function SearchDialog({ onClose }: { onClose: () => void }) {
 
   const results = useMemo(() => {
     const normalized = query.trim().toLowerCase()
-    if (!normalized) return guideIndex.slice(0, 5)
+    if (!normalized) return guideIndex.filter((guide) => guide.status === 'published').slice(0, 5)
     return guideIndex
       .filter((guide) =>
         [guide.title, guide.dek, ...guide.tags].join(' ').toLowerCase().includes(normalized),
       )
+      .sort((a, b) => Number(b.status === 'published') - Number(a.status === 'published') || Number(a.id) - Number(b.id))
       .slice(0, 8)
   }, [guideIndex, query])
 
@@ -83,7 +84,7 @@ function SearchDialog({ onClose }: { onClose: () => void }) {
                 className="group flex items-center justify-between gap-5 rounded-xl border border-transparent p-4 text-left hover:border-walnut/10 hover:bg-white"
               >
                 <span>
-                  <span className="block text-[10px] font-black uppercase tracking-[0.16em] text-amber">{guide.type} · {guide.intent}</span>
+                  <span className="block text-[10px] font-black uppercase tracking-[0.16em] text-amber">{guide.type} · {guide.intent} · {guide.status === 'published' ? 'source-backed' : 'working draft'}</span>
                   <span className="mt-1 block font-display text-lg font-black leading-tight text-walnut">{guide.title}</span>
                 </span>
                 <ArrowRight size={18} className="shrink-0 text-pine transition group-hover:translate-x-1" />
@@ -181,7 +182,7 @@ function Footer() {
         <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
           <div className="grid content-start gap-3"><strong className="text-amber">Build</strong><Link to="/projects/">Projects</Link><Link to="/skills/">Skills</Link><Link to="/shop/">Shop setup</Link></div>
           <div className="grid content-start gap-3"><strong className="text-amber">Choose</strong><Link to="/tools/">Tools</Link><Link to="/materials/">Materials</Link><Link to="/plans/">Plans</Link></div>
-          <div className="grid content-start gap-3"><strong className="text-amber">Trust</strong><Link to="/about/testing-method/">Testing method</Link><Link to="/affiliate-disclosure/">Disclosure</Link><Link to="/corrections/">Corrections</Link></div>
+          <div className="grid content-start gap-3"><strong className="text-amber">Trust</strong><Link to="/about/">About</Link><Link to="/about/testing-method/">Testing method</Link><Link to="/about/editorial-policy/">Editorial policy</Link><Link to="/affiliate-disclosure/">Disclosure</Link><Link to="/corrections/">Corrections</Link></div>
         </div>
       </div>
       <div className="border-t border-white/10">

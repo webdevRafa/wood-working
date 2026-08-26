@@ -204,4 +204,4 @@ for (const guide of entries) {
 const upgradedEntries = upgradeGuideCorpus(entries)
 await mkdir(dirname(outputPath), { recursive: true })
 await writeFile(outputPath, `${JSON.stringify(upgradedEntries, null, 2)}\n`, 'utf8')
-console.log(`Generated ${upgradedEntries.length} reader-facing, indexable guides at ${outputPath}.`)
+console.log(`Generated ${upgradedEntries.length} accessible working drafts at ${outputPath}. They remain noindex until individually reviewed.`)

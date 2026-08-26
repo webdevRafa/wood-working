@@ -4,6 +4,8 @@ import { collection, getDocs, getFirestore, limit, query, terminate, where } fro
 
 const expectedArg = process.argv.find((argument) => argument.startsWith('--expected='))
 const expected = expectedArg ? Number(expectedArg.split('=')[1]) : undefined
+const expectedIndexableArg = process.argv.find((argument) => argument.startsWith('--expected-indexable='))
+const expectedIndexable = expectedIndexableArg ? Number(expectedIndexableArg.split('=')[1]) : undefined
 
 function parseEnvironment(source) {
   return Object.fromEntries(
@@ -44,7 +46,7 @@ const app = initializeApp({
   appId: environment.VITE_FIREBASE_APP_ID,
 })
 const db = getFirestore(app)
-const publicStatuses = ['draft', 'review', 'published']
+const publicStatuses = ['review', 'published']
 
 try {
   const [indexSnapshot, guideSnapshot] = await Promise.all([
@@ -65,8 +67,10 @@ try {
     if (guide.slug !== indexGuide.slug) routeProblems.push(`${indexDocument.id}: discovery and guide slugs differ`)
     if (guide.canonicalPath !== indexGuide.canonicalPath) routeProblems.push(`${indexDocument.id}: canonical paths differ`)
     if (!guide.coverImage || !guide.coverAlt) routeProblems.push(`${indexDocument.id}: cover metadata is missing`)
-    if (guide.indexStatus !== 'index' || indexGuide.indexStatus !== 'index') routeProblems.push(`${indexDocument.id}: guide and discovery records must both be indexable`)
-    else indexableGuides += 1
+    if (guide.indexStatus !== indexGuide.indexStatus) routeProblems.push(`${indexDocument.id}: guide and discovery indexing states differ`)
+    if (guide.status === 'published' && guide.indexStatus !== 'index') routeProblems.push(`${indexDocument.id}: published guide must be indexable`)
+    if (guide.status !== 'published' && guide.indexStatus !== 'noindex') routeProblems.push(`${indexDocument.id}: unreviewed guide must remain noindex`)
+    if (guide.indexStatus === 'index') indexableGuides += 1
   }
 
   const sampleIndexes = [...new Set([0, Math.floor(indexSnapshot.size / 2), indexSnapshot.size - 1])]
@@ -92,7 +96,7 @@ try {
   console.log(JSON.stringify(stats, null, 2))
   if (expected !== undefined && indexSnapshot.size !== expected) throw new Error(`Expected ${expected} public discovery records; found ${indexSnapshot.size}.`)
   if (expected !== undefined && guideSnapshot.size !== expected) throw new Error(`Expected ${expected} public guides; found ${guideSnapshot.size}.`)
-  if (expected !== undefined && indexableGuides !== expected) throw new Error(`Expected ${expected} indexable public guides; found ${indexableGuides}.`)
+  if (expectedIndexable !== undefined && indexableGuides !== expectedIndexable) throw new Error(`Expected ${expectedIndexable} indexable public guides; found ${indexableGuides}.`)
   if (routeProblems.length) throw new Error(`Public library verification failed: ${routeProblems.slice(0, 20).join('; ')}`)
   console.log('Public Firebase guide verification passed.')
 } finally {

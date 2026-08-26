@@ -22,9 +22,11 @@ The production build prerenders public routes, adds page metadata and structured
 
 ## Content workflow
 
-The long-term source is `content/guides.json`. All bulk-created records default to `draft` and `noindex` until they pass the editorial quality gate in `PROJECT_BLUEPRINT.md`.
+The long-term source is `content/guides.json`. The reviewed launch set is published and indexable; the remaining roadmap stays openable as transparently labeled `review` content while remaining `noindex` until it passes the editorial quality gate in `PROJECT_BLUEPRINT.md`.
 
 ```bash
+npm run content:curate-launch
+npm run content:audit
 npm run content:validate
 npm run content:import:dry
 ```
@@ -35,11 +37,11 @@ The write command requires `FIREBASE_SERVICE_ACCOUNT_PATH` to point to a credent
 npm run content:import
 ```
 
-The import is idempotent by stable guide ID, uses merge semantics, records an import receipt, and never deletes Firestore documents. It writes full documents to `guides` and lightweight discovery records to `guideIndex`; the React app automatically merges published Firestore content into its search, hubs, finder, saved page, and dynamic guide routes.
+The import is idempotent by stable guide ID, uses merge semantics, records an import receipt, and never deletes Firestore documents. It writes full documents to `guides` and lightweight discovery records to `guideIndex`; the React app merges public review and published records into search, hubs, the finder, saved pages, and guide routes while honoring each record's index state.
 
 ## Firebase security
 
-Firestore and Storage rules are defined in `firestore.rules` and `storage.rules`. Deploy them with an identity that has Firebase Rules and Service Usage permissions. Client reads of guides and discovery records are limited to `status = published`; personal saved guides are limited to the signed-in owner.
+Firestore and Storage rules are defined in `firestore.rules` and `storage.rules`. Deploy them with an identity that has Firebase Rules and Service Usage permissions. Client reads of guides and discovery records are limited to `status = review` or `published`; personal saved guides are limited to the signed-in owner.
 
 The Firebase Admin service-account file must never be copied into this repository, bundled into the browser, or added to Vercel as a `VITE_` variable.
 
@@ -48,3 +50,5 @@ The Firebase Admin service-account file must never be copied into this repositor
 See `PROJECT_BLUEPRINT.md` for the brand system, page wireframes, SEO architecture, editorial quality gate, Firestore model, launch phases, and 500-page content backlog.
 
 See `RELEASE_CHECKLIST.md` for the remaining Firebase Console and Vercel launch steps, plus the guide publication workflow.
+
+See `EDITORIAL_AUDIT_2026-08-25.md` for the woodworking, evidence, marketing, and SEO audit that established the current publication boundary.

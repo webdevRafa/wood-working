@@ -35,10 +35,14 @@ for (const guide of guides) {
   const text = publicGuideText(guide)
   const bodyLower = text.toLowerCase()
   const words = countGuideWords(guide)
+  const isPublished = guide.status === 'published'
 
-  if (guide.status === 'draft') errors.push(`${label}: remains in draft status.`)
-  if (guide.indexStatus !== 'index') errors.push(`${label}: is not indexable.`)
-  if (words < 750) errors.push(`${label}: has ${words} words; expected at least 750 substantive words.`)
+  if (isPublished && guide.indexStatus !== 'index') errors.push(`${label}: published guidance must be indexable.`)
+  if (!isPublished && guide.indexStatus !== 'noindex') errors.push(`${label}: unreviewed guidance must remain noindex.`)
+  if (isPublished && guide.evidenceStatus === 'brief') errors.push(`${label}: published guidance cannot remain an evidence brief.`)
+  if (isPublished && (!Array.isArray(guide.sources) || guide.sources.length < 2)) errors.push(`${label}: published guidance needs at least two traceable sources.`)
+  if (isPublished && (!Array.isArray(guide.reviewerIds) || guide.reviewerIds.length === 0)) errors.push(`${label}: published guidance needs an editorial reviewer.`)
+  if (isPublished && words < 250) errors.push(`${label}: has ${words} words and does not yet deliver a complete reader outcome.`)
   if (!Array.isArray(guide.relatedGuideIds) || guide.relatedGuideIds.length !== 3 || guide.relatedGuideIds.includes(guide.id)) errors.push(`${label}: needs three non-self related guides.`)
   if (new Set(guide.relatedGuideIds ?? []).size !== (guide.relatedGuideIds ?? []).length) errors.push(`${label}: contains duplicate related guides.`)
 
@@ -46,11 +50,13 @@ for (const guide of guides) {
     if (pattern.test(text)) errors.push(`${label}: contains ${description}.`)
   }
 
-  const titleTokens = normalizedTokens(guide.title)
-  const coveredTokens = [...titleTokens].filter((token) => bodyLower.includes(token))
-  if (coveredTokens.length < Math.min(3, titleTokens.size)) errors.push(`${label}: body does not make the title topic sufficiently explicit.`)
+  if (isPublished) {
+    const titleTokens = normalizedTokens(guide.title)
+    const coveredTokens = [...titleTokens].filter((token) => bodyLower.includes(token))
+    if (coveredTokens.length < Math.min(3, titleTokens.size)) errors.push(`${label}: body does not make the title topic sufficiently explicit.`)
+  }
 
-  if (guide.intent === 'build') {
+  if (isPublished && guide.intent === 'build') {
     if (!guide.dimensions?.imperial || !guide.dimensions?.metric) errors.push(`${label}: project has no concrete starting dimensions.`)
     if (!Array.isArray(guide.cutList) || guide.cutList.length < 3) errors.push(`${label}: project needs a usable cut list.`)
     if (!Array.isArray(guide.materials) || guide.materials.length < 4) errors.push(`${label}: project needs a concrete materials list.`)
@@ -58,29 +64,31 @@ for (const guide of guides) {
     if (/only (?:three|3) tools/i.test(guide.title) && guide.tools.length !== 3) errors.push(`${label}: title promises only three tools but the tool list contains ${guide.tools.length}.`)
   }
 
-  if (guide.intent === 'buy') {
+  if (isPublished && guide.intent === 'buy') {
     if (!guide.sections.some((section) => section.id === 'full-cost')) errors.push(`${label}: buying guide does not calculate complete ownership cost.`)
     if (!guide.sections.some((section) => section.id === 'fit-and-skip')) errors.push(`${label}: buying guide does not identify who should buy or skip.`)
   }
 
-  if (/\bvs\.?\b|versus/i.test(guide.title) && !guide.sections.some((section) => section.id === 'option-by-option')) errors.push(`${label}: comparison title lacks an option-by-option section.`)
-  if (/^How to\b/i.test(guide.title) && !guide.sections.some((section) => (section.bullets ?? []).length >= 6)) errors.push(`${label}: how-to title lacks an actionable step sequence.`)
-  if (/\$\d+/.test(guide.title)) {
+  if (isPublished && /\bvs\.?\b|versus/i.test(guide.title) && !guide.sections.some((section) => section.id === 'option-by-option')) errors.push(`${label}: comparison title lacks an option-by-option section.`)
+  if (isPublished && /^How to\b/i.test(guide.title) && !guide.sections.some((section) => (section.bullets ?? []).length >= 6)) errors.push(`${label}: how-to title lacks an actionable step sequence.`)
+  if (isPublished && /\$\d+/.test(guide.title)) {
     const amount = guide.title.match(/\$\d+/)?.[0]
     const budget = guide.sections.find((section) => section.id === 'working-budget')
     if (!budget || !budget.bullets?.some((bullet) => bullet.includes(`Total — ${amount}`))) errors.push(`${label}: budget title lacks a line-item total of ${amount}.`)
   }
 
-  const literalCount = requiredLiteralCounts.get(guide.id)
+  const literalCount = isPublished ? requiredLiteralCounts.get(guide.id) : undefined
   if (literalCount) {
     const literalSection = guide.sections.find((section) => ['ranked-list', 'literal-plan', 'literal-list'].includes(section.id))
     if (literalSection?.bullets?.length !== literalCount) errors.push(`${label}: title promises ${literalCount} items but the literal section contains ${literalSection?.bullets?.length ?? 0}.`)
   }
 
-  if (dekOwners.has(guide.dek)) errors.push(`${label}: duplicates the description used by ${dekOwners.get(guide.dek)}.`)
-  dekOwners.set(guide.dek, guide.id)
+  if (isPublished) {
+    if (dekOwners.has(guide.dek)) errors.push(`${label}: duplicates the description used by ${dekOwners.get(guide.dek)}.`)
+    dekOwners.set(guide.dek, guide.id)
+  }
 
-  for (const paragraph of guide.sections.flatMap((section) => section.paragraphs)) {
+  for (const paragraph of isPublished ? guide.sections.flatMap((section) => section.paragraphs) : []) {
     const normalized = paragraph.toLowerCase().replace(/\s+/g, ' ').trim()
     const owners = paragraphOwners.get(normalized) ?? []
     owners.push(guide.id)
@@ -92,11 +100,12 @@ for (const [paragraph, owners] of paragraphOwners) {
   if (owners.length > 1 && paragraph.split(/\s+/).length >= 20) errors.push(`Repeated article paragraph appears in guides ${owners.join(', ')}: ${paragraph.slice(0, 100)}…`)
 }
 
-for (let index = 0; index < guides.length; index += 1) {
-  const a = guides[index]
+const publishedGuides = guides.filter((guide) => guide.status === 'published')
+for (let index = 0; index < publishedGuides.length; index += 1) {
+  const a = publishedGuides[index]
   const aTokens = normalizedTokens(a.title)
-  for (let otherIndex = index + 1; otherIndex < guides.length; otherIndex += 1) {
-    const b = guides[otherIndex]
+  for (let otherIndex = index + 1; otherIndex < publishedGuides.length; otherIndex += 1) {
+    const b = publishedGuides[otherIndex]
     const bTokens = normalizedTokens(b.title)
     const intersection = [...aTokens].filter((token) => bTokens.has(token)).length
     const union = new Set([...aTokens, ...bTokens]).size
@@ -110,9 +119,11 @@ console.log(JSON.stringify({
   words: wordCounts.reduce((sum, value) => sum + value, 0),
   minimumGuideWords: Math.min(...wordCounts),
   averageGuideWords: Math.round(wordCounts.reduce((sum, value) => sum + value, 0) / wordCounts.length),
-  readerFacingGuides: guides.filter((guide) => guide.status !== 'draft').length,
-  projectsWithPlans: guides.filter((guide) => guide.intent === 'build' && guide.cutList?.length && guide.dimensions).length,
-  buyingGuidesWithDecisionCriteria: guides.filter((guide) => guide.intent === 'buy' && guide.sections.some((section) => section.id === 'full-cost') && guide.sections.some((section) => section.id === 'fit-and-skip')).length,
+  publishedGuides: publishedGuides.length,
+  accessibleWorkingDrafts: guides.filter((guide) => guide.status === 'review').length,
+  indexableGuides: guides.filter((guide) => guide.indexStatus === 'index').length,
+  projectsWithPlans: publishedGuides.filter((guide) => guide.intent === 'build' && guide.cutList?.length && guide.dimensions).length,
+  buyingGuidesWithDecisionCriteria: publishedGuides.filter((guide) => guide.intent === 'buy' && guide.sections.some((section) => section.id === 'full-cost') && guide.sections.some((section) => section.id === 'fit-and-skip')).length,
   repeatedPublicParagraphs: [...paragraphOwners.values()].filter((owners) => owners.length > 1).length,
   potentialIntentOverlaps: warnings.length,
 }, null, 2))

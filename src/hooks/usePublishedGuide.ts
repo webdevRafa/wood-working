@@ -31,7 +31,7 @@ export function usePublishedGuide(slug: string) {
     const guideQuery = query(
       collection(db, 'guides'),
       where('slug', '==', slug),
-      where('status', 'in', ['draft', 'review', 'published']),
+      where('status', 'in', ['review', 'published']),
       limit(1),
     )
     void getDocs(guideQuery)

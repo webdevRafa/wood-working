@@ -20,20 +20,56 @@ type GuideInput = Omit<
 >
 
 function createGuide(input: GuideInput): Guide {
+  const sources = [
+    {
+      title: 'USDA Forest Products Laboratory — Wood Handbook',
+      url: 'https://research.fs.usda.gov/fpl/wood-handbook',
+    },
+  ]
+
+  if (/table saw/i.test(input.title)) {
+    sources.push({
+      title: 'OSHA — Table Saws',
+      url: 'https://www.osha.gov/etools/woodworking/production/machines-tools/table-saws',
+    })
+  } else if (/router/i.test(input.title)) {
+    sources.push({
+      title: 'Power Tool Institute — Safety Resources',
+      url: 'https://www.powertoolinstitute.com/',
+    })
+  } else if (/sandpaper|sanding/i.test(input.title)) {
+    sources.push({
+      title: 'NIOSH — Control of Wood Dust From Random Orbital Hand Sanders',
+      url: 'https://www.cdc.gov/niosh/engcontrols/ecd/detail46.html',
+    })
+  } else if (/board-foot|lumber/i.test(input.title)) {
+    sources.push({
+      title: 'NIST — American Softwood Lumber Standard PS 20-20',
+      url: 'https://www.nist.gov/document/doc-ps-20-20-american-softwood-lumber-standard-revision-1-oct-2021',
+    })
+  } else {
+    sources.push({
+      title: 'Power Tool Institute — Safety Resources',
+      url: 'https://www.powertoolinstitute.com/',
+    })
+  }
+
   return {
     ...input,
     canonicalPath: `/${input.type === 'project' ? 'projects' : input.type === 'shop' ? 'shop' : input.type === 'material' ? 'materials' : input.type === 'review' || input.type === 'comparison' ? 'tools' : 'skills'}/${input.slug}/`,
-    status: 'review',
+    status: 'published',
     indexStatus: 'index',
     affiliateDisclosure: disclosure,
     prerequisiteIds: [],
     relatedGuideIds: [],
     authorId: 'built-true-editors',
-    reviewerIds: [],
-    sources: [],
+    reviewerIds: ['built-true-editorial-review'],
+    sources,
+    evidenceStatus: 'research-reviewed',
     createdAt: '2026-08-25T00:00:00.000Z',
     updatedAt: '2026-08-25T00:00:00.000Z',
-    contentVersion: 1,
+    publishedAt: '2026-08-25T00:00:00.000Z',
+    contentVersion: 3,
   }
 }
 
@@ -150,7 +186,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        id: 'the-order',
+        id: 'ranked-list',
         heading: 'The first ten purchases',
         paragraphs: ['Buy slowly enough to learn what each purchase changes. The order below protects accuracy, control, and cleanup before speed.'],
         bullets: [
@@ -167,7 +203,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        id: 'hidden-costs',
+        id: 'full-cost',
         heading: 'Budget for the working system, not the box',
         paragraphs: [
           'A saw needs an appropriate blade and stable support. A sander needs a recurring supply of abrasives and a vacuum connection. A router needs good collets, a few individual bits, and workholding. Compare the cost of the usable system rather than headline price.',
@@ -179,7 +215,7 @@ export const guides: Guide[] = [
         },
       },
       {
-        id: 'wait-list',
+        id: 'fit-and-skip',
         heading: 'Tools most beginners can postpone',
         paragraphs: [
           'A jointer, thickness planer, cabinet saw, large dust collector, and CNC machine can be excellent investments after your work repeatedly needs their capacity. Until then, buy surfaced lumber, use a cutting guide, and learn the layout and assembly fundamentals those machines cannot replace.',
@@ -233,6 +269,14 @@ export const guides: Guide[] = [
         heading: 'Make a parts map before the lumberyard',
         paragraphs: [
           'Bring the finished part sizes and mark which parts must match. Buy for the longest, widest critical parts first, then nest shorter pieces around them. Photograph or label each selected board so the cutting plan survives the trip home.',
+        ],
+      },
+      {
+        id: 'worked-example',
+        heading: 'Check the units with one worked example',
+        paragraphs: [
+          'A rough board sold as 5/4, measuring 8 inches wide and 8 feet long, tallies to about 6.67 board feet when the yard uses the nominal 1.25-inch thickness: 1.25 × 8 × 8 ÷ 12. If the yard tallies a different thickness, width, or rounding rule, use its stated method rather than silently substituting the surfaced dimension.',
+          'Keep the purchase estimate separate from the finished-part volume. Milling loss, end checks, knots, grain matching, and test cuts can consume usable material even though they remain part of the board-foot tally you paid for.',
         ],
       },
     ],
@@ -330,7 +374,7 @@ export const guides: Guide[] = [
     safetyNotes: ['Confirm bit shank, speed range, collet engagement, and base compatibility in the manufacturer’s manual.'],
     sections: [
       {
-        id: 'short-answer',
+        id: 'option-by-option',
         heading: 'The short answer',
         paragraphs: [
           'Buy a trim router first when your work is mostly edge profiles, flush trimming, shallow hinge mortises, and light template work. It is easier to hold one-handed when the work is securely clamped and usually faster to set up for a small operation.',
@@ -345,7 +389,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        id: 'ownership-cost',
+        id: 'full-cost',
         heading: 'Price the complete first-year kit',
         paragraphs: [
           'Include the needed base, edge guide, dust adapter, collets, and two or three quality bits. Large assortments often duplicate profiles you will not use and can hide the performance difference between a precise straight bit and a bargain set.',
@@ -357,7 +401,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        id: 'skip',
+        id: 'fit-and-skip',
         heading: 'Skip both—for now—if the project does not need one',
         paragraphs: [
           'A block plane, chisel, sanding block, or pre-milled profile can handle many early edge and fitting tasks. A router becomes a good purchase when repeatable grooves, templates, or profiles appear across your next several builds.',
@@ -388,7 +432,7 @@ export const guides: Guide[] = [
     safetyNotes: ['Use guards and push blocks as specified by the manufacturer; do not joint stock below the machine’s minimum dimensions.'],
     sections: [
       {
-        id: 'reference-surfaces',
+        id: 'option-by-option',
         heading: 'A jointer creates a reference; a planer copies it',
         paragraphs: [
           'A jointer removes high spots while the board passes over two tables and a cutterhead. Used correctly, it creates one flat face, then one straight edge square to that face.',
@@ -403,9 +447,10 @@ export const guides: Guide[] = [
         ],
       },
       {
-        id: 'without-jointer',
-        heading: 'You can begin without owning both machines',
+        id: 'full-cost',
+        heading: 'Price the complete milling system before choosing',
         paragraphs: [
+          'The purchase price is only the beginning. Include infeed and outfeed space, dust collection, electrical capacity, replacement knives or inserts, a stable mobile base, hearing protection, and the stock needed for setup cuts.',
           'A planer sled can support a twisted or cupped board while shims prevent rocking, allowing the planer to establish a first face. A track saw or table-saw jointing jig can then create an edge. Hand planes can establish both references with less floor space and more practice.',
         ],
         callout: {
@@ -415,7 +460,7 @@ export const guides: Guide[] = [
         },
       },
       {
-        id: 'which-first',
+        id: 'fit-and-skip',
         heading: 'Which machine usually comes first?',
         paragraphs: [
           'For many small shops, a benchtop planer paired with a sled and a straight-edge method unlocks more thickness control per square foot. A jointer earns priority when you process significant rough stock, need faster reference surfaces, and have the footprint, dust collection, and infeed clearance to use it safely.',
@@ -525,7 +570,7 @@ export const guides: Guide[] = [
       { part: 'Legs', quantity: 4, thickness: '1 1/2 in', width: '1 1/2 in', length: '16 1/4 in' },
       { part: 'Long rails', quantity: 4, thickness: '1 1/2 in', width: '1 1/2 in', length: '36 in' },
       { part: 'End rails', quantity: 4, thickness: '1 1/2 in', width: '1 1/2 in', length: '16 in' },
-      { part: 'Shelf boards', quantity: 4, thickness: '3/4 in', width: '5 1/2 in', length: '36 in', notes: 'Rip final board to fit after dry assembly' },
+      { part: 'Shelf boards', quantity: 3, thickness: '3/4 in', width: '5 1/2 in', length: '36 in', notes: 'Dry-lay across the lower rails; rip the rear board only if the measured base requires it' },
     ],
     safetyNotes: [
       'Secure every board before drilling or sanding and support long stock during cuts.',

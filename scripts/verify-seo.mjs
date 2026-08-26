@@ -26,9 +26,10 @@ let indexableGuides = 0
 for (const guide of guides) {
   const label = `${guide.id} (${guide.slug})`
   const canonical = expectedUrl(guide.canonicalPath)
-  if (guide.indexStatus !== 'index') failures.push(`${label}: indexStatus is ${guide.indexStatus}.`)
-  else indexableGuides += 1
-  if (!sitemapSet.has(canonical)) failures.push(`${label}: canonical URL is missing from sitemap.xml.`)
+  const isIndexable = guide.indexStatus === 'index'
+  if (isIndexable) indexableGuides += 1
+  if (isIndexable && !sitemapSet.has(canonical)) failures.push(`${label}: indexable canonical URL is missing from sitemap.xml.`)
+  if (!isIndexable && sitemapSet.has(canonical)) failures.push(`${label}: noindex working draft must not appear in sitemap.xml.`)
 
   let html
   try {
@@ -37,13 +38,15 @@ for (const guide of guides) {
     failures.push(`${label}: prerendered HTML route is missing.`)
     continue
   }
-  if (!html.includes('<meta name="robots" content="index,follow" />')) failures.push(`${label}: prerendered robots directive is not index,follow.`)
-  if (html.includes('<meta name="robots" content="noindex')) failures.push(`${label}: prerendered HTML still contains noindex.`)
+  const expectedRobots = isIndexable ? 'index,follow' : 'noindex,follow'
+  if (!html.includes(`<meta name="robots" content="${expectedRobots}" />`)) failures.push(`${label}: prerendered robots directive is not ${expectedRobots}.`)
   if (!html.includes(`<link rel="canonical" href="${canonical}" />`)) failures.push(`${label}: self-referential canonical is missing or incorrect.`)
   if (!html.includes(`<meta property="og:url" content="${canonical}" />`)) failures.push(`${label}: Open Graph URL is missing or incorrect.`)
   if (!html.includes('<script type="application/ld+json">')) failures.push(`${label}: Article structured data is missing.`)
   if (!html.includes('data-prerendered="guide"')) failures.push(`${label}: guide content was not included in the initial HTML.`)
-  if (guide.intent === 'build' && (!html.includes('<h2>Cut list</h2>') || !html.includes('<table>'))) failures.push(`${label}: project cut list was not included in the initial HTML.`)
+  if (guide.status === 'published' && guide.intent === 'build' && (!html.includes('<h2>Cut list</h2>') || !html.includes('<table>'))) failures.push(`${label}: published project cut list was not included in the initial HTML.`)
+  if (guide.status === 'published' && (!html.includes('Evidence status:') || !html.includes('<h2 class="font-display text-3xl font-black">Sources and limits</h2>'))) failures.push(`${label}: source-backed evidence and citations are missing from initial HTML.`)
+  if (guide.status !== 'published' && !html.includes('Working draft:')) failures.push(`${label}: working-draft limitation is missing from initial HTML.`)
   if (!html.includes('<h2>Continue learning</h2>')) failures.push(`${label}: contextual internal links were not included in the initial HTML.`)
   for (const relatedId of guide.relatedGuideIds) {
     const related = guides.find((candidate) => candidate.id === relatedId)
@@ -54,7 +57,7 @@ for (const guide of guides) {
 
 const requiredPublicPaths = [
   '/', '/start-here/', '/projects/', '/skills/', '/tools/', '/shop/', '/materials/', '/plans/',
-  '/about/testing-method/', '/about/editorial-policy/', '/affiliate-disclosure/', '/corrections/',
+  '/about/', '/about/testing-method/', '/about/editorial-policy/', '/affiliate-disclosure/', '/corrections/',
   '/accessibility/', '/privacy/', '/terms/',
 ]
 
@@ -79,7 +82,7 @@ try {
   failures.push('/saved/: prerendered personalized route is missing.')
 }
 
-const expectedSitemapUrls = guides.length + requiredPublicPaths.length
+const expectedSitemapUrls = indexableGuides + requiredPublicPaths.length
 if (sitemapUrls.length !== expectedSitemapUrls) failures.push(`Expected ${expectedSitemapUrls} sitemap URLs; found ${sitemapUrls.length}.`)
 for (const url of sitemapUrls) {
   if (!url.startsWith(`${siteUrl}/`) && url !== `${siteUrl}/`) failures.push(`Sitemap URL is not an absolute canonical on ${siteUrl}: ${url}`)

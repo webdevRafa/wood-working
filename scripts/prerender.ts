@@ -25,6 +25,7 @@ const absolute = (path: string) => `${siteUrl}${path.startsWith('/') ? path : `/
 
 function guideBody(guide: Guide) {
   const sectionPath = guide.canonicalPath.split('/').filter(Boolean)[0]
+  const sourceBacked = guide.status === 'published' && guide.evidenceStatus === 'research-reviewed'
   const cover = guide.coverImage
     ? `<figure class="mt-10 overflow-hidden rounded-2xl bg-sawdust"><img src="${escapeHtml(guide.coverImage)}" alt="${escapeHtml(guide.coverAlt ?? '')}" width="1200" height="800" class="aspect-[3/2] w-full object-cover" /></figure>`
     : ''
@@ -32,33 +33,55 @@ function guideBody(guide: Guide) {
   const materials = guide.materials.length ? `<section class="mt-12"><h2>Materials</h2><ul>${guide.materials.map((material) => `<li><strong>${escapeHtml(material.name)}</strong> — ${escapeHtml(material.quantity)}${material.notes ? `: ${escapeHtml(material.notes)}` : ''}</li>`).join('')}</ul></section>` : ''
   const cutList = guide.cutList?.length ? `<section class="mt-12"><h2>Cut list</h2><table><thead><tr><th>Part</th><th>Qty</th><th>Thickness</th><th>Width</th><th>Length</th></tr></thead><tbody>${guide.cutList.map((item) => `<tr><td>${escapeHtml(item.part)}${item.notes ? ` — ${escapeHtml(item.notes)}` : ''}</td><td>${item.quantity}</td><td>${escapeHtml(item.thickness)}</td><td>${escapeHtml(item.width)}</td><td>${escapeHtml(item.length)}</td></tr>`).join('')}</tbody></table></section>` : ''
   const related = guide.relatedGuideIds.map((id) => guideById.get(id)).filter((item) => item !== undefined)
-  return `<main data-prerendered="guide" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1180px] items-center gap-3 px-5 py-5 sm:px-8"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></div></header><article class="mx-auto max-w-[900px] px-5 py-14 sm:px-8 sm:py-20"><nav aria-label="Breadcrumb" class="text-xs font-bold uppercase tracking-[0.12em] text-steel"><a class="text-pine" href="/">Home</a> / <a class="text-pine" href="/${sectionPath}/">${escapeHtml(sectionPath)}</a></nav><p class="mt-10 text-[10px] font-black uppercase tracking-[0.18em] text-amber">${escapeHtml(guide.type)} · ${escapeHtml(guide.intent)}</p><h1 class="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.055em]">${escapeHtml(guide.title)}</h1><p class="mt-6 max-w-3xl text-xl leading-8 text-steel">${escapeHtml(guide.dek)}</p>${cover}<p class="mt-8 rounded-xl border border-amber/25 bg-sawdust p-5 text-sm leading-6"><strong>Affiliate disclosure:</strong> ${escapeHtml(guide.affiliateDisclosure)}</p>${tools}${materials}${cutList}${guide.safetyNotes.length ? `<section class="mt-12"><h2 class="font-display text-3xl font-black">Before you start</h2><ul class="mt-5 grid gap-3 text-steel">${guide.safetyNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul></section>` : ''}${guide.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="mt-12 border-t border-walnut/10 pt-8"><h2 class="font-display text-3xl font-black">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-4 text-lg leading-8 text-steel">${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul class="mt-5 grid gap-3 text-steel">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${related.length ? `<aside class="mt-14 border-t border-walnut/10 pt-8"><h2>Continue learning</h2><ul>${related.map((item) => `<li><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a></li>`).join('')}</ul></aside>` : ''}</article></main>`
+  const evidence = sourceBacked
+    ? '<p class="mt-5 rounded-xl border border-pine/20 bg-sawdust p-5 text-sm leading-6"><strong>Evidence status:</strong> Central guidance was reviewed against the sources listed below. No hands-on testing is claimed.</p>'
+    : '<p class="mt-5 rounded-xl border border-red-300 bg-red-50 p-5 text-sm leading-6"><strong>Working draft:</strong> This accessible research draft is not included in the search index. Treat dimensions, loads, compatibility, and product details as unverified.</p>'
+  const sources = sourceBacked && guide.sources.length
+    ? `<section id="sources" class="mt-12 border-t border-walnut/10 pt-8"><h2 class="font-display text-3xl font-black">Sources and limits</h2><p class="mt-4 text-lg leading-8 text-steel">These sources support the general principles in this guide. Current product instructions, technical data, hardware drawings, and local requirements take priority.</p><ul>${guide.sources.map((source) => `<li><a href="${escapeHtml(source.url)}">${escapeHtml(source.title)}</a></li>`).join('')}</ul></section>`
+    : ''
+  return `<main data-prerendered="guide" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1180px] items-center gap-3 px-5 py-5 sm:px-8"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></div></header><article class="mx-auto max-w-[900px] px-5 py-14 sm:px-8 sm:py-20"><nav aria-label="Breadcrumb" class="text-xs font-bold uppercase tracking-[0.12em] text-steel"><a class="text-pine" href="/">Home</a> / <a class="text-pine" href="/${sectionPath}/">${escapeHtml(sectionPath)}</a></nav><p class="mt-10 text-[10px] font-black uppercase tracking-[0.18em] text-amber">${escapeHtml(guide.type)} · ${escapeHtml(guide.intent)} · ${sourceBacked ? 'source-backed guide' : 'working draft'}</p><h1 class="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.055em]">${escapeHtml(guide.title)}</h1><p class="mt-6 max-w-3xl text-xl leading-8 text-steel">${escapeHtml(guide.dek)}</p>${cover}<p class="mt-8 rounded-xl border border-amber/25 bg-sawdust p-5 text-sm leading-6"><strong>Affiliate disclosure:</strong> ${escapeHtml(guide.affiliateDisclosure)}</p>${evidence}${tools}${materials}${cutList}${guide.safetyNotes.length ? `<section class="mt-12"><h2 class="font-display text-3xl font-black">Before you start</h2><ul class="mt-5 grid gap-3 text-steel">${guide.safetyNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join('')}</ul></section>` : ''}${guide.sections.map((section) => `<section id="${escapeHtml(section.id)}" class="mt-12 border-t border-walnut/10 pt-8"><h2 class="font-display text-3xl font-black">${escapeHtml(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="mt-4 text-lg leading-8 text-steel">${escapeHtml(paragraph)}</p>`).join('')}${section.bullets ? `<ul class="mt-5 grid gap-3 text-steel">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}</section>`).join('')}${sources}${related.length ? `<aside class="mt-14 border-t border-walnut/10 pt-8"><h2>Continue learning</h2><ul>${related.map((item) => `<li><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a></li>`).join('')}</ul></aside>` : ''}</article></main>`
 }
 
 function articleJsonLd(guide: Guide) {
-  return {
-    '@context': 'https://schema.org',
+  const sectionPath = guide.canonicalPath.split('/').filter(Boolean)[0]
+  const article: Record<string, unknown> = {
     '@type': 'Article',
     headline: guide.title,
     description: guide.metaDescription,
-    datePublished: guide.publishedAt ?? guide.createdAt,
     dateModified: guide.updatedAt,
     mainEntityOfPage: absolute(guide.canonicalPath),
-    author: { '@type': 'Organization', name: 'Built True Workshop' },
-    publisher: { '@type': 'Organization', name: 'Built True Workshop' },
+    author: { '@type': 'Organization', name: 'Built True Workshop', url: absolute('/about/') },
+    publisher: { '@type': 'Organization', name: 'Built True Workshop', url: absolute('/') },
     image: absolute(guide.coverImage ?? '/og.png'),
+    isAccessibleForFree: true,
+    citation: guide.sources.map((source) => source.url),
+  }
+  if (guide.publishedAt) article.datePublished = guide.publishedAt
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      article,
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: absolute('/') },
+          { '@type': 'ListItem', position: 2, name: sectionPath, item: absolute(`/${sectionPath}/`) },
+          { '@type': 'ListItem', position: 3, name: guide.title, item: absolute(guide.canonicalPath) },
+        ],
+      },
+    ],
   }
 }
 
 const hubs = [
-  { path: '/', title: 'Built True Workshop | Build with confidence', description: 'Practical woodworking projects, honest tool guidance, and specific skills for building with confidence.', types: [] as string[] },
+  { path: '/', title: 'Built True Workshop | Build with confidence', description: 'Source-backed woodworking starter guides, practical project references, and honest tool decisions.', types: [] as string[] },
   { path: '/start-here/', title: 'Start Here | Built True Workshop', description: 'Find a practical woodworking starting point based on your experience, time, and goal.', types: [] as string[] },
-  { path: '/projects/', title: 'Projects | Built True Workshop', description: 'Measured woodworking builds with realistic difficulty, cut lists, minimum-tool paths, and recovery notes.', types: ['project'] },
+  { path: '/projects/', title: 'Projects | Built True Workshop', description: 'Woodworking project references with clear evidence labels, realistic difficulty, cut lists where reviewed, and safer next steps.', types: ['project'] },
   { path: '/skills/', title: 'Skills | Built True Workshop', description: 'Plain-language woodworking lessons for measuring, cutting, joinery, sanding, finishing, and troubleshooting.', types: ['skill', 'troubleshooting'] },
   { path: '/tools/', title: 'Tool Decisions | Built True Workshop', description: 'Honest woodworking tool comparisons based on fit, ownership cost, shop constraints, and reasons to skip.', types: ['review', 'comparison'] },
   { path: '/shop/', title: 'Shop Setup | Built True Workshop', description: 'Workbenches, storage, dust collection, lighting, and workflow for practical home woodshops.', types: ['shop'] },
   { path: '/materials/', title: 'Materials & Finishes | Built True Workshop', description: 'Wood, sheet goods, adhesives, abrasives, stains, and finishes explained through real project decisions.', types: ['material'] },
-  { path: '/plans/', title: 'Woodworking Plans | Built True Workshop', description: 'Woodworking plans built around verified cut lists, sensible material use, and minimum-tool routes.', types: ['project'] },
+  { path: '/plans/', title: 'Woodworking Plans | Built True Workshop', description: 'Source-backed starter plans and clearly labeled working drafts organized around materials, cut lists, and safer tool routes.', types: ['project'] },
 ]
 
 const pages: Page[] = hubs.map((hub) => {
@@ -70,6 +93,7 @@ const pages: Page[] = hubs.map((hub) => {
 })
 
 const staticPages = [
+  ['/about/', 'About Built True Workshop', 'How Built True Workshop separates source-backed guidance, working drafts, testing, and commercial relationships.'],
   ['/about/testing-method/', 'Testing Method | Built True Workshop', 'How Built True Workshop tests, researches, and updates tool recommendations.'],
   ['/about/editorial-policy/', 'Editorial Policy | Built True Workshop', 'The quality and evidence standards every Built True Workshop guide must pass.'],
   ['/affiliate-disclosure/', 'Affiliate Disclosure | Built True Workshop', 'How affiliate links support Built True Workshop and how paid relationships are disclosed.'],

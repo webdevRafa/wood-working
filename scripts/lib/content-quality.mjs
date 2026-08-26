@@ -460,7 +460,7 @@ export function upgradeGuideCorpus(inputGuides) {
     guide.naturalOffers = guide.naturalOffers.filter((offer) => !/\b(?:test data|test protocol|testing claims?)\b/i.test(offer))
     const facts = topicFacts(guide)
     guide.status = 'review'
-    guide.indexStatus = 'index'
+    guide.indexStatus = 'noindex'
     guide.dek = dekFor(guide)
     guide.seoTitle = seoTitle(guide.title)
     guide.metaDescription = descriptionFor(guide)
@@ -469,7 +469,7 @@ export function upgradeGuideCorpus(inputGuides) {
     guide.reviewerIds = []
     guide.evidenceStatus = 'brief'
     guide.updatedAt = now
-    guide.contentVersion = 2
+    guide.contentVersion = 3
     delete guide.editorial
     delete guide.publishedAt
 
