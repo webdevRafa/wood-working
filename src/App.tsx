@@ -19,7 +19,7 @@ function App() {
         <Route path="start-here" element={<StartHerePage />} />
         <Route path="saved" element={<SavedPage />} />
 
-        <Route path="projects" element={<HubPage eyebrow="Make something useful" title="Projects" description="Source-backed starter plans and transparently labeled working drafts, organized around realistic difficulty, tool paths, cut lists, and safer checkpoints." types={['project']} />} />
+        <Route path="projects" element={<HubPage eyebrow="Make something useful" title="Projects" description="Source-backed project plans organized around realistic difficulty, coherent dimensions, tool paths, cut lists, and safer checkpoints." types={['project']} />} />
         <Route path="projects/:slug" element={<GuidePage />} />
 
         <Route path="skills" element={<HubPage eyebrow="Build your judgment" title="Skills" description="Plain-language lessons for measuring, cutting, joinery, sanding, finishing, and solving the problem in front of you." types={['skill', 'troubleshooting']} />} />
@@ -34,7 +34,7 @@ function App() {
         <Route path="materials" element={<HubPage eyebrow="Know what you are cutting" title="Materials & finishes" description="Lumber, sheet goods, adhesives, abrasives, stains, and finishes explained through the decisions that change a build." types={['material']} />} />
         <Route path="materials/:slug" element={<GuidePage />} />
 
-        <Route path="plans" element={<HubPage eyebrow="Build from a clear plan" title="Plans" description="Published starter plans and working drafts with visible evidence status, starting dimensions, material assumptions, and safer tool routes." types={['project']} />} />
+        <Route path="plans" element={<HubPage eyebrow="Build from a clear plan" title="Plans" description="Published project plans with visible evidence status, working dimensions, material assumptions, real cut lists, and safer tool routes." types={['project']} />} />
 
         <Route path="about" element={<StaticPage pageKey="about" />} />
         <Route path="about/testing-method" element={<StaticPage pageKey="testing" />} />

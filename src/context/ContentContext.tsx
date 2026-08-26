@@ -26,28 +26,40 @@ function normalizeIndexItem(data: Record<string, unknown>): GuideIndexItem | und
 
 export function ContentProvider({ children }: { children: ReactNode }) {
   const [libraryGuides, setLibraryGuides] = useState<GuideIndexItem[]>([])
-  const [loadingLibrary, setLoadingLibrary] = useState(Boolean(db))
+  const [loadingLibrary, setLoadingLibrary] = useState(true)
 
   useEffect(() => {
-    if (!db) return
     let active = true
-    const libraryQuery = query(
-      collection(db, 'guideIndex'),
-      where('status', 'in', ['review', 'published']),
-      limit(500),
-    )
-    void getDocs(libraryQuery)
-      .then((snapshot) => {
-        if (!active) return
-        setLibraryGuides(
-          snapshot.docs
+    async function loadLibrary() {
+      let guides: GuideIndexItem[] = []
+      if (db) {
+        try {
+          const snapshot = await getDocs(query(
+            collection(db, 'guideIndex'),
+            where('status', 'in', ['review', 'published']),
+            limit(500),
+          ))
+          guides = snapshot.docs
             .map((item) => normalizeIndexItem(item.data()))
-            .filter((item): item is GuideIndexItem => item !== undefined),
-        )
-      })
-      .catch(() => {
-        // Local reader guides remain usable if Firebase is unavailable or rules are not deployed yet.
-      })
+            .filter((item): item is GuideIndexItem => item !== undefined)
+        } catch {
+          // The generated public index below is the resilient read-only fallback.
+        }
+      }
+      if (!guides.length) {
+        try {
+          const response = await fetch('/data/guide-index.json')
+          if (response.ok) {
+            const data = await response.json() as Record<string, unknown>[]
+            guides = data.map(normalizeIndexItem).filter((item): item is GuideIndexItem => item !== undefined)
+          }
+        } catch {
+          // Seed guides remain available if neither content source can be reached.
+        }
+      }
+      if (active) setLibraryGuides(guides)
+    }
+    void loadLibrary()
       .finally(() => {
         if (active) setLoadingLibrary(false)
       })

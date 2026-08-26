@@ -4,8 +4,9 @@
 
 - The React/Vite application, original brand assets, Firebase client integration, SEO prerenderer, security rules, and content pipeline are committed to `main`.
 - Firestore contains 500 full guide records and 500 lightweight discovery records.
-- Eight source-backed launch guides are `published`, `index`, and `evidenceStatus: research-reviewed`.
-- The remaining 492 roadmap pages stay openable as clearly labeled `review` records, but are `noindex` and excluded from the sitemap until they pass the publication gate.
+- All 500 guides are `published`, `index`, and `evidenceStatus: research-reviewed`.
+- The complete corpus passes the content audit: title promises, sources, project plans, buying criteria, safety context, related paths, and duplicate public paragraphs are checked before import.
+- The production build emits 500 prerendered guide routes plus independent static JSON fallbacks, so article access and crawlable HTML do not depend on a successful client-side Firestore request.
 
 ## Firebase console setup
 
@@ -44,7 +45,7 @@ Before changing a record to `published` and `index`, complete the quality gate i
 Then regenerate or edit `content/guides.json`, validate it, and run the idempotent importer. The importer updates both the full guide and its lightweight discovery record without deleting documents.
 
 ```bash
-npm run content:curate-launch
+npm run content:publish-production
 npm run content:audit
 npm run content:validate
 npm run content:import:dry
@@ -52,4 +53,4 @@ npm run content:import
 npm run content:verify
 ```
 
-After publishing, rebuild Vercel so the sitemap and prerendered SEO pages include only the newly reviewed, indexable URLs.
+After publishing, rebuild Vercel so the sitemap and prerendered SEO pages include the complete reviewed, indexable library.

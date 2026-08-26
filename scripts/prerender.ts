@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
-import type { Guide } from '../src/types/content'
+import type { Guide, GuideIndexItem } from '../src/types/content'
 
 const outputDir = join(process.cwd(), 'dist')
 const template = await readFile(join(outputDir, 'index.html'), 'utf8')
@@ -81,7 +81,7 @@ const hubs = [
   { path: '/tools/', title: 'Tool Decisions | Built True Workshop', description: 'Honest woodworking tool comparisons based on fit, ownership cost, shop constraints, and reasons to skip.', types: ['review', 'comparison'] },
   { path: '/shop/', title: 'Shop Setup | Built True Workshop', description: 'Workbenches, storage, dust collection, lighting, and workflow for practical home woodshops.', types: ['shop'] },
   { path: '/materials/', title: 'Materials & Finishes | Built True Workshop', description: 'Wood, sheet goods, adhesives, abrasives, stains, and finishes explained through real project decisions.', types: ['material'] },
-  { path: '/plans/', title: 'Woodworking Plans | Built True Workshop', description: 'Source-backed starter plans and clearly labeled working drafts organized around materials, cut lists, and safer tool routes.', types: ['project'] },
+  { path: '/plans/', title: 'Woodworking Plans | Built True Workshop', description: 'Source-backed woodworking plans organized around coherent dimensions, materials, cut lists, assembly decisions, and safer tool routes.', types: ['project'] },
 ]
 
 const pages: Page[] = hubs.map((hub) => {
@@ -93,7 +93,7 @@ const pages: Page[] = hubs.map((hub) => {
 })
 
 const staticPages = [
-  ['/about/', 'About Built True Workshop', 'How Built True Workshop separates source-backed guidance, working drafts, testing, and commercial relationships.'],
+  ['/about/', 'About Built True Workshop', 'How Built True Workshop reviews woodworking guidance, labels evidence, corrects errors, and separates editorial decisions from commercial relationships.'],
   ['/about/testing-method/', 'Testing Method | Built True Workshop', 'How Built True Workshop tests, researches, and updates tool recommendations.'],
   ['/about/editorial-policy/', 'Editorial Policy | Built True Workshop', 'The quality and evidence standards every Built True Workshop guide must pass.'],
   ['/affiliate-disclosure/', 'Affiliate Disclosure | Built True Workshop', 'How affiliate links support Built True Workshop and how paid relationships are disclosed.'],
@@ -146,8 +146,35 @@ for (const page of pages) {
   await writeFile(target, render(page), 'utf8')
 }
 
+const guideDataDir = join(outputDir, 'data', 'guides')
+await mkdir(guideDataDir, { recursive: true })
+const guideIndex: GuideIndexItem[] = guides.map((guide) => ({
+  id: guide.id,
+  slug: guide.slug,
+  canonicalPath: guide.canonicalPath,
+  type: guide.type,
+  status: guide.status,
+  indexStatus: guide.indexStatus,
+  title: guide.title,
+  dek: guide.dek,
+  coverImage: guide.coverImage,
+  coverAlt: guide.coverAlt,
+  categoryId: guide.categoryId,
+  clusterId: guide.clusterId,
+  tags: guide.tags,
+  intent: guide.intent,
+  skillLevel: guide.skillLevel,
+  activeMinutes: guide.activeMinutes,
+  totalMinutes: guide.totalMinutes,
+  costBand: guide.costBand,
+  evidenceStatus: guide.evidenceStatus,
+  updatedAt: guide.updatedAt,
+}))
+await writeFile(join(outputDir, 'data', 'guide-index.json'), JSON.stringify(guideIndex), 'utf8')
+await Promise.all(guides.map((guide) => writeFile(join(guideDataDir, `${guide.slug}.json`), JSON.stringify(guide), 'utf8')))
+
 const sitemapPages = pages.filter((page) => !page.noindex)
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPages.map((page) => `  <url><loc>${escapeHtml(absolute(page.path))}</loc>${page.lastmod ? `<lastmod>${escapeHtml(page.lastmod.slice(0, 10))}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`
 await writeFile(join(outputDir, 'sitemap.xml'), sitemap, 'utf8')
 await writeFile(join(outputDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${absolute('/sitemap.xml')}\n`, 'utf8')
-console.log(`Prerendered ${pages.length} routes and ${sitemapPages.length} sitemap URLs for ${siteUrl}.`)
+console.log(`Prerendered ${pages.length} routes, ${sitemapPages.length} sitemap URLs, and ${guides.length} resilient guide-data fallbacks for ${siteUrl}.`)

@@ -22,6 +22,11 @@ const bannedPatterns = [
   [/\b(?:research|fact-checking|evidence) (?:needed|required)\b/i, 'research reminder'],
   [/\b(?:I|we) (?:tested|built|used|bought|compared|ran)\b/i, 'unsupported first-hand claim'],
   [/\bin today'?s world\b|\bat the end of the day\b|\bwhether you(?:'re| are) a beginner or/i, 'generic filler'],
+  [/\bdefine the exact work this route handles best\b|\btreat this as the middle route\b|\bstart here when it covers the normal work\b/i, 'generic comparison scaffolding'],
+  [/\bthe minimum complete system\b|\bthe balanced general-purpose system\b|\bthe capacity-first system\b/i, 'placeholder buying-route language'],
+  [/\bapplied to\b|\bthe practical check is specific\b|\bwhen working through\b/i, 'generation residue'],
+  [/\bthat is the controlling idea\b|\bthe goal is not merely to complete an operation\b/i, 'templated editorial scaffolding'],
+  [/\bsource-backed decision guide for choosing\b/i, 'awkward generated summary'],
   [/\bthe (?:a|an)\b/i, 'article grammar error'],
 ]
 
@@ -62,6 +67,11 @@ for (const guide of guides) {
     if (!Array.isArray(guide.materials) || guide.materials.length < 4) errors.push(`${label}: project needs a concrete materials list.`)
     if (!Array.isArray(guide.tools) || guide.tools.length < 3) errors.push(`${label}: project needs a concrete tool path.`)
     if (/only (?:three|3) tools/i.test(guide.title) && guide.tools.length !== 3) errors.push(`${label}: title promises only three tools but the tool list contains ${guide.tools.length}.`)
+    const partNames = guide.cutList.map((part) => part.part).join(' ')
+    if (/end-grain cutting board/i.test(guide.title) && !/end-grain rows/i.test(partNames)) errors.push(`${label}: end-grain promise lacks a two-stage end-grain cut list.`)
+    if (/outdoor dining table/i.test(guide.title) && !/top slats/i.test(partNames)) errors.push(`${label}: outdoor dining-table plan lacks a draining slatted top.`)
+    if (/(?:wall-mounted|floating)(?!-look)/i.test(guide.title) && !/cleat|bracket|support|hanger|anchor/i.test(partNames)) errors.push(`${label}: wall-mounted project lacks a named structural mounting part.`)
+    if (/shoe shelf/i.test(guide.title) && !/shel(?:f|ves)/i.test(partNames)) errors.push(`${label}: title promises a shoe shelf but the cut list omits one.`)
   }
 
   if (isPublished && guide.intent === 'buy') {

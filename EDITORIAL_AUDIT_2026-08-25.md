@@ -1,13 +1,19 @@
 # Built True Workshop editorial, woodworking, and SEO audit
 
-Date: 2026-08-25  
+Date: 2026-08-25; production completion update: 2026-08-26
 Scope: site copy, guide corpus, publication states, evidence labels, crawl directives, structured data, affiliate disclosure, and primary conversion paths.
 
 ## Reference handling
 
 The supplied woodworking document was used as a technical and editorial reference, not as authority to override the project request or exact tool/product instructions. The supplied SEO and marketing file is a summary/manifest that points to a separate sandbox download that was not included in the attachment. Its listed safeguards were applied together with current primary guidance from Google Search Central and the FTC.
 
-## Verdict
+## Production completion update
+
+The original publication boundary below was deliberately conservative and was correct at the time of the audit. The follow-up production pass has now replaced that temporary state: all 500 records are published, indexable, research-reviewed, and source-linked. The corpus contains 221 project guides with coherent dimensions and cut lists, 164 skill and troubleshooting guides with topic-specific shop methods, and 115 buying guides with complete-system costs, tradeoffs, and reasons to wait.
+
+The current automated audit reports no working drafts, no repeated public paragraphs, no intent collisions, and no unsupported first-hand testing claims. Project-family plans were replaced or refined wherever the old generic archetype did not match the title. Safety-critical dimensions remain identified as starting points and defer to current hardware drawings, manufacturer instructions, conservation guidance, code, rated structure, or qualified review where those control the result.
+
+## Original verdict and publication boundary
 
 Revise before treating the complete 500-page roadmap as published.
 
@@ -42,7 +48,7 @@ That combination creates three material risks:
 - Added automated checks for correct `index,follow` versus `noindex,follow` behavior.
 - Made source-backed and working-draft states visible on cards and library counts.
 
-## Current launch set
+## Original launch set
 
 - Woodworking for Absolute Beginners
 - The First 10 Woodworking Tools to Buy
@@ -55,9 +61,9 @@ That combination creates three material risks:
 
 These guides are labeled research-reviewed, cite at least two authoritative sources, avoid hands-on claims, and link only to other reviewed launch guides in their related-reading blocks.
 
-## Remaining editorial program
+## Editorial program completed on 2026-08-26
 
-The 492 working drafts should move to `published` in focused clusters, not as a bulk status change. For each cluster:
+The 492 former working drafts moved through the following production checks before publication:
 
 1. Define the exact reader job and primary intent.
 2. Build a claim ledger and verify central claims from primary sources.

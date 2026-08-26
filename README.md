@@ -18,14 +18,14 @@ npm run lint
 npm run build
 ```
 
-The production build prerenders public routes, adds page metadata and structured data, and writes `dist/sitemap.xml` plus `dist/robots.txt`. On Vercel it uses `VERCEL_PROJECT_PRODUCTION_URL`; a custom canonical origin can be supplied as `VITE_SITE_URL`.
+The production build prerenders public routes, adds page metadata and structured data, and writes `dist/sitemap.xml` plus `dist/robots.txt`. It also generates a read-only JSON index and one fallback document per guide, so all 500 articles remain readable if Firestore is temporarily unavailable. On Vercel it uses `VERCEL_PROJECT_PRODUCTION_URL`; a custom canonical origin can be supplied as `VITE_SITE_URL`.
 
 ## Content workflow
 
-The long-term source is `content/guides.json`. The reviewed launch set is published and indexable; the remaining roadmap stays openable as transparently labeled `review` content while remaining `noindex` until it passes the editorial quality gate in `PROJECT_BLUEPRINT.md`.
+The production source is `content/guides.json`. All 500 guides are published, research-reviewed, and indexable after passing the editorial quality gate in `PROJECT_BLUEPRINT.md`. The publishing script rebuilds the corpus from topic-aware editorial and project-plan rules; the audit rejects generic residue, missing sources, broken title promises, duplicate paragraphs, incomplete plans, and unsupported first-hand claims.
 
 ```bash
-npm run content:curate-launch
+npm run content:publish-production
 npm run content:audit
 npm run content:validate
 npm run content:import:dry
@@ -37,7 +37,7 @@ The write command requires `FIREBASE_SERVICE_ACCOUNT_PATH` to point to a credent
 npm run content:import
 ```
 
-The import is idempotent by stable guide ID, uses merge semantics, records an import receipt, and never deletes Firestore documents. It writes full documents to `guides` and lightweight discovery records to `guideIndex`; the React app merges public review and published records into search, hubs, the finder, saved pages, and guide routes while honoring each record's index state.
+The import is idempotent by stable guide ID, uses merge semantics, records an import receipt, and never deletes Firestore documents. It writes full documents to `guides` and lightweight discovery records to `guideIndex`; the React app uses those records for search, hubs, the finder, saved pages, and all stable guide routes while honoring each record's publication state.
 
 ## Firebase security
 

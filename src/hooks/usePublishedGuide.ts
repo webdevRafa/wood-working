@@ -27,27 +27,38 @@ export function usePublishedGuide(slug: string) {
 
   useEffect(() => {
     let active = true
-    if (!db) return
-    const guideQuery = query(
-      collection(db, 'guides'),
-      where('slug', '==', slug),
-      where('status', 'in', ['review', 'published']),
-      limit(1),
-    )
-    void getDocs(guideQuery)
-      .then((snapshot) => {
-        if (active) setResult({ slug, guide: snapshot.empty ? undefined : normalizeGuide(snapshot.docs[0].data()), settled: true })
-      })
-      .catch(() => {
-        // The local reader guide is still available while Firebase is offline or awaiting rule deployment.
-        if (active) setResult({ slug, settled: true })
-      })
+    async function loadGuide() {
+      let guide: Guide | undefined
+      if (db) {
+        try {
+          const snapshot = await getDocs(query(
+            collection(db, 'guides'),
+            where('slug', '==', slug),
+            where('status', 'in', ['review', 'published']),
+            limit(1),
+          ))
+          if (!snapshot.empty) guide = normalizeGuide(snapshot.docs[0].data())
+        } catch {
+          // The generated article data below is the resilient read-only fallback.
+        }
+      }
+      if (!guide) {
+        try {
+          const response = await fetch(`/data/guides/${encodeURIComponent(slug)}.json`)
+          if (response.ok) guide = normalizeGuide(await response.json() as Record<string, unknown>)
+        } catch {
+          // A seed guide may still satisfy the request below.
+        }
+      }
+      if (active) setResult({ slug, guide, settled: true })
+    }
+    void loadGuide()
     return () => {
       active = false
     }
   }, [slug])
 
   const remoteGuide = result.slug === slug ? result.guide : undefined
-  const loading = Boolean(db && !localGuide && !(result.slug === slug && result.settled))
+  const loading = Boolean(!localGuide && !(result.slug === slug && result.settled))
   return { guide: remoteGuide ?? localGuide, loading }
 }
