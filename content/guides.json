@@ -125,7 +125,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/001-beginner-workshop.jpg",
+    "coverAlt": "Beginner woodworking crate project surrounded by essential tools on a workshop bench"
   },
   {
     "id": "002",
@@ -248,7 +250,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/002-first-tools.jpg",
+    "coverAlt": "Essential beginner woodworking tools arranged on a maple workbench"
   },
   {
     "id": "003",
@@ -415,7 +419,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "004",
@@ -538,7 +544,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "005",
@@ -662,7 +670,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "006",
@@ -790,7 +800,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "007",
@@ -918,7 +930,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "008",
@@ -1044,7 +1058,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "009",
@@ -1176,7 +1192,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "010",
@@ -1305,7 +1323,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "011",
@@ -1432,7 +1452,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "012",
@@ -1565,7 +1587,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "013",
@@ -1693,7 +1717,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "014",
@@ -1820,7 +1846,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "015",
@@ -1946,7 +1974,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "016",
@@ -2075,7 +2105,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "017",
@@ -2204,7 +2236,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "018",
@@ -2321,7 +2355,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "019",
@@ -2448,7 +2484,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "020",
@@ -2615,7 +2653,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/stool-chair.jpg",
+    "coverAlt": "A compact handmade shop stool with visible solid-wood joinery"
   },
   {
     "id": "021",
@@ -2783,7 +2823,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "022",
@@ -2952,7 +2994,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "023",
@@ -3081,7 +3125,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "024",
@@ -3208,7 +3254,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "025",
@@ -3319,7 +3367,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "026",
@@ -3440,7 +3490,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "027",
@@ -3563,7 +3615,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "028",
@@ -3685,7 +3739,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "029",
@@ -3814,7 +3870,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "030",
@@ -3932,7 +3990,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "031",
@@ -4055,7 +4115,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/031-board-foot-lumber.jpg",
+    "coverAlt": "Rough walnut and oak boards being measured for a board-foot calculation"
   },
   {
     "id": "032",
@@ -4183,7 +4245,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "033",
@@ -4308,7 +4372,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "034",
@@ -4435,7 +4501,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "035",
@@ -4564,7 +4632,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "036",
@@ -4685,7 +4755,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "037",
@@ -4813,7 +4885,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "038",
@@ -4942,7 +5016,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "039",
@@ -5104,7 +5180,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "040",
@@ -5231,7 +5309,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "041",
@@ -5360,7 +5440,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "042",
@@ -5481,7 +5563,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "043",
@@ -5609,7 +5693,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "044",
@@ -5737,7 +5823,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "045",
@@ -5865,7 +5953,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "046",
@@ -5989,7 +6079,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plan-reading-design.jpg",
+    "coverAlt": "Woodworking plans, cut-list sketches, measuring tools, and a joinery sample on a workbench"
   },
   {
     "id": "047",
@@ -6104,7 +6196,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "048",
@@ -6227,7 +6321,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "049",
@@ -6356,7 +6452,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "050",
@@ -6518,7 +6616,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "051",
@@ -6645,7 +6745,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "052",
@@ -6773,7 +6875,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "053",
@@ -6902,7 +7006,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "054",
@@ -7029,7 +7135,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "055",
@@ -7156,7 +7264,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "056",
@@ -7281,7 +7391,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "057",
@@ -7409,7 +7521,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "058",
@@ -7570,7 +7684,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "059",
@@ -7733,7 +7849,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "060",
@@ -7860,7 +7978,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "061",
@@ -7982,7 +8102,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "062",
@@ -8111,7 +8233,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "063",
@@ -8233,7 +8357,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "064",
@@ -8362,7 +8488,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "065",
@@ -8490,7 +8618,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "066",
@@ -8616,7 +8746,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "067",
@@ -8739,7 +8871,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "068",
@@ -8867,7 +9001,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "069",
@@ -8994,7 +9130,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "070",
@@ -9122,7 +9260,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "071",
@@ -9251,7 +9391,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "072",
@@ -9377,7 +9519,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "073",
@@ -9504,7 +9648,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "074",
@@ -9633,7 +9779,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "075",
@@ -9744,7 +9892,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "076",
@@ -9870,7 +10020,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "077",
@@ -9998,7 +10150,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-tools-sharpening.jpg",
+    "coverAlt": "Sharp chisels, waterstones, and honing tools arranged for hand-tool maintenance"
   },
   {
     "id": "078",
@@ -10121,7 +10275,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "079",
@@ -10249,7 +10405,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "080",
@@ -10372,7 +10530,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "081",
@@ -10494,7 +10654,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plan-reading-design.jpg",
+    "coverAlt": "Woodworking plans, cut-list sketches, measuring tools, and a joinery sample on a workbench"
   },
   {
     "id": "082",
@@ -10615,7 +10777,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "083",
@@ -10736,7 +10900,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "084",
@@ -10864,7 +11030,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "085",
@@ -10991,7 +11159,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "086",
@@ -11114,7 +11284,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "087",
@@ -11276,7 +11448,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "088",
@@ -11438,7 +11612,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "089",
@@ -11558,7 +11734,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "090",
@@ -11686,7 +11864,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "091",
@@ -11814,7 +11994,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "092",
@@ -11943,7 +12125,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "093",
@@ -12105,7 +12289,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "094",
@@ -12227,7 +12413,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "095",
@@ -12356,7 +12544,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "096",
@@ -12511,7 +12701,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "097",
@@ -12639,7 +12831,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-saw-planes.jpg",
+    "coverAlt": "Traditional hand saws and hand planes on a shavings-covered workbench"
   },
   {
     "id": "098",
@@ -12767,7 +12961,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "099",
@@ -12928,7 +13124,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "100",
@@ -13051,7 +13249,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "101",
@@ -13177,7 +13377,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/101-table-saw-basics.jpg",
+    "coverAlt": "Table saw prepared for a safe first cut with its guard, push block, and safety glasses"
   },
   {
     "id": "102",
@@ -13305,7 +13507,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "103",
@@ -13433,7 +13637,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "104",
@@ -13562,7 +13768,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "105",
@@ -13685,7 +13893,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "106",
@@ -13806,7 +14016,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "107",
@@ -13929,7 +14141,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "108",
@@ -14056,7 +14270,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "109",
@@ -14183,7 +14399,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "110",
@@ -14350,7 +14568,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "111",
@@ -14511,7 +14731,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "112",
@@ -14673,7 +14895,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "113",
@@ -14827,7 +15051,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/basic-boxes-crates.jpg",
+    "coverAlt": "Several useful handmade wooden boxes and crates arranged in a warm workshop"
   },
   {
     "id": "114",
@@ -14988,7 +15214,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "115",
@@ -15150,7 +15378,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "116",
@@ -15313,7 +15543,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "117",
@@ -15476,7 +15708,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "118",
@@ -15598,7 +15832,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "119",
@@ -15725,7 +15961,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "120",
@@ -15847,7 +16085,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "121",
@@ -15970,7 +16210,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "122",
@@ -16126,7 +16368,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "123",
@@ -16255,7 +16499,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "124",
@@ -16384,7 +16630,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "125",
@@ -16510,7 +16758,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "126",
@@ -16637,7 +16887,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "127",
@@ -16760,7 +17012,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "128",
@@ -16888,7 +17142,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "129",
@@ -17016,7 +17272,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "130",
@@ -17178,7 +17436,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "131",
@@ -17340,7 +17600,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "132",
@@ -17467,7 +17729,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "133",
@@ -17596,7 +17860,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "134",
@@ -17757,7 +18023,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "135",
@@ -17886,7 +18154,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "136",
@@ -18014,7 +18284,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "137",
@@ -18141,7 +18413,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "138",
@@ -18264,7 +18538,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "139",
@@ -18391,7 +18667,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "140",
@@ -18518,7 +18796,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "141",
@@ -18647,7 +18927,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "142",
@@ -18774,7 +19056,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "143",
@@ -18903,7 +19187,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "144",
@@ -19030,7 +19316,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "145",
@@ -19190,7 +19478,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "146",
@@ -19352,7 +19642,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "147",
@@ -19480,7 +19772,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "148",
@@ -19601,7 +19895,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "149",
@@ -19730,7 +20026,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bandsaw-curves.jpg",
+    "coverAlt": "A bandsaw and curved wooden parts prepared for shaped cuts"
   },
   {
     "id": "150",
@@ -19858,7 +20156,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "151",
@@ -19985,7 +20285,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "152",
@@ -20108,7 +20410,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "153",
@@ -20237,7 +20541,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "154",
@@ -20359,7 +20665,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "155",
@@ -20487,7 +20795,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "156",
@@ -20608,7 +20918,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/joinery.jpg",
+    "coverAlt": "A study of precisely fitted dovetail, mortise-and-tenon, and dado joints"
   },
   {
     "id": "157",
@@ -20735,7 +21047,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plan-reading-design.jpg",
+    "coverAlt": "Woodworking plans, cut-list sketches, measuring tools, and a joinery sample on a workbench"
   },
   {
     "id": "158",
@@ -20897,7 +21211,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "159",
@@ -21026,7 +21342,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "160",
@@ -21194,7 +21512,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "161",
@@ -21323,7 +21643,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "162",
@@ -21446,7 +21768,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "163",
@@ -21573,7 +21897,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "164",
@@ -21702,7 +22028,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "165",
@@ -21831,7 +22159,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "166",
@@ -21961,7 +22291,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "167",
@@ -22088,7 +22420,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "168",
@@ -22216,7 +22550,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "169",
@@ -22342,7 +22678,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "170",
@@ -22468,7 +22806,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "171",
@@ -22596,7 +22936,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "172",
@@ -22756,7 +23098,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "173",
@@ -22924,7 +23268,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plan-reading-design.jpg",
+    "coverAlt": "Woodworking plans, cut-list sketches, measuring tools, and a joinery sample on a workbench"
   },
   {
     "id": "174",
@@ -23085,7 +23431,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "175",
@@ -23213,7 +23561,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "176",
@@ -23340,7 +23690,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "177",
@@ -23468,7 +23820,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "178",
@@ -23590,7 +23944,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "179",
@@ -23717,7 +24073,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "180",
@@ -23844,7 +24202,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "181",
@@ -23971,7 +24331,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "182",
@@ -24097,7 +24459,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "183",
@@ -24226,7 +24590,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "184",
@@ -24353,7 +24719,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "185",
@@ -24481,7 +24849,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "186",
@@ -24609,7 +24979,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "187",
@@ -24732,7 +25104,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "188",
@@ -24860,7 +25234,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "189",
@@ -25021,7 +25397,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "190",
@@ -25144,7 +25522,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "191",
@@ -25273,7 +25653,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "192",
@@ -25401,7 +25783,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "193",
@@ -25564,7 +25948,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "194",
@@ -25685,7 +26071,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "195",
@@ -25814,7 +26202,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/drill-press.jpg",
+    "coverAlt": "A drill press, drilling jig, and selection of woodworking bits on a bench"
   },
   {
     "id": "196",
@@ -25943,7 +26333,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lathe-turning.jpg",
+    "coverAlt": "A wood lathe surrounded by turned bowls, spindles, and fresh shavings"
   },
   {
     "id": "197",
@@ -26069,7 +26461,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lathe-turning.jpg",
+    "coverAlt": "A wood lathe surrounded by turned bowls, spindles, and fresh shavings"
   },
   {
     "id": "198",
@@ -26191,7 +26585,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lathe-turning.jpg",
+    "coverAlt": "A wood lathe surrounded by turned bowls, spindles, and fresh shavings"
   },
   {
     "id": "199",
@@ -26352,7 +26748,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lathe-turning.jpg",
+    "coverAlt": "A wood lathe surrounded by turned bowls, spindles, and fresh shavings"
   },
   {
     "id": "200",
@@ -26518,7 +26916,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lathe-turning.jpg",
+    "coverAlt": "A wood lathe surrounded by turned bowls, spindles, and fresh shavings"
   },
   {
     "id": "201",
@@ -26636,7 +27036,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "202",
@@ -26802,7 +27204,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "203",
@@ -26969,7 +27373,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "204",
@@ -27130,7 +27536,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "205",
@@ -27291,7 +27699,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "206",
@@ -27420,7 +27830,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "207",
@@ -27539,7 +27951,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "208",
@@ -27665,7 +28079,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "209",
@@ -27826,7 +28242,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "210",
@@ -27981,7 +28399,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "211",
@@ -28143,7 +28563,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "212",
@@ -28304,7 +28726,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "213",
@@ -28431,7 +28855,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "214",
@@ -28551,7 +28977,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "215",
@@ -28711,7 +29139,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "216",
@@ -28872,7 +29302,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/clamps-assembly-jigs.jpg",
+    "coverAlt": "Clamps, cauls, and assembly jigs holding a furniture glue-up square"
   },
   {
     "id": "217",
@@ -29032,7 +29464,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/clamps-assembly-jigs.jpg",
+    "coverAlt": "Clamps, cauls, and assembly jigs holding a furniture glue-up square"
   },
   {
     "id": "218",
@@ -29194,7 +29628,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "219",
@@ -29355,7 +29791,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/clamps-assembly-jigs.jpg",
+    "coverAlt": "Clamps, cauls, and assembly jigs holding a furniture glue-up square"
   },
   {
     "id": "220",
@@ -29516,7 +29954,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "221",
@@ -29676,7 +30116,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "222",
@@ -29837,7 +30279,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "223",
@@ -29998,7 +30442,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/clamps-assembly-jigs.jpg",
+    "coverAlt": "Clamps, cauls, and assembly jigs holding a furniture glue-up square"
   },
   {
     "id": "224",
@@ -30154,7 +30600,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "225",
@@ -30274,7 +30722,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/workbench.jpg",
+    "coverAlt": "A heavy handmade workbench with vises, bench dogs, and planing accessories"
   },
   {
     "id": "226",
@@ -30393,7 +30843,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "227",
@@ -30519,7 +30971,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "228",
@@ -30646,7 +31100,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "229",
@@ -30807,7 +31263,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "230",
@@ -30970,7 +31428,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "231",
@@ -31131,7 +31591,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "232",
@@ -31291,7 +31753,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "233",
@@ -31454,7 +31918,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "234",
@@ -31615,7 +32081,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "235",
@@ -31776,7 +32244,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "236",
@@ -31937,7 +32407,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "237",
@@ -32098,7 +32570,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "238",
@@ -32259,7 +32733,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "239",
@@ -32420,7 +32896,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "240",
@@ -32582,7 +33060,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "241",
@@ -32744,7 +33224,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "242",
@@ -32906,7 +33388,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "243",
@@ -33066,7 +33550,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/clamps-assembly-jigs.jpg",
+    "coverAlt": "Clamps, cauls, and assembly jigs holding a furniture glue-up square"
   },
   {
     "id": "244",
@@ -33224,7 +33710,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "245",
@@ -33385,7 +33873,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "246",
@@ -33542,7 +34032,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "247",
@@ -33702,7 +34194,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "248",
@@ -33826,7 +34320,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "249",
@@ -33952,7 +34448,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/measuring-layout.jpg",
+    "coverAlt": "Precision measuring and layout tools arranged around a marked hardwood board"
   },
   {
     "id": "250",
@@ -34075,7 +34573,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "251",
@@ -34195,7 +34695,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "252",
@@ -34322,7 +34824,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "253",
@@ -34449,7 +34953,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "254",
@@ -34573,7 +35079,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "255",
@@ -34734,7 +35242,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "256",
@@ -34897,7 +35407,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "257",
@@ -35024,7 +35536,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "258",
@@ -35150,7 +35664,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-layout.jpg",
+    "coverAlt": "An efficient small woodworking shop with clear work zones and machine placement"
   },
   {
     "id": "259",
@@ -35278,7 +35794,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "260",
@@ -35438,7 +35956,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "261",
@@ -35599,7 +36119,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "262",
@@ -35716,7 +36238,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "263",
@@ -35834,7 +36358,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "264",
@@ -35950,7 +36476,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "265",
@@ -36111,7 +36639,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "266",
@@ -36234,7 +36764,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "267",
@@ -36357,7 +36889,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "268",
@@ -36514,7 +37048,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "269",
@@ -36637,7 +37173,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "270",
@@ -36765,7 +37303,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "271",
@@ -36889,7 +37429,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "272",
@@ -37007,7 +37549,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "273",
@@ -37130,7 +37674,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "274",
@@ -37259,7 +37805,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "275",
@@ -37387,7 +37935,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lighting-electrical.jpg",
+    "coverAlt": "Bright workshop lighting and safely organized electrical service above a workbench"
   },
   {
     "id": "276",
@@ -37508,7 +38058,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "277",
@@ -37637,7 +38189,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "278",
@@ -37765,7 +38319,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "279",
@@ -37887,7 +38443,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "280",
@@ -38013,7 +38571,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "281",
@@ -38141,7 +38701,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "282",
@@ -38302,7 +38864,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "283",
@@ -38430,7 +38994,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "284",
@@ -38552,7 +39118,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "285",
@@ -38677,7 +39245,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "286",
@@ -38802,7 +39372,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "287",
@@ -38929,7 +39501,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "288",
@@ -39051,7 +39625,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "289",
@@ -39180,7 +39756,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "290",
@@ -39342,7 +39920,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "291",
@@ -39468,7 +40048,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "292",
@@ -39597,7 +40179,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "293",
@@ -39718,7 +40302,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "294",
@@ -39853,7 +40439,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "295",
@@ -39982,7 +40570,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "296",
@@ -40110,7 +40700,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "297",
@@ -40239,7 +40831,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "298",
@@ -40367,7 +40961,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "299",
@@ -40494,7 +41090,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "300",
@@ -40623,7 +41221,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "301",
@@ -40790,7 +41390,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/301-coffee-table.jpg",
+    "coverAlt": "Finished walnut coffee table with a lower shelf in a warm living room"
   },
   {
     "id": "302",
@@ -40952,7 +41554,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "303",
@@ -41121,7 +41725,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "304",
@@ -41284,7 +41890,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "305",
@@ -41446,7 +42054,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "306",
@@ -41609,7 +42219,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "307",
@@ -41776,7 +42388,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "308",
@@ -41938,7 +42552,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "309",
@@ -42100,7 +42716,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "310",
@@ -42266,7 +42884,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "311",
@@ -42434,7 +43054,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "312",
@@ -42601,7 +43223,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "313",
@@ -42763,7 +43387,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "314",
@@ -42925,7 +43551,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "315",
@@ -43089,7 +43717,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "316",
@@ -43257,7 +43887,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "317",
@@ -43419,7 +44051,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "318",
@@ -43580,7 +44214,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "319",
@@ -43740,7 +44376,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "320",
@@ -43902,7 +44540,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "321",
@@ -44063,7 +44703,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "322",
@@ -44226,7 +44868,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "323",
@@ -44388,7 +45032,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "324",
@@ -44551,7 +45197,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "325",
@@ -44716,7 +45364,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "326",
@@ -44883,7 +45533,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "327",
@@ -45046,7 +45698,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "328",
@@ -45208,7 +45862,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "329",
@@ -45370,7 +46026,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "330",
@@ -45498,7 +46156,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "331",
@@ -45621,7 +46281,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "332",
@@ -45783,7 +46445,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "333",
@@ -45945,7 +46609,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "334",
@@ -46105,7 +46771,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/living-room-furniture.jpg",
+    "coverAlt": "Handmade coffee, end, and console tables in a warm living-room setting"
   },
   {
     "id": "335",
@@ -46268,7 +46936,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "336",
@@ -46430,7 +47100,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "337",
@@ -46591,7 +47263,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "338",
@@ -46752,7 +47426,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "339",
@@ -46912,7 +47588,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dining-tables.jpg",
+    "coverAlt": "A handcrafted solid-wood dining table with a matching bench"
   },
   {
     "id": "340",
@@ -47073,7 +47751,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "341",
@@ -47234,7 +47914,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "342",
@@ -47401,7 +48083,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "343",
@@ -47562,7 +48246,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "344",
@@ -47724,7 +48410,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "345",
@@ -47887,7 +48575,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "346",
@@ -48053,7 +48743,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "347",
@@ -48216,7 +48908,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/chairs-seating.jpg",
+    "coverAlt": "Handmade dining, Adirondack, and shop seating displayed together"
   },
   {
     "id": "348",
@@ -48379,7 +49073,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kids-toys.jpg",
+    "coverAlt": "Smooth wooden blocks, child seating, a step stool, and a toy ramp"
   },
   {
     "id": "349",
@@ -48540,7 +49236,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "350",
@@ -48664,7 +49362,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "351",
@@ -48823,7 +49523,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "352",
@@ -48984,7 +49686,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "353",
@@ -49151,7 +49855,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "354",
@@ -49312,7 +50018,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "355",
@@ -49473,7 +50181,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "356",
@@ -49634,7 +50344,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "357",
@@ -49795,7 +50507,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "358",
@@ -49964,7 +50678,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "359",
@@ -50127,7 +50843,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "360",
@@ -50288,7 +51006,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "361",
@@ -50450,7 +51170,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "362",
@@ -50612,7 +51334,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bedroom-furniture.jpg",
+    "coverAlt": "A handmade platform bed, nightstand, and dresser built from warm hardwood"
   },
   {
     "id": "363",
@@ -50772,7 +51496,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "364",
@@ -50934,7 +51660,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "365",
@@ -51094,7 +51822,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "366",
@@ -51261,7 +51991,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "367",
@@ -51423,7 +52155,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "368",
@@ -51591,7 +52325,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "369",
@@ -51752,7 +52488,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/bookcases-media.jpg",
+    "coverAlt": "A handmade bookcase and low media console with refined solid-wood details"
   },
   {
     "id": "370",
@@ -51914,7 +52652,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "371",
@@ -52076,7 +52816,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "372",
@@ -52237,7 +52979,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "373",
@@ -52398,7 +53142,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/desk-accessories-decor.jpg",
+    "coverAlt": "Handmade wood phone, tablet, and headphone stands with a desk lamp and organizer"
   },
   {
     "id": "374",
@@ -52553,7 +53299,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "375",
@@ -52720,7 +53468,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/office-furniture.jpg",
+    "coverAlt": "A handmade walnut desk, monitor riser, and rolling file cabinet"
   },
   {
     "id": "376",
@@ -52879,7 +53629,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "377",
@@ -53041,7 +53793,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shop-storage.jpg",
+    "coverAlt": "Organized wall storage, lumber racks, rolling carts, and tool cabinets in a small shop"
   },
   {
     "id": "378",
@@ -53163,7 +53917,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "379",
@@ -53326,7 +54082,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "380",
@@ -53488,7 +54246,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "381",
@@ -53648,7 +54408,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "382",
@@ -53776,7 +54538,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "383",
@@ -53904,7 +54668,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "384",
@@ -54065,7 +54831,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "385",
@@ -54225,7 +54993,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "386",
@@ -54354,7 +55124,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "387",
@@ -54515,7 +55287,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "388",
@@ -54676,7 +55450,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "389",
@@ -54844,7 +55620,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "390",
@@ -55005,7 +55783,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "391",
@@ -55161,7 +55941,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "392",
@@ -55323,7 +56105,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "393",
@@ -55484,7 +56268,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "394",
@@ -55646,7 +56432,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "395",
@@ -55809,7 +56597,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "396",
@@ -55976,7 +56766,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "397",
@@ -56132,7 +56924,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "398",
@@ -56299,7 +57093,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kitchen-bath.jpg",
+    "coverAlt": "A handcrafted butcher-block island and compact wood vanity cabinet"
   },
   {
     "id": "399",
@@ -56426,7 +57222,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cabinets-drawers.jpg",
+    "coverAlt": "A Shaker cabinet with an open door and a dovetailed drawer"
   },
   {
     "id": "400",
@@ -56555,7 +57353,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "401",
@@ -56726,7 +57526,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/planters-garden.jpg",
+    "coverAlt": "Cedar raised beds, planters, and a potting bench in a garden workshop"
   },
   {
     "id": "402",
@@ -56892,7 +57694,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/planters-garden.jpg",
+    "coverAlt": "Cedar raised beds, planters, and a potting bench in a garden workshop"
   },
   {
     "id": "403",
@@ -57059,7 +57863,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/planters-garden.jpg",
+    "coverAlt": "Cedar raised beds, planters, and a potting bench in a garden workshop"
   },
   {
     "id": "404",
@@ -57231,7 +58037,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/planters-garden.jpg",
+    "coverAlt": "Cedar raised beds, planters, and a potting bench in a garden workshop"
   },
   {
     "id": "405",
@@ -57397,7 +58205,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/planters-garden.jpg",
+    "coverAlt": "Cedar raised beds, planters, and a potting bench in a garden workshop"
   },
   {
     "id": "406",
@@ -57570,7 +58380,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "407",
@@ -57736,7 +58548,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "408",
@@ -57903,7 +58717,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "409",
@@ -58069,7 +58885,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "410",
@@ -58232,7 +59050,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "411",
@@ -58394,7 +59214,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "412",
@@ -58560,7 +59382,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "413",
@@ -58732,7 +59556,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "414",
@@ -58898,7 +59724,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "415",
@@ -59063,7 +59891,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "416",
@@ -59226,7 +60056,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "417",
@@ -59392,7 +60224,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "418",
@@ -59558,7 +60392,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/shelving.jpg",
+    "coverAlt": "Handmade floating and bracketed wood shelves displayed in a workshop setting"
   },
   {
     "id": "419",
@@ -59725,7 +60561,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wildlife-garden.jpg",
+    "coverAlt": "Cedar bird, bat, feeder, and pollinator houses on a workbench"
   },
   {
     "id": "420",
@@ -59890,7 +60728,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wildlife-garden.jpg",
+    "coverAlt": "Cedar bird, bat, feeder, and pollinator houses on a workbench"
   },
   {
     "id": "421",
@@ -60058,7 +60898,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wildlife-garden.jpg",
+    "coverAlt": "Cedar bird, bat, feeder, and pollinator houses on a workbench"
   },
   {
     "id": "422",
@@ -60219,7 +61061,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wildlife-garden.jpg",
+    "coverAlt": "Cedar bird, bat, feeder, and pollinator houses on a workbench"
   },
   {
     "id": "423",
@@ -60385,7 +61229,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "424",
@@ -60552,7 +61398,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "425",
@@ -60681,7 +61529,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/outdoor-furniture.jpg",
+    "coverAlt": "Handmade cedar patio seating and a slatted outdoor side table"
   },
   {
     "id": "426",
@@ -60836,7 +61686,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "427",
@@ -60998,7 +61850,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "428",
@@ -61159,7 +62013,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "429",
@@ -61319,7 +62175,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "430",
@@ -61487,7 +62345,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "431",
@@ -61648,7 +62508,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "432",
@@ -61810,7 +62672,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "433",
@@ -61971,7 +62835,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/frames-displays.jpg",
+    "coverAlt": "Handmade picture frames, a shadow box, wood clock, and key holder"
   },
   {
     "id": "434",
@@ -62134,7 +63000,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/frames-displays.jpg",
+    "coverAlt": "Handmade picture frames, a shadow box, wood clock, and key holder"
   },
   {
     "id": "435",
@@ -62296,7 +63164,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/frames-displays.jpg",
+    "coverAlt": "Handmade picture frames, a shadow box, wood clock, and key holder"
   },
   {
     "id": "436",
@@ -62458,7 +63328,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/desk-accessories-decor.jpg",
+    "coverAlt": "Handmade wood phone, tablet, and headphone stands with a desk lamp and organizer"
   },
   {
     "id": "437",
@@ -62621,7 +63493,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/desk-accessories-decor.jpg",
+    "coverAlt": "Handmade wood phone, tablet, and headphone stands with a desk lamp and organizer"
   },
   {
     "id": "438",
@@ -62783,7 +63657,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/desk-accessories-decor.jpg",
+    "coverAlt": "Handmade wood phone, tablet, and headphone stands with a desk lamp and organizer"
   },
   {
     "id": "439",
@@ -62943,7 +63819,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/desk-accessories-decor.jpg",
+    "coverAlt": "Handmade wood phone, tablet, and headphone stands with a desk lamp and organizer"
   },
   {
     "id": "440",
@@ -63106,7 +63984,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/frames-displays.jpg",
+    "coverAlt": "Handmade picture frames, a shadow box, wood clock, and key holder"
   },
   {
     "id": "441",
@@ -63269,7 +64149,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/frames-displays.jpg",
+    "coverAlt": "Handmade picture frames, a shadow box, wood clock, and key holder"
   },
   {
     "id": "442",
@@ -63429,7 +64311,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kids-toys.jpg",
+    "coverAlt": "Smooth wooden blocks, child seating, a step stool, and a toy ramp"
   },
   {
     "id": "443",
@@ -63592,7 +64476,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kids-toys.jpg",
+    "coverAlt": "Smooth wooden blocks, child seating, a step stool, and a toy ramp"
   },
   {
     "id": "444",
@@ -63755,7 +64641,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kids-toys.jpg",
+    "coverAlt": "Smooth wooden blocks, child seating, a step stool, and a toy ramp"
   },
   {
     "id": "445",
@@ -63917,7 +64805,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/kids-toys.jpg",
+    "coverAlt": "Smooth wooden blocks, child seating, a step stool, and a toy ramp"
   },
   {
     "id": "446",
@@ -64079,7 +64969,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/pet-furniture.jpg",
+    "coverAlt": "A raised pet feeder, wood pet bed, and padded cat window perch"
   },
   {
     "id": "447",
@@ -64240,7 +65132,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/pet-furniture.jpg",
+    "coverAlt": "A raised pet feeder, wood pet bed, and padded cat window perch"
   },
   {
     "id": "448",
@@ -64403,7 +65297,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/pet-furniture.jpg",
+    "coverAlt": "A raised pet feeder, wood pet bed, and padded cat window perch"
   },
   {
     "id": "449",
@@ -64565,7 +65461,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "450",
@@ -64734,7 +65632,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/small-gifts-boxes.jpg",
+    "coverAlt": "A walnut keepsake box, jewelry box, serving board, and valet tray"
   },
   {
     "id": "451",
@@ -64854,7 +65754,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-species.jpg",
+    "coverAlt": "Walnut, oak, maple, cherry, poplar, and pine boards showing distinct grain"
   },
   {
     "id": "452",
@@ -64977,7 +65879,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "453",
@@ -65104,7 +66008,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "454",
@@ -65233,7 +66139,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "455",
@@ -65360,7 +66268,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-species.jpg",
+    "coverAlt": "Walnut, oak, maple, cherry, poplar, and pine boards showing distinct grain"
   },
   {
     "id": "456",
@@ -65489,7 +66399,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-species.jpg",
+    "coverAlt": "Walnut, oak, maple, cherry, poplar, and pine boards showing distinct grain"
   },
   {
     "id": "457",
@@ -65613,7 +66525,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-species.jpg",
+    "coverAlt": "Walnut, oak, maple, cherry, poplar, and pine boards showing distinct grain"
   },
   {
     "id": "458",
@@ -65740,7 +66654,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/finishing.jpg",
+    "coverAlt": "Wood finish being applied to rich hardwood samples beside finishing supplies"
   },
   {
     "id": "459",
@@ -65868,7 +66784,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "460",
@@ -65989,7 +66907,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "461",
@@ -66111,7 +67031,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "462",
@@ -66240,7 +67162,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "463",
@@ -66368,7 +67292,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "464",
@@ -66485,7 +67411,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "465",
@@ -66607,7 +67535,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/wood-movement.jpg",
+    "coverAlt": "Boards showing different grain orientations and one example of wood movement"
   },
   {
     "id": "466",
@@ -66735,7 +67665,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "467",
@@ -66863,7 +67795,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "468",
@@ -66985,7 +67919,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "469",
@@ -67111,7 +68047,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "470",
@@ -67239,7 +68177,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "471",
@@ -67366,7 +68306,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "472",
@@ -67495,7 +68437,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "473",
@@ -67622,7 +68566,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "474",
@@ -67755,7 +68701,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/repair.jpg",
+    "coverAlt": "A damaged wooden furniture joint being carefully repaired on a workbench"
   },
   {
     "id": "475",
@@ -67890,7 +68838,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/lumber-selection.jpg",
+    "coverAlt": "A selection of rough and surfaced lumber being inspected on a workshop bench"
   },
   {
     "id": "476",
@@ -68017,7 +68967,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "477",
@@ -68144,7 +69096,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "478",
@@ -68273,7 +69227,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/table-saw-jigs.jpg",
+    "coverAlt": "A table saw with a crosscut sled and precision shop-made cutting jigs"
   },
   {
     "id": "479",
@@ -68402,7 +69358,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "480",
@@ -68531,7 +69489,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "481",
@@ -68658,7 +69618,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/176-jointer-planer.jpg",
+    "coverAlt": "Jointer and thickness planer positioned side by side in a woodworking shop"
   },
   {
     "id": "482",
@@ -68791,7 +69753,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/dust-safety.jpg",
+    "coverAlt": "Woodworking dust collection equipment and essential shop safety gear"
   },
   {
     "id": "483",
@@ -68924,7 +69888,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "484",
@@ -69059,7 +70025,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "485",
@@ -69193,7 +70161,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "486",
@@ -69322,7 +70292,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/cnc.jpg",
+    "coverAlt": "A compact CNC router cutting a precise pattern into a hardwood panel"
   },
   {
     "id": "487",
@@ -69463,7 +70435,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "488",
@@ -69591,7 +70565,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "489",
@@ -69720,7 +70696,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/miter-circular-track-saws.jpg",
+    "coverAlt": "Miter, circular, and track saw cutting setups in a tidy woodworking shop"
   },
   {
     "id": "490",
@@ -69849,7 +70827,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "491",
@@ -69978,7 +70958,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/hand-tools-sharpening.jpg",
+    "coverAlt": "Sharp chisels, waterstones, and honing tools arranged for hand-tool maintenance"
   },
   {
     "id": "492",
@@ -70107,7 +71089,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/power-tool-buying.jpg",
+    "coverAlt": "A table saw, planer, jointer, router, and dust extractor in a small workshop"
   },
   {
     "id": "493",
@@ -70228,7 +71212,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/glue-up.jpg",
+    "coverAlt": "A carefully clamped furniture glue-up with wood glue and alignment cauls"
   },
   {
     "id": "494",
@@ -70357,7 +71343,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/plywood-sheet-goods.jpg",
+    "coverAlt": "Plywood, MDF, veneer-core, and particleboard samples showing their edges"
   },
   {
     "id": "495",
@@ -70485,7 +71473,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/151-router-comparison.jpg",
+    "coverAlt": "Compact trim router and full-size plunge router compared side by side"
   },
   {
     "id": "496",
@@ -70614,7 +71604,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/guides/276-sandpaper-grits.jpg",
+    "coverAlt": "Coarse, medium, and fine abrasives beside a walnut sanding progression"
   },
   {
     "id": "497",
@@ -70737,7 +71729,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/woodworking-education.jpg",
+    "coverAlt": "Plans, drafting tools, joinery samples, and a tablet arranged for woodworking study"
   },
   {
     "id": "498",
@@ -70855,7 +71849,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/woodworking-education.jpg",
+    "coverAlt": "Plans, drafting tools, joinery samples, and a tablet arranged for woodworking study"
   },
   {
     "id": "499",
@@ -70973,7 +71969,9 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/woodworking-education.jpg",
+    "coverAlt": "Plans, drafting tools, joinery samples, and a tablet arranged for woodworking study"
   },
   {
     "id": "500",
@@ -71101,6 +72099,8 @@
         "safety review",
         "measurement and cut-list verification where applicable"
       ]
-    }
+    },
+    "coverImage": "/images/library/woodworking-education.jpg",
+    "coverAlt": "Plans, drafting tools, joinery samples, and a tablet arranged for woodworking study"
   }
 ]

@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && tsx scripts/prerender.ts",
     "content:validate": "node scripts/validate-content.mjs content/guides.json --expected=500",
+    "content:assign-covers": "node scripts/assign-guide-covers.mjs --file content/guides.json",
     "content:generate": "node scripts/generate-content.mjs --limit=500",
     "content:import:dry": "node scripts/import-guides.mjs --dry-run --file content/guides.json",
     "content:import": "node scripts/import-guides.mjs --commit --file content/guides.json",

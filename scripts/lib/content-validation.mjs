@@ -9,6 +9,8 @@ const requiredTextFields = [
   'dek',
   'seoTitle',
   'metaDescription',
+  'coverImage',
+  'coverAlt',
   'categoryId',
   'clusterId',
   'intent',
