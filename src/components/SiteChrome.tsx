@@ -181,12 +181,15 @@ function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-walnut/10 bg-paper/95 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-5 sm:px-8">
-          <Link to="/" className="flex items-center gap-3" aria-label="Built True Workshop home">
-            <BrandMark />
-            <span className="leading-none">
-              <span className="block font-display text-[17px] font-black tracking-[-0.02em] text-walnut">Built True</span>
-              <span className="mt-1 block text-[10px] font-extrabold uppercase tracking-[0.22em] text-steel">Workshop</span>
-            </span>
+          <Link to="/" className="flex shrink-0 items-center" aria-label="Built True Workshop home">
+            <img
+              src="/brand/built-true-workshop-logo-v4.png"
+              alt=""
+              width="2146"
+              height="733"
+              fetchPriority="high"
+              className="h-[3.4rem] w-auto max-w-[180px] object-contain object-left sm:h-[3.75rem] sm:max-w-[205px]"
+            />
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
