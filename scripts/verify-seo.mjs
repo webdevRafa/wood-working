@@ -73,13 +73,16 @@ for (const path of requiredPublicPaths) {
   }
 }
 
-const savedUrl = expectedUrl('/saved/')
-if (sitemapSet.has(savedUrl)) failures.push('/saved/: personalized route must not be included in the sitemap.')
-try {
-  const savedHtml = await htmlFor('/saved/')
-  if (!savedHtml.includes('<meta name="robots" content="noindex,follow" />')) failures.push('/saved/: personalized route must remain noindex,follow.')
-} catch {
-  failures.push('/saved/: prerendered personalized route is missing.')
+const privateNoindexPaths = ['/saved/', '/search/']
+for (const path of privateNoindexPaths) {
+  const url = expectedUrl(path)
+  if (sitemapSet.has(url)) failures.push(`${path}: utility route must not be included in the sitemap.`)
+  try {
+    const html = await htmlFor(path)
+    if (!html.includes('<meta name="robots" content="noindex,follow" />')) failures.push(`${path}: utility route must remain noindex,follow.`)
+  } catch {
+    failures.push(`${path}: prerendered utility route is missing.`)
+  }
 }
 
 const expectedSitemapUrls = indexableGuides + requiredPublicPaths.length
@@ -93,7 +96,7 @@ console.log(JSON.stringify({
   indexableGuides,
   prerenderedPublicRoutes: guides.length + requiredPublicPaths.length,
   sitemapUrls: sitemapUrls.length,
-  privateNoindexRoutes: 1,
+  privateNoindexRoutes: privateNoindexPaths.length,
   siteUrl,
 }, null, 2))
 

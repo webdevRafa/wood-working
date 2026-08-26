@@ -7,6 +7,7 @@ const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ defau
 const HubPage = lazy(() => import('./pages/HubPage').then((module) => ({ default: module.HubPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })))
 const SavedPage = lazy(() => import('./pages/SavedPage').then((module) => ({ default: module.SavedPage })))
+const SearchPage = lazy(() => import('./pages/SearchPage').then((module) => ({ default: module.SearchPage })))
 const StartHerePage = lazy(() => import('./pages/StartHerePage').then((module) => ({ default: module.StartHerePage })))
 const StaticPage = lazy(() => import('./pages/StaticPage').then((module) => ({ default: module.StaticPage })))
 
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="start-here" element={<StartHerePage />} />
         <Route path="saved" element={<SavedPage />} />
+        <Route path="search" element={<SearchPage />} />
 
         <Route path="projects" element={<HubPage eyebrow="Make something useful" title="Projects" description="Source-backed project plans organized around realistic difficulty, coherent dimensions, tool paths, cut lists, and safer checkpoints." types={['project']} />} />
         <Route path="projects/:slug" element={<GuidePage />} />

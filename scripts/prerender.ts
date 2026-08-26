@@ -106,6 +106,7 @@ const staticPages = [
 for (const [path, title, description] of staticPages) pages.push({ path, title, description, body: `<main data-prerendered="static"><h1>${escapeHtml(title.split(' | ')[0])}</h1><p>${escapeHtml(description)}</p></main>` })
 for (const [path, title, description] of [
   ['/saved/', 'Saved Guides | Built True Workshop', 'Your private saved woodworking guides.'],
+  ['/search/', 'Search Woodworking Guides | Built True Workshop', 'Search the complete Built True Workshop guide library.'],
 ] as const) pages.push({ path, title, description, noindex: true, body: `<main data-prerendered="private"><h1>${escapeHtml(title.split(' | ')[0])}</h1><p>${escapeHtml(description)}</p></main>` })
 
 for (const guide of guides) {
