@@ -13,6 +13,7 @@ type Page = {
   title: string
   description: string
   image?: string
+  lastmod?: string
   noindex?: boolean
   body: string
   jsonLd?: Record<string, unknown>
@@ -69,12 +70,12 @@ const staticPages = [
   ['/affiliate-disclosure/', 'Affiliate Disclosure | Built True Workshop', 'How affiliate links support Built True Workshop and how paid relationships are disclosed.'],
   ['/corrections/', 'Corrections | Built True Workshop', 'How to report a problem and how Built True Workshop reviews and corrects its guidance.'],
   ['/accessibility/', 'Accessibility | Built True Workshop', 'Built True Workshop accessibility standards and how to report a barrier.'],
+  ['/privacy/', 'Privacy | Built True Workshop', 'How Built True Workshop handles account, saved-guide, and usage data.'],
+  ['/terms/', 'Terms | Built True Workshop', 'Terms for using Built True Workshop guides and third-party product information.'],
 ] as const
 
 for (const [path, title, description] of staticPages) pages.push({ path, title, description, body: `<main data-prerendered="static"><h1>${escapeHtml(title.split(' | ')[0])}</h1><p>${escapeHtml(description)}</p></main>` })
 for (const [path, title, description] of [
-  ['/privacy/', 'Privacy | Built True Workshop', 'Built True Workshop privacy policy draft.'],
-  ['/terms/', 'Terms | Built True Workshop', 'Built True Workshop terms of use draft.'],
   ['/saved/', 'Saved Guides | Built True Workshop', 'Your private saved woodworking guides.'],
 ] as const) pages.push({ path, title, description, noindex: true, body: `<main data-prerendered="private"><h1>${escapeHtml(title.split(' | ')[0])}</h1><p>${escapeHtml(description)}</p></main>` })
 
@@ -84,6 +85,7 @@ for (const guide of guides) {
     title: guide.seoTitle,
     description: guide.metaDescription,
     image: guide.coverImage,
+    lastmod: guide.updatedAt,
     noindex: guide.indexStatus !== 'index',
     body: guideBody(guide),
     jsonLd: articleJsonLd(guide),
@@ -104,7 +106,7 @@ function render(page: Page) {
     .replace(/<meta\s+name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${escapeHtml(image)}" />`)
     .replace('<div id="root"></div>', `<div id="root">${page.body}</div>`)
 
-  const headExtras = `<link rel="canonical" href="${escapeHtml(canonical)}" /><meta name="robots" content="${page.noindex ? 'noindex,follow' : 'index,follow'}" />${page.jsonLd ? `<script type="application/ld+json">${JSON.stringify(page.jsonLd).replace(/</g, '\\u003c')}</script>` : ''}`
+  const headExtras = `<link rel="canonical" href="${escapeHtml(canonical)}" /><meta property="og:url" content="${escapeHtml(canonical)}" /><meta name="robots" content="${page.noindex ? 'noindex,follow' : 'index,follow'}" />${page.jsonLd ? `<script type="application/ld+json">${JSON.stringify(page.jsonLd).replace(/</g, '\\u003c')}</script>` : ''}`
   html = html.replace('</head>', `    ${headExtras}\n  </head>`)
   return html
 }
@@ -116,7 +118,7 @@ for (const page of pages) {
 }
 
 const sitemapPages = pages.filter((page) => !page.noindex)
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPages.map((page) => `  <url><loc>${escapeHtml(absolute(page.path))}</loc></url>`).join('\n')}\n</urlset>\n`
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapPages.map((page) => `  <url><loc>${escapeHtml(absolute(page.path))}</loc>${page.lastmod ? `<lastmod>${escapeHtml(page.lastmod.slice(0, 10))}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`
 await writeFile(join(outputDir, 'sitemap.xml'), sitemap, 'utf8')
 await writeFile(join(outputDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${absolute('/sitemap.xml')}\n`, 'utf8')
 console.log(`Prerendered ${pages.length} routes and ${sitemapPages.length} sitemap URLs for ${siteUrl}.`)

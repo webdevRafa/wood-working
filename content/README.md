@@ -5,10 +5,10 @@
 Every generated record intentionally begins as:
 
 - `status: draft`
-- `indexStatus: noindex`
+- `indexStatus: index`
 - `evidenceStatus: brief`
 
-Generation creates a substantial, topic-aware editorial draft—not permission to publish. Before a guide can move to `published` and `index`, it needs original evidence, primary sources, verified measurements/cut lists where applicable, human technical review, and qualified safety review when the subject requires it.
+Generation creates a substantial, topic-aware public editorial preview—not permission to label it published or reviewed. Previews are crawlable so every canonical guide path can participate in discovery, while their draft and evidence labels remain visible. Before a guide can move to `published`, it still needs original evidence, primary sources, verified measurements/cut lists where applicable, human technical review, and qualified safety review when the subject requires it.
 
 Regenerate a batch with:
 

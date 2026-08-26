@@ -53,6 +53,7 @@ try {
   ])
   const guideById = new Map(guideSnapshot.docs.map((document) => [document.id, document.data()]))
   const routeProblems = []
+  let indexableGuides = 0
 
   for (const indexDocument of indexSnapshot.docs) {
     const indexGuide = indexDocument.data()
@@ -64,6 +65,8 @@ try {
     if (guide.slug !== indexGuide.slug) routeProblems.push(`${indexDocument.id}: discovery and guide slugs differ`)
     if (guide.canonicalPath !== indexGuide.canonicalPath) routeProblems.push(`${indexDocument.id}: canonical paths differ`)
     if (!guide.coverImage || !guide.coverAlt) routeProblems.push(`${indexDocument.id}: cover metadata is missing`)
+    if (guide.indexStatus !== 'index' || indexGuide.indexStatus !== 'index') routeProblems.push(`${indexDocument.id}: guide and discovery records must both be indexable`)
+    else indexableGuides += 1
   }
 
   const sampleIndexes = [...new Set([0, Math.floor(indexSnapshot.size / 2), indexSnapshot.size - 1])]
@@ -82,12 +85,14 @@ try {
   const stats = {
     discoveryRecords: indexSnapshot.size,
     fullGuides: guideSnapshot.size,
+    indexableGuides,
     openableRoutes: indexSnapshot.size - routeProblems.length,
     routeProblems: routeProblems.length,
   }
   console.log(JSON.stringify(stats, null, 2))
   if (expected !== undefined && indexSnapshot.size !== expected) throw new Error(`Expected ${expected} public discovery records; found ${indexSnapshot.size}.`)
   if (expected !== undefined && guideSnapshot.size !== expected) throw new Error(`Expected ${expected} public guides; found ${guideSnapshot.size}.`)
+  if (expected !== undefined && indexableGuides !== expected) throw new Error(`Expected ${expected} indexable public guides; found ${indexableGuides}.`)
   if (routeProblems.length) throw new Error(`Public library verification failed: ${routeProblems.slice(0, 20).join('; ')}`)
   console.log('Public Firebase guide verification passed.')
 } finally {

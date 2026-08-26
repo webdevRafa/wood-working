@@ -26,7 +26,7 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     eyebrow: 'Editorial policy', title: 'Useful enough to finish the job', description: 'Every indexable guide must help a real reader complete a task without returning to search for missing basics.',
     sections: [
       { heading: 'Original value is required', body: ['A page must add a verified build, measurement, calculation, diagram, test, failure analysis, decision framework, or qualified experience. Rephrasing existing search results is not enough.'] },
-      { heading: 'Draft is a real status', body: ['Bulk-generated briefs remain noindex and visibly labeled until dimensions, steps, safety notes, sources, and product claims pass editorial review. A successful database import is never the same as publication.'] },
+      { heading: 'Draft is a real status', body: ['Public editorial previews are crawlable and visibly labeled while dimensions, steps, safety notes, sources, and product claims continue through review. Search visibility and a successful database import are never the same as publication or hands-on verification.'] },
       { heading: 'Corrections stay visible', body: ['We correct consequential errors promptly and maintain a change note on material revisions. Readers can report unclear steps, wrong dimensions, broken links, or unsafe guidance from every guide.'] },
     ],
   },
@@ -72,6 +72,6 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
 
 export function StaticPage({ pageKey }: { pageKey: StaticPageKey }) {
   const page = pages[pageKey]
-  usePageMeta(`${page.title} | Built True Workshop`, page.description, ['privacy', 'terms'].includes(pageKey))
+  usePageMeta(`${page.title} | Built True Workshop`, page.description)
   return <main><header className="bg-sawdust py-16 sm:py-24"><div className="mx-auto max-w-4xl px-5 sm:px-8"><p className="section-label">{page.eyebrow}</p><h1 className="mt-4 font-display text-[clamp(3rem,7vw,5.8rem)] font-black leading-[0.92] tracking-[-0.05em] text-walnut">{page.title}</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-steel">{page.description}</p></div></header><div className="mx-auto max-w-4xl px-5 py-12 sm:px-8 sm:py-16">{page.sections.map((section) => <section key={section.heading} className="border-t border-walnut/10 py-9 first:border-0 first:pt-0"><h2 className="font-display text-3xl font-black tracking-tight text-walnut">{section.heading}</h2>{section.body.map((paragraph) => <p key={paragraph} className="mt-5 max-w-3xl text-[17px] leading-8 text-charcoal/85">{paragraph}</p>)}</section>)}<div className="mt-8 rounded-2xl bg-walnut p-7 text-paper"><p className="font-display text-2xl font-black">Something unclear or wrong?</p><p className="mt-2 text-sm leading-6 text-paper/65">We would rather correct the record than defend a weak sentence.</p><Link to="/corrections/" className="mt-5 inline-flex rounded-full bg-amber px-5 py-3 text-sm font-black text-walnut">Open the corrections guide</Link></div></div></main>
 }

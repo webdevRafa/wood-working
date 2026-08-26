@@ -24,7 +24,7 @@ function createGuide(input: GuideInput): Guide {
     ...input,
     canonicalPath: `/${input.type === 'project' ? 'projects' : input.type === 'shop' ? 'shop' : input.type === 'material' ? 'materials' : input.type === 'review' || input.type === 'comparison' ? 'tools' : 'skills'}/${input.slug}/`,
     status: 'review',
-    indexStatus: 'noindex',
+    indexStatus: 'index',
     affiliateDisclosure: disclosure,
     prerequisiteIds: [],
     relatedGuideIds: [],

@@ -157,7 +157,7 @@ const entries = allItems.slice(0, limit).map(({ id, title, intentLabel, offers, 
     canonicalPath: `/${canonicalSection(type)}/${slug}/`,
     type,
     status: 'draft',
-    indexStatus: 'noindex',
+    indexStatus: 'index',
     title,
     dek: intent === 'build' ? `A workshop-ready editorial draft for ${subject.toLowerCase()}, organized around the decisions, setup checks, failure points, and proof needed before publication.` : intent === 'buy' ? `A scenario-based decision guide for ${subject.toLowerCase()}, including total ownership cost, a comparable test plan, and clear reasons to choose—or skip—each route.` : `A practical lesson in ${subject.toLowerCase()} built around stable references, controlled practice, visible success cues, and useful troubleshooting.`,
     seoTitle: title.length <= 57 ? `${title} | Built True` : `${title.slice(0, 54).replace(/\s+\S*$/, '')} | Built True`,
@@ -208,4 +208,4 @@ for (const guide of entries) {
 
 await mkdir(dirname(outputPath), { recursive: true })
 await writeFile(outputPath, `${JSON.stringify(entries, null, 2)}\n`, 'utf8')
-console.log(`Generated ${entries.length} noindex editorial drafts at ${outputPath}.`)
+console.log(`Generated ${entries.length} crawlable editorial drafts at ${outputPath}.`)
