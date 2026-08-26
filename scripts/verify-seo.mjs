@@ -43,6 +43,13 @@ for (const guide of guides) {
   if (!html.includes(`<meta property="og:url" content="${canonical}" />`)) failures.push(`${label}: Open Graph URL is missing or incorrect.`)
   if (!html.includes('<script type="application/ld+json">')) failures.push(`${label}: Article structured data is missing.`)
   if (!html.includes('data-prerendered="guide"')) failures.push(`${label}: guide content was not included in the initial HTML.`)
+  if (guide.intent === 'build' && (!html.includes('<h2>Cut list</h2>') || !html.includes('<table>'))) failures.push(`${label}: project cut list was not included in the initial HTML.`)
+  if (!html.includes('<h2>Continue learning</h2>')) failures.push(`${label}: contextual internal links were not included in the initial HTML.`)
+  for (const relatedId of guide.relatedGuideIds) {
+    const related = guides.find((candidate) => candidate.id === relatedId)
+    if (!related || !html.includes(`href="${related.canonicalPath}"`)) failures.push(`${label}: related guide ${relatedId} is missing from the initial HTML.`)
+  }
+  if (/editorial preview|editorial draft|do not publish|before publication/i.test(html)) failures.push(`${label}: internal editorial language leaked into the initial HTML.`)
 }
 
 const requiredPublicPaths = [
