@@ -39,7 +39,7 @@ export function usePublishedGuide(slug: string) {
         if (active) setResult({ slug, guide: snapshot.empty ? undefined : normalizeGuide(snapshot.docs[0].data()), settled: true })
       })
       .catch(() => {
-        // The local editorial sample is still available while Firebase is offline or awaiting rule deployment.
+        // The local reader guide is still available while Firebase is offline or awaiting rule deployment.
         if (active) setResult({ slug, settled: true })
       })
     return () => {

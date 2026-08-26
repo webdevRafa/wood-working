@@ -16,7 +16,7 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     title: 'How we test, research, and make recommendations',
     description: 'A recommendation earns its place through a clear use case, relevant evidence, real limitations, and an honest alternative.',
     sections: [
-      { heading: 'We label the evidence', body: ['Hands-on testing, research-based guidance, and editorial drafts are different things. We show the status instead of borrowing authority the work has not earned.', 'A hands-on review documents the model, setup, material, consumables, test date, repeated results, and limitations. A research guide cites primary manufacturer and safety sources and does not use first-person claims.'] },
+      { heading: 'Claims must match the evidence', body: ['We describe a tool as tested only when the model, setup, material, consumables, date, repeated results, and limitations were documented. Otherwise, the guidance is presented as research and decision criteria—not borrowed first-hand authority.', 'A useful comparison separates current manufacturer specifications from observations that would require hands-on work. It also states who should skip the purchase and what lower-cost method solves the same problem.'] },
       { heading: 'We choose by reader fit', body: ['Products are selected because they are relevant to the buyer decision—not because the commission is attractive. We explain who should choose the product, who should skip it, and what less-expensive route solves the same problem.'] },
       { heading: 'We count ownership cost', body: ['The usable system includes blades, bits, batteries, rails, adapters, dust collection, stands, required accessories, floor space, power, and recurring consumables. Those details matter more than a sale sticker.'] },
       { heading: 'We revisit the verdict', body: ['A model change, recall, meaningful price-class change, discontinued part, or strong reader correction triggers review. Dates change only when the substance changes.'] },
@@ -26,7 +26,8 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     eyebrow: 'Editorial policy', title: 'Useful enough to finish the job', description: 'Every indexable guide must help a real reader complete a task without returning to search for missing basics.',
     sections: [
       { heading: 'Original value is required', body: ['A page must add a verified build, measurement, calculation, diagram, test, failure analysis, decision framework, or qualified experience. Rephrasing existing search results is not enough.'] },
-      { heading: 'Draft is a real status', body: ['Public editorial previews are crawlable and visibly labeled while dimensions, steps, safety notes, sources, and product claims continue through review. Search visibility and a successful database import are never the same as publication or hands-on verification.'] },
+      { heading: 'The title is a contract', body: ['A numbered title contains the promised number of useful items. A budget guide contains a real line-item budget. A project includes starting dimensions, materials, a cut list, an assembly order, and mistakes to avoid. A comparison explains the tradeoffs instead of manufacturing a universal winner.'] },
+      { heading: 'Specific beats padded', body: ['Guides prioritize measurements, compatibility, grain, cutter or abrasive choices, setup references, cost, and visible success checks. Repeated filler and interchangeable conclusions are removed even when that produces a shorter page.'] },
       { heading: 'Corrections stay visible', body: ['We correct consequential errors promptly and maintain a change note on material revisions. Readers can report unclear steps, wrong dimensions, broken links, or unsafe guidance from every guide.'] },
     ],
   },
@@ -46,7 +47,7 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     ],
   },
   privacy: {
-    eyebrow: 'Privacy', title: 'Collect less. Explain the rest.', description: 'This draft policy describes the intended data posture and must receive legal review before public launch.',
+    eyebrow: 'Privacy', title: 'Collect less. Explain the rest.', description: 'How Built True Workshop handles account, saved-guide, newsletter, and usage information.',
     sections: [
       { heading: 'Data you choose to provide', body: ['An account may store your display name, email address, saved guides, progress, and private notes. Newsletter signup stores the email and consent preferences needed to deliver it.'] },
       { heading: 'Usage information', body: ['The site may measure page views, completion events, search terms, outbound affiliate clicks, and errors. Analytics should avoid unnecessary personal data and follow the consent requirements that apply to the visitor.'] },
@@ -54,7 +55,7 @@ const pages: Record<StaticPageKey, { eyebrow: string; title: string; description
     ],
   },
   terms: {
-    eyebrow: 'Terms', title: 'Use the workshop guidance responsibly', description: 'This draft must receive legal review before public launch.',
+    eyebrow: 'Terms', title: 'Use the workshop guidance responsibly', description: 'The rules for using Built True Workshop educational guidance and third-party product information.',
     sections: [
       { heading: 'Educational information', body: ['Guides are educational and cannot account for every tool, material, shop, building condition, code, or skill level. Manufacturer instructions and applicable professional or code requirements take priority.'] },
       { heading: 'Safety and professional work', body: ['Stop when an operation is unclear or cannot be performed with guards, stable workholding, and controlled body position. Electrical, structural, ventilation, code, and high-risk work may require a qualified professional.'] },

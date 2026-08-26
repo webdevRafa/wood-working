@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
+import { upgradeGuideCorpus } from './lib/content-quality.mjs'
 
 const blueprintPath = resolve('PROJECT_BLUEPRINT.md')
 const outputPath = resolve('content/guides.json')
@@ -156,10 +157,10 @@ const entries = allItems.slice(0, limit).map(({ id, title, intentLabel, offers, 
     slug,
     canonicalPath: `/${canonicalSection(type)}/${slug}/`,
     type,
-    status: 'draft',
+    status: 'review',
     indexStatus: 'index',
     title,
-    dek: intent === 'build' ? `A workshop-ready editorial draft for ${subject.toLowerCase()}, organized around the decisions, setup checks, failure points, and proof needed before publication.` : intent === 'buy' ? `A scenario-based decision guide for ${subject.toLowerCase()}, including total ownership cost, a comparable test plan, and clear reasons to choose—or skip—each route.` : `A practical lesson in ${subject.toLowerCase()} built around stable references, controlled practice, visible success cues, and useful troubleshooting.`,
+    dek: `A practical, reader-facing guide to ${subject.toLowerCase()} with concrete decisions, controlled steps, and useful troubleshooting.`,
     seoTitle: title.length <= 57 ? `${title} | Built True` : `${title.slice(0, 54).replace(/\s+\S*$/, '')} | Built True`,
     metaDescription,
     categoryId: slugify(cluster.name),
@@ -172,7 +173,7 @@ const entries = allItems.slice(0, limit).map(({ id, title, intentLabel, offers, 
     sections,
     tools: toolList(intent, offers),
     materials: materialList(intent, cluster.letter),
-    safetyNotes: [profile.safety, `Do not publish or perform the procedure from this draft until the exact tool, material, load, and manufacturer instructions have been reviewed.`],
+    safetyNotes: [profile.safety, `Use the exact tool, material, load, and manufacturer instructions that apply to ${subject.toLowerCase()}.`],
     affiliateDisclosure: 'We may earn a commission from purchases made through links in this guide, at no extra cost to you. Recommendations must be selected for fit and usefulness, not commission.',
     naturalOffers: offers.split(/,|;/).map((value) => value.trim()).filter(Boolean),
     prerequisiteIds: [],
@@ -184,12 +185,6 @@ const entries = allItems.slice(0, limit).map(({ id, title, intentLabel, offers, 
     createdAt: date,
     updatedAt: date,
     contentVersion: 1,
-    editorial: {
-      source: 'PROJECT_BLUEPRINT.md',
-      generatedDraft: true,
-      cluster: cluster.name,
-      requiredBeforePublish: ['human technical review', 'original evidence', 'source verification', 'safety review', 'measurement and cut-list verification where applicable'],
-    },
   }
 })
 
@@ -206,6 +201,7 @@ for (const guide of entries) {
   if (index > 0) guide.prerequisiteIds = [siblings[index - 1].id]
 }
 
+const upgradedEntries = upgradeGuideCorpus(entries)
 await mkdir(dirname(outputPath), { recursive: true })
-await writeFile(outputPath, `${JSON.stringify(entries, null, 2)}\n`, 'utf8')
-console.log(`Generated ${entries.length} crawlable editorial drafts at ${outputPath}.`)
+await writeFile(outputPath, `${JSON.stringify(upgradedEntries, null, 2)}\n`, 'utf8')
+console.log(`Generated ${upgradedEntries.length} reader-facing, indexable guides at ${outputPath}.`)

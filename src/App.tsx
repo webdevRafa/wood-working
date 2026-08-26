@@ -31,7 +31,7 @@ function App() {
         <Route path="materials" element={<HubPage eyebrow="Know what you are cutting" title="Materials & finishes" description="Lumber, sheet goods, adhesives, abrasives, stains, and finishes explained through the decisions that change a build." types={['material']} />} />
         <Route path="materials/:slug" element={<GuidePage />} />
 
-        <Route path="plans" element={<HubPage eyebrow="Build from a clear plan" title="Plans" description="Project plans designed around a verified cut list, sensible material use, and a minimum-tool route." types={['project']} />} />
+        <Route path="plans" element={<HubPage eyebrow="Build from a clear plan" title="Plans" description="Project plans organized around starting dimensions, a concrete cut list, sensible material use, and a minimum-tool route." types={['project']} />} />
 
         <Route path="about/testing-method" element={<StaticPage pageKey="testing" />} />
         <Route path="about/editorial-policy" element={<StaticPage pageKey="editorial" />} />

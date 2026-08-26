@@ -2,13 +2,15 @@
 
 `guides.json` is generated from the 500-item roadmap in `PROJECT_BLUEPRINT.md` and then improved through editorial review.
 
-Every generated record intentionally begins as:
+Every generated record begins as:
 
-- `status: draft`
+- `status: review`
 - `indexStatus: index`
 - `evidenceStatus: brief`
 
-Generation creates a substantial, topic-aware public editorial preview—not permission to label it published or reviewed. Previews are crawlable so every canonical guide path can participate in discovery, while their draft and evidence labels remain visible. Before a guide can move to `published`, it still needs original evidence, primary sources, verified measurements/cut lists where applicable, human technical review, and qualified safety review when the subject requires it.
+Generation creates reader-facing public guidance with topic-specific sections, literal title fulfillment, concrete project plans, buying criteria, safety checks, and contextual related reading. Internal workflow fields are not rendered as article copy. First-hand testing claims remain prohibited unless the model, method, date, material, results, and limitations are documented.
+
+Run `npm run content:audit` before import. The audit rejects internal instructions, repeated public paragraphs, unsupported experience claims, missing project plans, incomplete numbered or budget promises, weak buying criteria, and broken related-guide relationships.
 
 Regenerate a batch with:
 

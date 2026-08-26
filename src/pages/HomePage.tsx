@@ -22,7 +22,7 @@ export function HomePage() {
   const { guideIndex } = useContent()
   usePageMeta(
     'Built True Workshop | Build with confidence',
-    'Practical woodworking projects, honest tool guidance, and shop-tested skills for building with confidence.',
+    'Practical woodworking projects, honest tool guidance, and specific skills for building with confidence.',
   )
   const featured = ['301', '001', '202'].map((id) => guideIndex.find((guide) => guide.id === id)).filter((guide) => guide !== undefined)
   if (featured.length < 3) featured.push(...guideIndex.filter((guide) => !featured.includes(guide)).slice(0, 3 - featured.length))
@@ -40,7 +40,7 @@ export function HomePage() {
               <Link to="/shop/" className="inline-flex items-center justify-center rounded-full border border-walnut/20 bg-white px-6 py-4 text-sm font-black text-walnut transition hover:border-pine hover:text-pine">Set up my shop</Link>
             </div>
             <div className="mt-10 grid max-w-xl grid-cols-3 border-t border-walnut/15 pt-6">
-              {[["500", "guide roadmap"], ["No hype", "testing promise"], ["Free", "starter plans"]].map(([value, label]) => <div key={label} className="pr-3"><strong className="block font-display text-xl font-black text-walnut sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-steel sm:text-[11px]">{label}</span></div>)}
+              {[["500", "practical guides"], ["No hype", "buying guidance"], ["Free", "starter plans"]].map(([value, label]) => <div key={label} className="pr-3"><strong className="block font-display text-xl font-black text-walnut sm:text-2xl">{value}</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-steel sm:text-[11px]">{label}</span></div>)}
             </div>
           </div>
 
@@ -49,7 +49,7 @@ export function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-walnut/90 via-walnut/10 to-transparent" />
             <div className="absolute inset-x-5 bottom-5 rounded-[1.25rem] border border-white/15 bg-walnut/85 p-5 text-paper backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-6">
               <div className="flex items-start justify-between gap-5"><div><p className="text-[10px] font-black uppercase tracking-[0.2em] text-amber">Weekend build no. 01</p><h2 className="mt-2 font-display text-2xl font-black">A coffee table built to teach.</h2></div><span className="shrink-0 rounded-full border border-white/15 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider">Free plan</span></div>
-              <div className="mt-5 flex flex-wrap gap-2 text-[11px] font-bold text-paper/75"><span>3 tools</span><span>·</span><span>6–8 hours</span><span>·</span><span>42 × 22 in</span></div>
+              <div className="mt-5 flex flex-wrap gap-2 text-[11px] font-bold text-paper/75"><span>5-tool path</span><span>·</span><span>6–8 hours</span><span>·</span><span>42 × 24 in</span></div>
             </div>
           </div>
         </div>

@@ -463,7 +463,7 @@ Legend: **Learn** = informational skill/problem intent; **Build** = project inte
 071. **Repairing a Loose Chair Joint Without Making It Worse** — Learn → injectors, hide/PVA glue, clamps.
 072. **How to Peg a Mortise and Tenon** — Learn → brad-point bits, dowels, chisels.
 073. **Frame-and-Panel Joinery: Allowing Wood to Move** — Learn → router-bit set, space balls, finish.
-074. **The Strongest Joint for Shelves: Five Options Tested** — Buy → bits, dado stack, doweling tools.
+074. **Shelf Joinery Compared: Five Strong Options and Their Tradeoffs** — Buy → bits, dado stack, doweling tools.
 075. **Joinery Decision Chart: Pick the Right Joint for the Load** — Learn → downloadable chart, joinery course.
 
 ### Cluster D — Hand tools and unplugged skills (076–100)
@@ -500,7 +500,7 @@ Legend: **Learn** = informational skill/problem intent; **Build** = project inte
 102. **Jobsite vs. Contractor vs. Cabinet Table Saw** — Buy → saws, mobile bases, dust accessories.
 103. **How to Choose the Right Table Saw for a Small Shop** — Buy → compact saws, stands, outfeed solutions.
 104. **How to Align a Table Saw Blade, Fence, and Miter Slot** — Learn → dial indicator, calibration plate, squares.
-105. **Table Saw Blade Height: Safety, Cut Quality, and Heat Tested** — Learn → blades, setup gauges.
+105. **Table Saw Blade Height: Safety, Cut Quality, and Heat Tradeoffs** — Learn → blades, setup gauges.
 106. **Rip Blade vs. Crosscut vs. Combination Blade** — Buy → blade sets, blade storage.
 107. **Thin-Kerf vs. Full-Kerf Blades: Power, Waste, and Deflection** — Buy → blades, stabilizers where compatible.
 108. **How to Prevent Table Saw Burn Marks** — Learn → blade cleaner, alignment tools, replacement blade.
@@ -695,7 +695,7 @@ Legend: **Learn** = informational skill/problem intent; **Build** = project inte
 276. **Wood Sandpaper Grits Explained: Start, Stop, and Skip** — Buy → abrasive assortments, storage.
 277. **Random-Orbit Sander Buying Guide: Stroke, Speed, and Dust** — Buy → sanders, extractors, discs.
 278. **5-Inch vs. 6-Inch Random-Orbit Sander** — Buy → sanders, interface pads, discs.
-279. **Mesh vs. Paper Sanding Discs: Cut Rate and Cost Tested** — Buy → abrasives, pad protectors.
+279. **Mesh vs. Paper Sanding Discs: Cut Rate, Dust, and Cost Compared** — Buy → abrasives, pad protectors.
 280. **How to Sand Without Pigtails** — Learn → sander, abrasives, vacuum adapters.
 281. **How to Sand Curves, Profiles, and Tight Corners** — Learn → sanding sponges, detail tools, scrapers.
 282. **Build a Hand-Sanding Block Set From Scrap** — Build → adhesive-backed abrasive, cork, plan.
@@ -704,7 +704,7 @@ Legend: **Learn** = informational skill/problem intent; **Build** = project inte
 285. **How Much Wood Glue Is Enough?** — Learn → glue bottles, rollers, cleanup tools.
 286. **Open Time vs. Clamp Time vs. Cure Time** — Learn → slow/fast-set glues, timers, clamps.
 287. **How to Keep Glue Squeeze-Out From Ruining Finish** — Learn → glue, tape, scrapers.
-288. **Five Wood Glue Joints Tested to Failure** — Buy → adhesives, clamps; transparent test data.
+288. **Five Wood Glue Joints: Load Paths and Common Failure Risks** — Buy → adhesives, clamps; transparent comparison criteria.
 289. **Epoxy Basics for Filling Knots and Small Voids** — Learn → epoxy, pigments, PPE.
 290. **How to Make a Finish Sample Board Library** — Build → sample kit, labels, finishes.
 291. **Oil vs. Water-Based Polyurethane** — Buy → finishes, brushes, respirator where appropriate.

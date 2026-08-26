@@ -46,7 +46,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         )
       })
       .catch(() => {
-        // Local editorial previews remain usable if Firebase is unavailable or rules are not deployed yet.
+        // Local reader guides remain usable if Firebase is unavailable or rules are not deployed yet.
       })
       .finally(() => {
         if (active) setLoadingLibrary(false)

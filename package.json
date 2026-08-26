@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && tsx scripts/prerender.ts && node scripts/verify-seo.mjs --expected=500",
+    "build": "node scripts/audit-content-quality.mjs --expected=500 && tsc -b && vite build && tsx scripts/prerender.ts && node scripts/verify-seo.mjs --expected=500",
     "content:validate": "node scripts/validate-content.mjs content/guides.json --expected=500",
     "content:assign-covers": "node scripts/assign-guide-covers.mjs --file content/guides.json",
     "content:generate": "node scripts/generate-content.mjs --limit=500",
+    "content:upgrade": "node scripts/upgrade-content-quality.mjs --file content/guides.json",
+    "content:audit": "node scripts/audit-content-quality.mjs --expected=500",
     "content:index-all": "node scripts/set-guide-indexing.mjs",
     "content:import:dry": "node scripts/import-guides.mjs --dry-run --file content/guides.json",
     "content:import": "node scripts/import-guides.mjs --commit --file content/guides.json",

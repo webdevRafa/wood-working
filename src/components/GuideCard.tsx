@@ -23,7 +23,7 @@ export function GuideCard({ guide, compact = false }: { guide: GuideIndexItem; c
           <h3 className={`mt-3 font-display font-black leading-tight text-walnut ${compact ? 'text-xl' : 'text-2xl'}`}>{guide.title}</h3>
           {!compact ? <p className="mt-3 line-clamp-3 leading-7 text-steel">{guide.dek}</p> : null}
           <div className="mt-6 flex items-center justify-between gap-4">
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-pine"><ShieldCheck size={14} /> {guide.status === 'published' ? 'Published guide' : 'Editorial preview'}</span>
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.12em] text-pine"><ShieldCheck size={14} /> Practical guide</span>
             <ArrowRight size={17} className="text-pine transition group-hover:translate-x-1" />
           </div>
         </div>

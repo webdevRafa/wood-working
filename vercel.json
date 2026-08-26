@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/tools/the-strongest-joint-for-shelves-five-options-tested", "destination": "/tools/shelf-joinery-compared-five-strong-options-and-their-tradeoffs/", "permanent": true },
+    { "source": "/skills/table-saw-blade-height-safety-cut-quality-and-heat-tested", "destination": "/skills/table-saw-blade-height-safety-cut-quality-and-heat-tradeoffs/", "permanent": true },
+    { "source": "/tools/mesh-vs-paper-sanding-discs-cut-rate-and-cost-tested", "destination": "/tools/mesh-vs-paper-sanding-discs-cut-rate-dust-and-cost-compared/", "permanent": true },
+    { "source": "/tools/five-wood-glue-joints-tested-to-failure", "destination": "/tools/five-wood-glue-joints-load-paths-and-common-failure-risks/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

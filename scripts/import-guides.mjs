@@ -50,6 +50,9 @@ writer.onWriteError((error) => {
 for (const guide of guides) {
   const data = {
     ...guide,
+    dimensions: guide.dimensions ?? FieldValue.delete(),
+    cutList: guide.cutList ?? FieldValue.delete(),
+    editorial: FieldValue.delete(),
     createdAt: Timestamp.fromDate(new Date(guide.createdAt)),
     updatedAt: Timestamp.fromDate(new Date(guide.updatedAt)),
     publishedAt: guide.publishedAt ? Timestamp.fromDate(new Date(guide.publishedAt)) : null,
