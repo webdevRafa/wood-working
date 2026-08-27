@@ -1,34 +1,27 @@
 import { ArrowRight, ExternalLink, FileCheck2, SearchCheck, ShieldCheck } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router'
-import { GuideCard } from '../components/GuideCard'
-import { useContent } from '../context/ContentContext'
-import { productsForCategory, shopCategories, type ShopCategoryId } from '../data/shopCatalog'
+import { productsForSubcategory, shopCategories, type ShopCategoryId } from '../data/shopCatalog'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const requestedCategory = searchParams.get('category') as ShopCategoryId | null
+  const requestedType = searchParams.get('type')
   const activeCategory = shopCategories.find((category) => category.id === requestedCategory) ?? shopCategories[0]
-  const products = productsForCategory(activeCategory.id)
-  const { guideIndex } = useContent()
+  const activeSubcategory = activeCategory.subcategories.find((subcategory) => subcategory.id === requestedType)
+  const products = productsForSubcategory(activeCategory.id, activeSubcategory?.id)
 
   usePageMeta(
     'Woodworking Tool & Supply Shortlists | Built True Workshop',
-    'Browse woodworking tools and supplies by the job they need to do, with real model numbers, manufacturer references, and related source-backed guides.',
+    'Browse woodworking tools and supplies by product type, with real model numbers, plain retailer links, and manufacturer references.',
   )
-
-  const terms = activeCategory.guideTerms.map((term) => term.toLowerCase())
-  const relatedGuides = guideIndex
-    .filter((guide) => guide.status === 'published')
-    .filter((guide) => {
-      const haystack = [guide.title, guide.dek, guide.categoryId, guide.clusterId, ...guide.tags].join(' ').toLowerCase()
-      return terms.some((term) => haystack.includes(term))
-    })
-    .sort((a, b) => Number(a.intent !== 'buy') - Number(b.intent !== 'buy') || Number(a.id) - Number(b.id))
-    .slice(0, 3)
 
   const selectCategory = (categoryId: ShopCategoryId) => {
     setSearchParams({ category: categoryId }, { replace: true })
+  }
+
+  const selectSubcategory = (subcategoryId?: string) => {
+    setSearchParams(subcategoryId ? { category: activeCategory.id, type: subcategoryId } : { category: activeCategory.id }, { replace: true })
   }
 
   return (
@@ -42,7 +35,7 @@ export function ShopPage() {
               Shop by the job <span className="text-amber">the tool must do.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-paper/70">
-              Real model numbers, honest tradeoffs, and the guide to read before you buy. No copied retailer claims and no mystery “best” list.
+              Real model numbers, clear product types, and honest tradeoffs. Every path in this section stays inside the shop.
             </p>
           </div>
           <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm">
@@ -64,7 +57,7 @@ export function ShopPage() {
               <p className="section-label">Browse the workshop aisle</p>
               <h2 className="mt-4 font-display text-4xl font-black tracking-[-0.04em] text-walnut sm:text-5xl">What are you trying to solve?</h2>
             </div>
-            <p className="max-w-xl text-sm leading-6 text-steel">Choose a category to see a short, stable model list and the source-backed guidance that explains the decision.</p>
+            <p className="max-w-xl text-sm leading-6 text-steel">Choose a department, then narrow by product type. Every filter below shows products only.</p>
           </div>
 
           <div className="mt-8 grid overflow-hidden rounded-[1.5rem] border border-walnut/10 bg-white lg:grid-cols-[18rem_1fr]">
@@ -95,12 +88,21 @@ export function ShopPage() {
                   <h2 className="mt-3 font-display text-4xl font-black tracking-[-0.04em] text-walnut">{activeCategory.label}</h2>
                   <p className="mt-3 max-w-2xl leading-7 text-steel">{activeCategory.description}</p>
                 </div>
-                <div className="flex max-w-md flex-wrap gap-2">
-                  {activeCategory.subcategories.map((subcategory) => <span key={subcategory} className="rounded-full border border-walnut/10 bg-paper px-3 py-1.5 text-xs font-bold text-steel">{subcategory}</span>)}
+                <div className="max-w-md">
+                  <p className="mb-3 text-[10px] font-black uppercase tracking-[0.16em] text-steel">Filter products by type</p>
+                  <div className="flex flex-wrap gap-2">
+                    <button type="button" onClick={() => selectSubcategory()} aria-pressed={!activeSubcategory} className={`rounded-full border px-3 py-2 text-xs font-black transition ${!activeSubcategory ? 'border-pine bg-pine text-white' : 'border-walnut/10 bg-paper text-steel hover:border-pine/30 hover:text-pine'}`}>All {activeCategory.shortLabel.toLowerCase()}</button>
+                    {activeCategory.subcategories.map((subcategory) => <button key={subcategory.id} type="button" onClick={() => selectSubcategory(subcategory.id)} aria-pressed={subcategory.id === activeSubcategory?.id} className={`rounded-full border px-3 py-2 text-xs font-black transition ${subcategory.id === activeSubcategory?.id ? 'border-pine bg-pine text-white' : 'border-walnut/10 bg-paper text-steel hover:border-pine/30 hover:text-pine'}`}>{subcategory.label}</button>)}
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-5 xl:grid-cols-3">
+              <div className="mt-8 flex flex-wrap items-end justify-between gap-3">
+                <div><p className="text-[10px] font-black uppercase tracking-[0.16em] text-amber">Products</p><h3 className="mt-2 font-display text-3xl font-black text-walnut">{activeSubcategory?.label ?? `All ${activeCategory.shortLabel.toLowerCase()}`}</h3></div>
+                <span className="rounded-full bg-sawdust px-3 py-1.5 text-xs font-black text-steel">{products.length} product{products.length === 1 ? '' : 's'}</span>
+              </div>
+
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 {products.map((product) => (
                   <article key={product.id} className="flex h-full flex-col rounded-[1.25rem] border border-walnut/10 bg-paper p-5 transition hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(36,26,21,0.09)] sm:p-6">
                     <div className="flex items-start justify-between gap-4">
@@ -132,7 +134,7 @@ export function ShopPage() {
             {[
               { icon: SearchCheck, title: 'Start with the task', body: 'The shortlist is organized around cuts, joints, surfaces, and shop constraints—not a brand popularity contest.' },
               { icon: FileCheck2, title: 'Verify the exact model', body: 'Every product names a model and links to manufacturer details so a changed marketplace listing is easier to catch.' },
-              { icon: ShieldCheck, title: 'Read before you buy', body: 'Related guides explain substitutes, hidden ownership costs, and the point where an upgrade actually earns its space.' },
+              { icon: ShieldCheck, title: 'Know the tradeoffs', body: 'Each listing explains where the model fits and what to verify, without sending you into an unrelated content feed.' },
             ].map(({ icon: Icon, title, body }) => (
               <div key={title} className="rounded-[1.25rem] bg-paper p-6 sm:p-7"><Icon className="text-pine" size={24} /><h3 className="mt-5 font-display text-2xl font-black text-walnut">{title}</h3><p className="mt-3 text-sm leading-6 text-steel">{body}</p></div>
             ))}
@@ -140,15 +142,6 @@ export function ShopPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-14 sm:py-20">
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <div><p className="section-label">Read before buying</p><h2 className="mt-4 font-display text-4xl font-black tracking-[-0.04em] text-walnut sm:text-5xl">Guides for {activeCategory.shortLabel.toLowerCase()}</h2></div>
-            <Link to={`/search/?q=${encodeURIComponent(activeCategory.guideTerms[0])}`} className="inline-flex items-center gap-2 text-sm font-black text-pine">See every related guide <ArrowRight size={17} /></Link>
-          </div>
-          {relatedGuides.length ? <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{relatedGuides.map((guide) => <GuideCard key={guide.id} guide={guide} compact />)}</div> : null}
-        </div>
-      </section>
     </main>
   )
 }

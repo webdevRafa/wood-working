@@ -36,6 +36,36 @@ export function PlansPage() {
   }, [publishedProjects, query, selectedCategory])
 
   const heroGuide = publishedProjects.find((guide) => guide.id === '301') ?? publishedProjects.find((guide) => guide.coverImage)
+  const visibleCategoryCards = selectedCategory ? categoryCards.filter((item) => item.category.id !== selectedCategory.id) : categoryCards
+
+  const categoryExplorer = (
+    <section className="border-t border-walnut/10 bg-paper py-14 sm:py-20">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="section-label">{selectedCategory ? 'Keep exploring' : 'Explore a practical path'}</p>
+            <h2 className="mt-4 font-display text-4xl font-black tracking-[-0.04em] text-walnut sm:text-5xl">{selectedCategory ? 'Explore another project path' : 'Rooms, uses, and project types'}</h2>
+          </div>
+          <p className="max-w-lg text-sm leading-6 text-steel">{selectedCategory ? `You are viewing ${selectedCategory.label.toLowerCase()} plans. When you are ready for something different, choose another path below.` : 'Categories can overlap because a storage bench can belong in an entryway, a bedroom, or a workshop. That is useful discovery—not duplicate content.'}</p>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {visibleCategoryCards.map(({ category, count, cover }, index) => (
+            <Link key={category.id} to={`/plans/${category.id}/`} onClick={() => { setQuery(''); setVisibleCount(PAGE_SIZE) }} className="group relative min-h-56 overflow-hidden rounded-[1.35rem] border border-walnut/10 transition hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(36,26,21,0.12)]">
+              {cover?.coverImage ? <img src={cover.coverImage} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" /> : <div className="absolute inset-0 bg-sawdust" />}
+              <div className="absolute inset-0 bg-gradient-to-t from-walnut via-walnut/35 to-walnut/5" />
+              <span className="absolute right-5 top-5 font-mono text-[10px] font-black tracking-[0.15em] text-paper/70">{String(index + 1).padStart(2, '0')}</span>
+              <div className="absolute inset-x-0 bottom-0 p-5 text-paper">
+                <span className="text-[10px] font-black uppercase tracking-[0.16em] text-amber">{count} plan{count === 1 ? '' : 's'}</span>
+                <h3 className="mt-2 font-display text-2xl font-black leading-tight">{category.label}</h3>
+                <p className="mt-2 line-clamp-2 text-xs leading-5 text-paper/70">{category.description}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-xs font-black">Explore this path <ArrowRight size={14} className="transition group-hover:translate-x-1" /></span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 
   return (
     <main>
@@ -64,32 +94,7 @@ export function PlansPage() {
         </div>
       </section>
 
-      <section className="bg-paper py-14 sm:py-20">
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <div><p className="section-label">Explore a practical path</p><h2 className="mt-4 font-display text-4xl font-black tracking-[-0.04em] text-walnut sm:text-5xl">Rooms, uses, and project types</h2></div>
-            <p className="max-w-lg text-sm leading-6 text-steel">Categories can overlap because a storage bench can belong in an entryway, a bedroom, or a workshop. That is useful discovery—not duplicate content.</p>
-          </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {categoryCards.map(({ category, count, cover }, index) => {
-              const active = category.id === selectedCategory?.id
-              return (
-                <Link key={category.id} to={`/plans/${category.id}/`} onClick={() => { setQuery(''); setVisibleCount(PAGE_SIZE) }} aria-current={active ? 'page' : undefined} className={`group relative min-h-56 overflow-hidden rounded-[1.35rem] border transition hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(36,26,21,0.12)] ${active ? 'border-pine ring-2 ring-pine/15' : 'border-walnut/10'}`}>
-                  {cover?.coverImage ? <img src={cover.coverImage} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" /> : <div className="absolute inset-0 bg-sawdust" />}
-                  <div className="absolute inset-0 bg-gradient-to-t from-walnut via-walnut/35 to-walnut/5" />
-                  <span className="absolute right-5 top-5 font-mono text-[10px] font-black tracking-[0.15em] text-paper/70">{String(index + 1).padStart(2, '0')}</span>
-                  <div className="absolute inset-x-0 bottom-0 p-5 text-paper">
-                    <span className="text-[10px] font-black uppercase tracking-[0.16em] text-amber">{count} plan{count === 1 ? '' : 's'}</span>
-                    <h3 className="mt-2 font-display text-2xl font-black leading-tight">{category.label}</h3>
-                    <p className="mt-2 line-clamp-2 text-xs leading-5 text-paper/70">{category.description}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-black">Explore this path <ArrowRight size={14} className="transition group-hover:translate-x-1" /></span>
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      {!selectedCategory ? categoryExplorer : null}
 
       <section className="border-t border-walnut/10 bg-sawdust/55 py-14 sm:py-20">
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
@@ -100,6 +105,8 @@ export function PlansPage() {
           {results.length ? <><div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{results.slice(0, visibleCount).map((guide) => <GuideCard key={guide.id} guide={guide} />)}</div>{visibleCount < results.length ? <div className="mt-10 text-center"><button type="button" onClick={() => setVisibleCount((count) => count + PAGE_SIZE)} className="rounded-full bg-pine px-7 py-4 text-sm font-black text-white transition hover:bg-[#243f34]">Show 24 more <span className="ml-1 text-white/70">({results.length - visibleCount} remaining)</span></button></div> : null}</> : <div className="mt-8 rounded-2xl border border-dashed border-walnut/25 bg-paper p-12 text-center"><h3 className="font-display text-2xl font-black text-walnut">No plan matches that search.</h3><p className="mt-2 text-steel">Try a broader project name or choose another category.</p></div>}
         </div>
       </section>
+
+      {selectedCategory ? categoryExplorer : null}
     </main>
   )
 }

@@ -267,18 +267,19 @@ function Header() {
               <div className="px-7">
                 <p className="text-[10px] font-black uppercase tracking-[0.18em] text-amber">{selectedShopCategory.label}</p>
                 <p className="mt-3 max-w-md text-sm leading-6 text-steel">{selectedShopCategory.description}</p>
-                <div className="mt-5 grid grid-cols-2 gap-2">
+                <div className="mt-5 flex items-center justify-between gap-3"><p className="text-[10px] font-black uppercase tracking-[0.16em] text-steel">Shop products by type</p><span className="text-[9px] font-bold text-steel/70">Opens products only</span></div>
+                <div className="mt-2 grid grid-cols-2 gap-2">
                   {selectedShopCategory.subcategories.map((subcategory) => (
-                    <Link key={subcategory} to={`/search/?q=${encodeURIComponent(subcategory)}`} onClick={() => setShopMenuOpen(false)} className="group flex items-center justify-between rounded-lg border border-walnut/10 bg-white px-3 py-3 text-xs font-black text-walnut hover:border-pine/30 hover:text-pine">
-                      {subcategory}<ArrowRight size={13} className="transition group-hover:translate-x-0.5" />
+                    <Link key={subcategory.id} to={`/shop/?category=${selectedShopCategory.id}&type=${subcategory.id}`} onClick={() => setShopMenuOpen(false)} className="group flex items-center justify-between rounded-lg border border-walnut/10 bg-white px-3 py-3 text-xs font-black text-walnut hover:border-pine/30 hover:text-pine">
+                      {subcategory.label}<ArrowRight size={13} className="transition group-hover:translate-x-0.5" />
                     </Link>
                   ))}
                 </div>
-                <Link to={`/shop/?category=${selectedShopCategory.id}`} onClick={() => setShopMenuOpen(false)} className="mt-5 inline-flex items-center gap-2 text-sm font-black text-pine">Open the {selectedShopCategory.shortLabel.toLowerCase()} shortlist <ArrowRight size={15} /></Link>
+                <Link to={`/shop/?category=${selectedShopCategory.id}`} onClick={() => setShopMenuOpen(false)} className="mt-5 inline-flex items-center gap-2 text-sm font-black text-pine">See all {selectedShopCategory.shortLabel.toLowerCase()} products <ArrowRight size={15} /></Link>
               </div>
 
               <div className="border-l border-walnut/10 pl-7">
-                <div className="flex items-center justify-between gap-3"><p className="text-[10px] font-black uppercase tracking-[0.18em] text-steel">Models to compare</p><span className="text-[9px] font-bold uppercase tracking-[0.12em] text-steel/70">Plain retailer links</span></div>
+                <div className="flex items-center justify-between gap-3"><p className="text-[10px] font-black uppercase tracking-[0.18em] text-steel">Products in this category</p><span className="text-[9px] font-bold uppercase tracking-[0.12em] text-steel/70">Plain retailer links</span></div>
                 <div className="mt-3 grid gap-2">
                   {featuredProducts.map((product) => (
                     <a key={product.id} href={product.amazonUrl} target="_blank" rel="nofollow noopener noreferrer" className="group flex items-center justify-between gap-4 rounded-xl bg-sawdust/55 px-4 py-3 hover:bg-sawdust">
