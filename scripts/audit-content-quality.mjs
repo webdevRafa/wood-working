@@ -11,6 +11,15 @@ const errors = []
 const warnings = []
 const paragraphOwners = new Map()
 const dekOwners = new Map()
+const learnHeadingOwners = new Map()
+const placeholderLearnHeadings = new Set([
+  'Start with the useful answer',
+  'Understand what changes the result',
+  'Use a repeatable shop method',
+  'Read the evidence left by the operation',
+  'Troubleshoot from the first changed reference',
+  'Practice the skill in a real project',
+])
 
 const bannedPatterns = [
   [/\bdo not publish\b/i, 'internal publishing instruction'],
@@ -50,6 +59,14 @@ for (const guide of guides) {
   if (isPublished && words < 250) errors.push(`${label}: has ${words} words and does not yet deliver a complete reader outcome.`)
   if (!Array.isArray(guide.relatedGuideIds) || guide.relatedGuideIds.length !== 3 || guide.relatedGuideIds.includes(guide.id)) errors.push(`${label}: needs three non-self related guides.`)
   if (new Set(guide.relatedGuideIds ?? []).size !== (guide.relatedGuideIds ?? []).length) errors.push(`${label}: contains duplicate related guides.`)
+  for (const section of guide.sections ?? []) {
+    if (placeholderLearnHeadings.has(section.heading)) errors.push(`${label}: contains the placeholder section heading “${section.heading}”.`)
+    if (guide.intent === 'learn') {
+      const owners = learnHeadingOwners.get(section.heading) ?? []
+      owners.push(guide.id)
+      learnHeadingOwners.set(section.heading, owners)
+    }
+  }
 
   for (const [pattern, description] of bannedPatterns) {
     if (pattern.test(text)) errors.push(`${label}: contains ${description}.`)
@@ -110,6 +127,10 @@ for (const [paragraph, owners] of paragraphOwners) {
   if (owners.length > 1 && paragraph.split(/\s+/).length >= 20) errors.push(`Repeated article paragraph appears in guides ${owners.join(', ')}: ${paragraph.slice(0, 100)}…`)
 }
 
+for (const [heading, owners] of learnHeadingOwners) {
+  if (owners.length > 1) errors.push(`Repeated learn-guide heading “${heading}” appears in guides ${owners.join(', ')}.`)
+}
+
 const publishedGuides = guides.filter((guide) => guide.status === 'published')
 for (let index = 0; index < publishedGuides.length; index += 1) {
   const a = publishedGuides[index]
@@ -134,6 +155,7 @@ console.log(JSON.stringify({
   indexableGuides: guides.filter((guide) => guide.indexStatus === 'index').length,
   projectsWithPlans: publishedGuides.filter((guide) => guide.intent === 'build' && guide.cutList?.length && guide.dimensions).length,
   buyingGuidesWithDecisionCriteria: publishedGuides.filter((guide) => guide.intent === 'buy' && guide.sections.some((section) => section.id === 'full-cost') && guide.sections.some((section) => section.id === 'fit-and-skip')).length,
+  distinctLearnSectionHeadings: learnHeadingOwners.size,
   repeatedPublicParagraphs: [...paragraphOwners.values()].filter((owners) => owners.length > 1).length,
   potentialIntentOverlaps: warnings.length,
 }, null, 2))

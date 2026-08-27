@@ -1,5 +1,6 @@
 import { planFor, topicFacts } from './content-quality.mjs'
 import { productionMaterials, productionPlanFor, productionTools } from './production-plans.mjs'
+import { curateLearnSectionHeadings } from './section-heading-curation.mjs'
 
 const DISCLOSURE = 'We may earn a commission from purchases made through links in this guide, at no extra cost to you. Recommendations are selected for fit and usefulness, not commission.'
 
@@ -870,7 +871,7 @@ function personalizeSections(guide, sections) {
 }
 
 export function publishProductionCorpus(inputGuides, publishedAt = new Date().toISOString()) {
-  return inputGuides.map((source) => {
+  const publishedGuides = inputGuides.map((source) => {
     const guide = structuredClone(source)
     guide.title = titleRevisions[guide.id] ?? guide.title
     if (guide.intent === 'build') {
@@ -898,4 +899,5 @@ export function publishProductionCorpus(inputGuides, publishedAt = new Date().to
     guide.contentVersion = 4
     return guide
   })
+  return curateLearnSectionHeadings(publishedGuides).guides
 }

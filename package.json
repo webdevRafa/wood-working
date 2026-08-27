@@ -10,6 +10,7 @@
     "content:assign-covers": "node scripts/assign-guide-covers.mjs --file content/guides.json",
     "content:generate": "node scripts/generate-content.mjs --limit=500",
     "content:upgrade": "node scripts/upgrade-content-quality.mjs --file content/guides.json",
+    "content:curate-headings": "node scripts/curate-section-headings.mjs --write --file content/guides.json",
     "content:publish-production": "node scripts/publish-production-library.mjs --file content/guides.json",
     "content:audit": "node scripts/audit-content-quality.mjs --expected=500",
     "content:import:dry": "node scripts/import-guides.mjs --dry-run --file content/guides.json",
