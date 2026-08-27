@@ -1,6 +1,8 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import type { Guide, GuideIndexItem } from '../src/types/content'
+import { matchesPlanCategory, planCategories } from '../src/data/planCategories'
+import { shopCategories, shopProducts } from '../src/data/shopCatalog'
 
 const outputDir = join(process.cwd(), 'dist')
 const template = await readFile(join(outputDir, 'index.html'), 'utf8')
@@ -86,11 +88,27 @@ const hubs = [
 
 const pages: Page[] = hubs.map((hub) => {
   const links = hub.types.length ? guides.filter((guide) => hub.types.includes(guide.type)) : guides.slice(0, 8)
+  const supplementalDirectory = hub.path === '/plans/'
+    ? `<section class="mx-auto max-w-[1280px] px-5 pb-12 sm:px-8"><h2>Browse plans by room and purpose</h2><ul>${planCategories.map((category) => `<li><a href="/plans/${escapeHtml(category.id)}/">${escapeHtml(category.label)}</a> — ${escapeHtml(category.description)}</li>`).join('')}</ul></section>`
+    : hub.path === '/shop/'
+      ? `<section class="mx-auto max-w-[1280px] px-5 pb-12 sm:px-8"><h2>Shop by the job the tool must do</h2><p>Plain, non-affiliate retailer links with exact model references. Confirm seller, model, accessories, and warranty before buying.</p><ul>${shopCategories.map((category) => `<li><a href="/shop/?category=${escapeHtml(category.id)}">${escapeHtml(category.label)}</a> — ${escapeHtml(category.description)}</li>`).join('')}</ul><h2>Models to compare</h2><ul>${shopProducts.map((product) => `<li><a href="${escapeHtml(product.amazonUrl)}" rel="nofollow">${escapeHtml(product.brand)} ${escapeHtml(product.model)} — ${escapeHtml(product.name)}</a></li>`).join('')}</ul></section>`
+      : ''
   return {
     ...hub,
-    body: `<main data-prerendered="hub" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-5 py-5 sm:px-8"><a href="/" class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></a><span class="text-xs font-black uppercase tracking-[0.14em] text-pine">Build with confidence</span></div></header><section class="border-b border-walnut/10 bg-sawdust"><div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 sm:py-24"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-pine">Practical woodworking, honestly taught</p><h1 class="mt-4 max-w-5xl font-display text-[clamp(3.2rem,8vw,6.2rem)] font-black leading-[0.9] tracking-[-0.06em]">${escapeHtml(hub.title.split(' | ')[0])}</h1><p class="mt-6 max-w-2xl text-lg leading-8 text-steel">${escapeHtml(hub.description)}</p></div></section><nav aria-label="Guide directory" class="mx-auto max-w-[1280px] px-5 py-12 sm:px-8"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-amber">Start at the bench</p><ul class="mt-5 grid gap-4 md:grid-cols-2">${links.map((guide) => `<li><a class="block rounded-xl border border-walnut/10 bg-white p-5 font-display text-xl font-black leading-tight hover:border-pine" href="${escapeHtml(guide.canonicalPath)}">${escapeHtml(guide.title)}</a></li>`).join('')}</ul></nav></main>`,
+    body: `<main data-prerendered="hub" class="min-h-screen bg-paper text-walnut"><header class="border-b border-walnut/10 bg-white"><div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 px-5 py-5 sm:px-8"><a href="/" class="flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-[0.45rem] bg-amber font-display text-sm font-black text-walnut ring-1 ring-walnut/10">BT</span><strong class="font-display text-lg font-black">Built True Workshop</strong></a><span class="text-xs font-black uppercase tracking-[0.14em] text-pine">Build with confidence</span></div></header><section class="border-b border-walnut/10 bg-sawdust"><div class="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 sm:py-24"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-pine">Practical woodworking, honestly taught</p><h1 class="mt-4 max-w-5xl font-display text-[clamp(3.2rem,8vw,6.2rem)] font-black leading-[0.9] tracking-[-0.06em]">${escapeHtml(hub.title.split(' | ')[0])}</h1><p class="mt-6 max-w-2xl text-lg leading-8 text-steel">${escapeHtml(hub.description)}</p></div></section>${supplementalDirectory}<nav aria-label="Guide directory" class="mx-auto max-w-[1280px] px-5 py-12 sm:px-8"><p class="text-[10px] font-black uppercase tracking-[0.18em] text-amber">Start at the bench</p><ul class="mt-5 grid gap-4 md:grid-cols-2">${links.map((guide) => `<li><a class="block rounded-xl border border-walnut/10 bg-white p-5 font-display text-xl font-black leading-tight hover:border-pine" href="${escapeHtml(guide.canonicalPath)}">${escapeHtml(guide.title)}</a></li>`).join('')}</ul></nav></main>`,
   }
 })
+
+for (const category of planCategories) {
+  const categoryGuides = guides.filter((guide) => matchesPlanCategory(guide, category))
+  pages.push({
+    path: `/plans/${category.id}/`,
+    title: `${category.label} Woodworking Plans | Built True Workshop`,
+    description: `${category.description} Browse source-backed plans with practical dimensions, cut lists, tool paths, and safer checkpoints.`,
+    lastmod: categoryGuides.map((guide) => guide.updatedAt).sort().at(-1),
+    body: `<main data-prerendered="plan-category"><header><a href="/">Built True Workshop</a></header><nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/plans/">Plans</a> / ${escapeHtml(category.label)}</nav><h1>${escapeHtml(category.label)} woodworking plans</h1><p>${escapeHtml(category.description)}</p><p>${categoryGuides.length} source-backed plans in this path.</p><ul>${categoryGuides.map((guide) => `<li><a href="${escapeHtml(guide.canonicalPath)}">${escapeHtml(guide.title)}</a> — ${escapeHtml(guide.dek)}</li>`).join('')}</ul><aside><h2>Explore another project path</h2><ul>${planCategories.filter((candidate) => candidate.id !== category.id).map((candidate) => `<li><a href="/plans/${escapeHtml(candidate.id)}/">${escapeHtml(candidate.label)}</a></li>`).join('')}</ul></aside></main>`,
+  })
+}
 
 const staticPages = [
   ['/about/', 'About Built True Workshop', 'How Built True Workshop reviews woodworking guidance, labels evidence, corrects errors, and separates editorial decisions from commercial relationships.'],

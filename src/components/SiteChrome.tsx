@@ -2,6 +2,8 @@ import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
   Bookmark,
+  ChevronDown,
+  ExternalLink,
   LibraryBig,
   LogOut,
   Menu,
@@ -15,6 +17,7 @@ import { useContent } from '../context/ContentContext'
 import { ConsentBanner } from './ConsentBanner'
 import { trackEvent } from '../lib/analytics'
 import { searchGuides } from '../lib/guideSearch'
+import { productsForCategory, shopCategories, type ShopCategoryId } from '../data/shopCatalog'
 
 export function BrandMark() {
   return (
@@ -26,9 +29,9 @@ export function BrandMark() {
 
 const navItems = [
   { label: 'Projects', to: '/projects/' },
+  { label: 'Plans', to: '/plans/' },
   { label: 'Skills', to: '/skills/' },
   { label: 'Tools', to: '/tools/' },
-  { label: 'Shop setup', to: '/shop/' },
   { label: 'Materials', to: '/materials/' },
 ]
 
@@ -175,11 +178,25 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
+  const [shopMenuOpen, setShopMenuOpen] = useState(false)
+  const [activeShopCategory, setActiveShopCategory] = useState<ShopCategoryId>('power-tools')
   const { user, pending, available, error, signInWithGoogle, signOut } = useAuth()
+  const location = useLocation()
+  const selectedShopCategory = shopCategories.find((category) => category.id === activeShopCategory) ?? shopCategories[0]
+  const featuredProducts = productsForCategory(selectedShopCategory.id)
+
+  useEffect(() => {
+    if (!shopMenuOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShopMenuOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [shopMenuOpen])
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-walnut/10 bg-paper/95 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-walnut/10 bg-paper/95 backdrop-blur-md" onMouseLeave={() => setShopMenuOpen(false)}>
         <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-5 sm:px-8">
           <Link to="/" className="flex shrink-0 items-center" aria-label="Built True Workshop home">
             <img
@@ -192,16 +209,21 @@ function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) => `text-sm font-bold transition hover:text-pine ${isActive ? 'text-pine' : 'text-charcoal'}`}
-              >
-                {item.label}
-              </NavLink>
-            ))}
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary navigation">
+            {navItems.slice(0, 4).map((item) => <NavLink key={item.to} to={item.to} onClick={() => setShopMenuOpen(false)} className={({ isActive }) => `text-sm font-bold transition hover:text-pine ${isActive ? 'text-pine' : 'text-charcoal'}`}>{item.label}</NavLink>)}
+            <button
+              type="button"
+              onClick={() => setShopMenuOpen((open) => !open)}
+              onMouseEnter={() => setShopMenuOpen(true)}
+              onFocus={() => setShopMenuOpen(true)}
+              aria-expanded={shopMenuOpen}
+              aria-controls="shop-mega-menu"
+              aria-haspopup="true"
+              className={`inline-flex items-center gap-1 text-sm font-bold transition hover:text-pine ${location.pathname.startsWith('/shop') || shopMenuOpen ? 'text-pine' : 'text-charcoal'}`}
+            >
+              Shop <ChevronDown size={14} className={`transition ${shopMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {navItems.slice(4).map((item) => <NavLink key={item.to} to={item.to} onClick={() => setShopMenuOpen(false)} className={({ isActive }) => `text-sm font-bold transition hover:text-pine ${isActive ? 'text-pine' : 'text-charcoal'}`}>{item.label}</NavLink>)}
           </nav>
 
           <div className="hidden items-center gap-1 sm:flex">
@@ -228,10 +250,57 @@ function Header() {
           </div>
         </div>
 
+        {shopMenuOpen ? (
+          <div id="shop-mega-menu" className="absolute inset-x-0 top-full hidden border-y border-walnut/10 bg-paper shadow-[0_30px_70px_rgba(36,26,21,0.16)] lg:block">
+            <div className="mx-auto grid max-w-[1280px] grid-cols-[15rem_1fr_1.1fr] px-8 py-6">
+              <div className="border-r border-walnut/10 pr-5">
+                <p className="px-3 text-[10px] font-black uppercase tracking-[0.18em] text-steel">Shop by task</p>
+                <div className="mt-3 grid gap-1">
+                  {shopCategories.map((category) => (
+                    <button key={category.id} type="button" onMouseEnter={() => setActiveShopCategory(category.id)} onFocus={() => setActiveShopCategory(category.id)} onClick={() => setActiveShopCategory(category.id)} className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-black transition ${category.id === selectedShopCategory.id ? 'bg-pine text-white' : 'text-walnut hover:bg-sawdust'}`}>
+                      {category.shortLabel}<ArrowRight size={14} />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="px-7">
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-amber">{selectedShopCategory.label}</p>
+                <p className="mt-3 max-w-md text-sm leading-6 text-steel">{selectedShopCategory.description}</p>
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  {selectedShopCategory.subcategories.map((subcategory) => (
+                    <Link key={subcategory} to={`/search/?q=${encodeURIComponent(subcategory)}`} onClick={() => setShopMenuOpen(false)} className="group flex items-center justify-between rounded-lg border border-walnut/10 bg-white px-3 py-3 text-xs font-black text-walnut hover:border-pine/30 hover:text-pine">
+                      {subcategory}<ArrowRight size={13} className="transition group-hover:translate-x-0.5" />
+                    </Link>
+                  ))}
+                </div>
+                <Link to={`/shop/?category=${selectedShopCategory.id}`} onClick={() => setShopMenuOpen(false)} className="mt-5 inline-flex items-center gap-2 text-sm font-black text-pine">Open the {selectedShopCategory.shortLabel.toLowerCase()} shortlist <ArrowRight size={15} /></Link>
+              </div>
+
+              <div className="border-l border-walnut/10 pl-7">
+                <div className="flex items-center justify-between gap-3"><p className="text-[10px] font-black uppercase tracking-[0.18em] text-steel">Models to compare</p><span className="text-[9px] font-bold uppercase tracking-[0.12em] text-steel/70">Plain retailer links</span></div>
+                <div className="mt-3 grid gap-2">
+                  {featuredProducts.map((product) => (
+                    <a key={product.id} href={product.amazonUrl} target="_blank" rel="nofollow noopener noreferrer" className="group flex items-center justify-between gap-4 rounded-xl bg-sawdust/55 px-4 py-3 hover:bg-sawdust">
+                      <span className="min-w-0"><span className="block text-[9px] font-black uppercase tracking-[0.14em] text-amber">{product.brand} · {product.model}</span><span className="mt-1 block truncate font-display text-base font-black text-walnut">{product.name}</span></span>
+                      <ExternalLink size={15} className="shrink-0 text-pine transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
         {menuOpen ? (
           <nav id="mobile-menu" className="border-t border-walnut/10 bg-paper px-5 py-5 sm:hidden">
             <div className="mx-auto grid max-w-[1280px] gap-1">
-              {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-base font-bold text-walnut hover:bg-sawdust">{item.label}</NavLink>)}
+              {navItems.slice(0, 4).map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-base font-bold text-walnut hover:bg-sawdust">{item.label}</NavLink>)}
+              <NavLink to="/shop/" onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-base font-bold text-walnut hover:bg-sawdust">Shop</NavLink>
+              <div className="grid grid-cols-2 gap-2 px-3 pb-3">
+                {shopCategories.map((category) => <Link key={category.id} to={`/shop/?category=${category.id}`} onClick={() => setMenuOpen(false)} className="rounded-lg border border-walnut/10 bg-white px-3 py-2 text-xs font-black text-steel">{category.shortLabel}</Link>)}
+              </div>
+              {navItems.slice(4).map((item) => <NavLink key={item.to} to={item.to} onClick={() => setMenuOpen(false)} className="rounded-lg px-3 py-3 text-base font-bold text-walnut hover:bg-sawdust">{item.label}</NavLink>)}
               <NavLink to="/start-here/" onClick={() => setMenuOpen(false)} className="mt-2 rounded-lg bg-pine px-3 py-3 text-base font-bold text-white">Start here</NavLink>
             </div>
           </nav>
@@ -252,8 +321,8 @@ function Footer() {
           <p className="mt-4 max-w-lg text-xs leading-5 text-paper/50">We may earn a commission from purchases made through links on this site, at no extra cost to you.</p>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
-          <div className="grid content-start gap-3"><strong className="text-amber">Build</strong><Link to="/projects/">Projects</Link><Link to="/skills/">Skills</Link><Link to="/shop/">Shop setup</Link></div>
-          <div className="grid content-start gap-3"><strong className="text-amber">Choose</strong><Link to="/tools/">Tools</Link><Link to="/materials/">Materials</Link><Link to="/plans/">Plans</Link></div>
+          <div className="grid content-start gap-3"><strong className="text-amber">Build</strong><Link to="/plans/">Browse plans</Link><Link to="/projects/">All projects</Link><Link to="/skills/">Skills</Link></div>
+          <div className="grid content-start gap-3"><strong className="text-amber">Choose</strong><Link to="/shop/">Shop by task</Link><Link to="/tools/">Tool decisions</Link><Link to="/materials/">Materials</Link></div>
           <div className="grid content-start gap-3"><strong className="text-amber">Trust</strong><Link to="/about/">About</Link><Link to="/about/testing-method/">Testing method</Link><Link to="/about/editorial-policy/">Editorial policy</Link><Link to="/affiliate-disclosure/">Disclosure</Link><Link to="/corrections/">Corrections</Link></div>
         </div>
       </div>

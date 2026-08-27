@@ -6,8 +6,10 @@ const GuidePage = lazy(() => import('./pages/GuidePage').then((module) => ({ def
 const HomePage = lazy(() => import('./pages/HomePage').then((module) => ({ default: module.HomePage })))
 const HubPage = lazy(() => import('./pages/HubPage').then((module) => ({ default: module.HubPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage })))
+const PlansPage = lazy(() => import('./pages/PlansPage').then((module) => ({ default: module.PlansPage })))
 const SavedPage = lazy(() => import('./pages/SavedPage').then((module) => ({ default: module.SavedPage })))
 const SearchPage = lazy(() => import('./pages/SearchPage').then((module) => ({ default: module.SearchPage })))
+const ShopPage = lazy(() => import('./pages/ShopPage').then((module) => ({ default: module.ShopPage })))
 const StartHerePage = lazy(() => import('./pages/StartHerePage').then((module) => ({ default: module.StartHerePage })))
 const StaticPage = lazy(() => import('./pages/StaticPage').then((module) => ({ default: module.StaticPage })))
 
@@ -30,13 +32,14 @@ function App() {
         <Route path="tools" element={<HubPage eyebrow="Buy with a reason" title="Tool decisions" description="Comparisons and buying guides organized around your project, shop constraints, ownership cost, and the reasons to keep what you already own." types={['review', 'comparison']} />} />
         <Route path="tools/:slug" element={<GuidePage />} />
 
-        <Route path="shop" element={<HubPage eyebrow="Make the space work" title="Shop setup" description="Workbenches, storage, workflow, dust collection, lighting, and machine choices for shops that still need to function as garages." types={['shop']} categoryIds={['beginner-foundations', 'stationary-tools']} />} />
+        <Route path="shop" element={<ShopPage />} />
         <Route path="shop/:slug" element={<GuidePage />} />
 
         <Route path="materials" element={<HubPage eyebrow="Know what you are cutting" title="Materials & finishes" description="Lumber, sheet goods, adhesives, abrasives, stains, and finishes explained through the decisions that change a build." types={['material']} />} />
         <Route path="materials/:slug" element={<GuidePage />} />
 
-        <Route path="plans" element={<HubPage eyebrow="Build from a clear plan" title="Plans" description="Published project plans with visible evidence status, working dimensions, material assumptions, real cut lists, and safer tool routes." types={['project']} />} />
+        <Route path="plans" element={<PlansPage />} />
+        <Route path="plans/:category" element={<PlansPage />} />
 
         <Route path="about" element={<StaticPage pageKey="about" />} />
         <Route path="about/testing-method" element={<StaticPage pageKey="testing" />} />

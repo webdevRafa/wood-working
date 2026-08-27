@@ -55,10 +55,16 @@ for (const guide of guides) {
   if (/editorial preview|editorial draft|do not publish|before publication/i.test(html)) failures.push(`${label}: internal editorial language leaked into the initial HTML.`)
 }
 
+const planCategoryPaths = [
+  '/plans/living-room/', '/plans/bedroom-office/', '/plans/kitchen-bath/', '/plans/tables-seating/',
+  '/plans/outdoor-garden/', '/plans/workshop/', '/plans/storage-shelves/', '/plans/entryway-utility/',
+  '/plans/garage/', '/plans/decor-gifts/', '/plans/kids-pets/', '/plans/beginner-weekend/',
+]
+
 const requiredPublicPaths = [
   '/', '/start-here/', '/projects/', '/skills/', '/tools/', '/shop/', '/materials/', '/plans/',
   '/about/', '/about/testing-method/', '/about/editorial-policy/', '/affiliate-disclosure/', '/corrections/',
-  '/accessibility/', '/privacy/', '/terms/',
+  '/accessibility/', '/privacy/', '/terms/', ...planCategoryPaths,
 ]
 
 for (const path of requiredPublicPaths) {
@@ -68,6 +74,7 @@ for (const path of requiredPublicPaths) {
     const html = await htmlFor(path)
     if (!html.includes('<meta name="robots" content="index,follow" />')) failures.push(`${path}: public route is not index,follow.`)
     if (!html.includes(`<link rel="canonical" href="${canonical}" />`)) failures.push(`${path}: self-referential canonical is missing or incorrect.`)
+    if (planCategoryPaths.includes(path) && !html.includes('data-prerendered="plan-category"')) failures.push(`${path}: plan category directory was not included in the initial HTML.`)
   } catch {
     failures.push(`${path}: prerendered public route is missing.`)
   }
