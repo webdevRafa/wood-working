@@ -36,6 +36,11 @@ const bannedPatterns = [
   [/\bapplied to\b|\bthe practical check is specific\b|\bwhen working through\b/i, 'generation residue'],
   [/\bthat is the controlling idea\b|\bthe goal is not merely to complete an operation\b/i, 'templated editorial scaffolding'],
   [/\bsource-backed decision guide for choosing\b/i, 'awkward generated summary'],
+  [/\bthe shop-level test for\b|\ba sound approach to\b|\bgrounded in the work\b/i, 'mechanical topic-prefix language'],
+  [/\bin this guide to\b|\bbegin this work\b|\bworking through this work\b/i, 'generic guide language'],
+  [/\brepeat a proposed correction before changing anything else\b/i, 'generic troubleshooting filler'],
+  [/\btreat .+ as a solution only when it removes a measured constraint\b/i, 'generic decision filler'],
+  [/\bevaluate this option against the capacity, compatibility, space, and cost constraints\b/i, 'generic tool-purpose filler'],
   [/\bthe (?:a|an)\b/i, 'article grammar error'],
 ]
 
@@ -94,6 +99,19 @@ for (const guide of guides) {
   if (isPublished && guide.intent === 'buy') {
     if (!guide.sections.some((section) => section.id === 'full-cost')) errors.push(`${label}: buying guide does not calculate complete ownership cost.`)
     if (!guide.sections.some((section) => section.id === 'fit-and-skip')) errors.push(`${label}: buying guide does not identify who should buy or skip.`)
+  }
+
+  if (isPublished && guide.intent === 'learn') {
+    const requiredSections = ['answer-first', 'setup', 'working-method', 'read-the-result', 'troubleshooting', 'next-project']
+    for (const sectionId of requiredSections) {
+      if (!guide.sections.some((section) => section.id === sectionId)) errors.push(`${label}: instructional guide is missing ${sectionId}.`)
+    }
+    const workingMethod = guide.sections.find((section) => section.id === 'working-method')
+    const resultChecks = guide.sections.find((section) => section.id === 'read-the-result')
+    const fixes = guide.sections.find((section) => section.id === 'troubleshooting')
+    if ((workingMethod?.bullets?.length ?? 0) < 5) errors.push(`${label}: instructional method needs at least five ordered actions.`)
+    if ((resultChecks?.bullets?.length ?? 0) < 2) errors.push(`${label}: instructional guide needs concrete success checks.`)
+    if ((fixes?.bullets?.length ?? 0) < 2) errors.push(`${label}: instructional guide needs problem-specific corrections.`)
   }
 
   if (isPublished && /\bvs\.?\b|versus/i.test(guide.title) && !guide.sections.some((section) => section.id === 'option-by-option')) errors.push(`${label}: comparison title lacks an option-by-option section.`)

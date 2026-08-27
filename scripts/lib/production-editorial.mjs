@@ -1,4 +1,5 @@
 import { planFor, topicFacts } from './content-quality.mjs'
+import { humanLearnCoverage, humanLearnGuide } from './human-learn-guides.mjs'
 import { productionMaterials, productionPlanFor, productionTools } from './production-plans.mjs'
 import { curateLearnSectionHeadings } from './section-heading-curation.mjs'
 
@@ -19,7 +20,9 @@ const sources = {
   treated: { title: 'USDA Forest Products Laboratory — Selection and Use of Pressure-Treated Wood', url: 'https://research.fs.usda.gov/treesearch/59612' },
   tipover: { title: 'U.S. Consumer Product Safety Commission — Anchor It!', url: 'https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/AnchorItgov' },
   bird: { title: 'Cornell Lab NestWatch — Right Bird, Right House', url: 'https://nestwatch.org/learn/all-about-birdhouses/right-bird-right-house/' },
+  birdFeeder: { title: 'Project FeederWatch — How to Clean Your Feeders', url: 'https://feederwatch.org/learn/feeding-birds/how-to-clean-your-feeders/' },
   bat: { title: 'Bat Conservation International — Bat House Guidelines', url: 'https://www.batcon.org/about-bats/bat-house-guidelines/' },
+  pollinator: { title: 'Xerces Society — Nesting Resources for Pollinators', url: 'https://xerces.org/pollinator-conservation/nesting-resources' },
   dewaltRouter: { title: 'DEWALT — DCW600B Cordless Compact Router', url: 'https://www.dewalt.com/en-us/product/dcw600b/20v-max-xr-brushless-cordless-router-tool-only' },
   makitaRouter: { title: 'Makita — XTR01Z Cordless Compact Router', url: 'https://makitatools.com/products/details/XTR01Z' },
   sawstop: { title: 'SawStop — Professional Cabinet Saw Owner’s Manual', url: 'https://www.sawstop.com/wp-content/uploads/2021/10/Owners-Manual-Professional-Cabinet-Saw-175.pdf' },
@@ -52,6 +55,18 @@ const titleRevisions = {
   '499': 'Giant Woodworking Plan Bundles: Are They Worth It? A Quality-Control Checklist',
 }
 
+const learnLiteralLists = {
+  '012': { id: 'literal-list', heading: 'Four dependable ways to cut square', bullets: ['Miter saw: register a straight edge against the fence and verify the 90-degree detent with paired test cuts.', 'Table saw: use a square miter gauge or crosscut sled; never trap the offcut between the blade and rip fence.', 'Circular saw: support both pieces and run the base against a clamped guide set from the actual blade offset.', 'Hand saw: mark around the stock, saw on the waste side, then true the end with a shooting board when the fit requires it.'] },
+  '016': { id: 'literal-list', heading: 'Seven mistakes that turn good stock into scrap', bullets: ['Cutting before the final dimensions and reference faces are marked.', 'Laying critical parts through checks, knots, pith, or severe grain runout.', 'Treating nominal lumber or plywood thickness as an exact measurement.', 'Skipping the matching-scrap test for a cutter, joint, or finish.', 'Forcing a joint instead of finding the local high spot.', 'Starting a glue-up before clamps, cauls, and the assembly order are rehearsed.', 'Applying finish to the project before the complete schedule works on an offcut.'] },
+  '023': { id: 'literal-list', heading: 'Five joints worth learning first', bullets: ['A reinforced butt joint for simple shop fixtures and learning square assembly.', 'A rabbet for case backs, box corners, and registering one part at an edge.', 'A dado for shelves and dividers that need a housed shoulder.', 'A half-lap for frames and crossings with broad long-grain contact.', 'A mortise-and-tenon for frames that must resist racking and repeated load.'] },
+  '025': { id: 'literal-plan', heading: 'A 30-day practice schedule', bullets: Array.from({ length: 30 }, (_, index) => {
+    const days = ['Set up a safe bench area and practice clamping.', 'Mark reference faces and edges on five scraps.', 'Check a square with the flip test.', 'Measure and mark five identical lengths.', 'Saw five lines by hand and label the error.', 'Drill square holes with a backer.', 'Practice countersinks and pilot holes.', 'Plane one edge straight.', 'Sharpen one chisel and pare end grain.', 'Cut four square end blocks.', 'Make a simple butt-jointed frame.', 'Cut two accurate rabbets.', 'Cut two dados to fit actual plywood.', 'Practice a half-lap in matching stock.', 'Dry-fit a small box.', 'Glue the box and compare diagonals.', 'Remove glue without damaging the surface.', 'Sand one panel through a tested grit sequence.', 'Apply finish to divided sample boards.', 'Build a bench hook or simple stop.', 'Repeat the five hand-saw cuts.', 'Make four matching frame parts from one stop.', 'Cut and fit one mortise-and-tenon sample.', 'Lay out a small shelf from a story stick.', 'Build the shelf without finish.', 'Inspect the shelf for square, level, and racking.', 'Finish the shelf from the accepted sample schedule.', 'Write down the three mistakes that cost the most time.', 'Repeat the weakest joint or machine setup.', 'Photograph the finished work and plan the next project from the skill that needs practice.']
+    return `Day ${index + 1}: ${days[index]}`
+  }) },
+  '086': { id: 'literal-plan', heading: 'The five-cut straight-sawing drill', bullets: ['Cut 1: start a shallow kerf on the waste side without correcting it.', 'Cut 2: watch the top line for the full stroke.', 'Cut 3: alternate attention between the top and front lines.', 'Cut 4: repeat with a lighter grip and longer relaxed strokes.', 'Cut 5: use the best body and work position, then compare all five ends with a square.'] },
+  '225': { id: 'literal-list', heading: 'Twelve shop-made jigs that earn their storage space', bullets: ['Crosscut sled', 'Taper jig with positive workholding', 'Straight-line rip carrier', 'Thin-rip guide', 'Zero-clearance insert', 'Router trammel', 'Mortising guide', 'Perpendicular drilling guide', 'Box-joint jig', 'Circle-cutting jig', 'Assembly square or corner fixture', 'Repeatable stop block'] },
+}
+
 const projectRules = [
   { test: /^(?!.*\b(?:box-joint jig|drawer box|planter box)\b).*(?:\bbox\b|crate|chest|trunk|valet tray)/i, focus: 'A box succeeds when the opposite parts match, the bottom has room to fit without forcing the case out of square, and the lid or opening is fitted only after the body is stable.', sequence: ['Mill the paired sides together.', 'Prepare the listed bottom route—captured, rabbeted, or fastened beneath—before assembly.', 'Dry-clamp the case and compare diagonals.', 'Fit the lid, tray, or dividers to the assembled opening.'], checks: ['Opposite sides match in length.', 'The bottom seats without bowing the case.', 'Both diagonals agree before glue.', 'The lid clears evenly after the finish cures.'], failure: 'A box that twists usually started with mismatched side lengths, an over-tight bottom, or clamp pressure applied before the joints were fully seated.' },
   { test: /coffee table|end table|side table|console table|dining table|pedestal table|card table|drop-leaf|bar table/i, focus: 'For a table, the base must resist racking while the top is allowed to move across its grain. Height, knee room, overhang, and the route through the doorway matter as much as the joinery.', sequence: ['Build and square the base first.', 'Flatten the bearing points at the top of the base.', 'Fit the top fasteners in elongated or movement-friendly holes.', 'Level the finished table by correcting the base, not randomly sanding the top.'], checks: ['The base stands without rocking before the top is attached.', 'Aprons and stretchers leave the promised clearance.', 'Top fasteners permit cross-grain movement.', 'The piece fits its doorway and final room.'], failure: 'Cracked tops and opened breadboard joints usually come from restraining seasonal movement; rocking usually belongs to the base or floor, not to a corner of the top.' },
@@ -61,10 +76,12 @@ const projectRules = [
   { test: /cabinet|bookcase|nightstand|dresser|wardrobe|vanity|console|pantry|locker|medicine cabinet|built-in/i, focus: 'Casework begins with a square box. Paired sides should be machined together, the back should lock the case square, and doors or drawers should be fitted only after the installed opening is measured.', sequence: ['Cut paired sides from one setup.', 'Machine shelf and hardware locations from one reference end.', 'Square the case before fastening the back.', 'Fit doors, drawers, and scribes to the installed case.'], checks: ['Case diagonals agree before the back is fixed.', 'Shelf spans are appropriate for the expected load.', 'Hardware clearances come from the exact manufacturer drawing.', 'Tall or climbable furniture has a suitable anti-tip connection.'], failure: 'Uneven reveals are often a case-squareness problem. Correct the box and installation before trimming every door or drawer to a crooked opening.' },
   { test: /drawer/i, focus: 'A drawer is sized from the measured opening and the exact slide requirement. Build the box square first, prove that it travels freely, and fit the applied front last.', sequence: ['Measure the opening at the front and back.', 'Subtract the exact slide clearance.', 'Build the box and compare diagonals.', 'Install the slides from matching spacers, then fit the front.'], checks: ['The box width uses the smaller measured opening.', 'The bottom does not force the box out of square.', 'Slides share the same setback and elevation.', 'The applied front has an even reveal through its travel.'], failure: 'A drawer that binds seasonally may be swelling, a racked case, or misaligned slides. Identify which surface is rubbing before planing the drawer smaller.' },
   { test: /shelf|mantel|pot rack|key holder/i, focus: 'A wall-mounted project is only as reliable as its load path. Size the shelf for sag, locate verified framing or masonry, and use brackets and fasteners rated for the wall and expected load.', sequence: ['Measure the wall and locate structure.', 'Choose the span and support spacing from the intended load.', 'Build the shelf or carcass square.', 'Install the support first and prove it level before loading.'], checks: ['Fasteners enter verified structure or an appropriate rated anchor.', 'The shelf cannot lift off its concealed support.', 'Long spans have edging, thickness, or intermediate support.', 'The installation is checked after the first period of use.'], failure: 'A level-looking shelf can still fail if the fastener only grips drywall or if the bracket rating assumes a different wall and screw pattern.' },
-  { test: /jig|sled|guide|template|insert|bench hook|shooting board|winding sticks|caul|stop block|push-block|push-stick/i, focus: 'A jig earns its place by making one repeated operation safer or more repeatable. Its references must be adjustable or replaceable, and every screw, clamp, knob, and runner must stay outside the complete cutter path.', sequence: ['Draw the cutter path on the base.', 'Fit the guide or runner without side play.', 'Square the working fence from an actual test cut.', 'Label limits and retire the jig when wear changes the result.'], checks: ['Hardware clears the cutter at every setting.', 'The work cannot pivot or lift during the cut.', 'A scrap test verifies the jig independently.', 'Stops and fences remain tight after repeated use.'], failure: 'Do not compensate for a loose runner or worn kerf by steering the work. Repair or replace the reference before using the jig again.' },
+  { test: /\bjig\b|sled|\b(?:cutting|router|drilling|layout|saw) guide\b|template|insert|bench hook|shooting board|winding sticks|caul|stop block|push-block|push-stick/i, focus: 'A jig earns its place by making one repeated operation safer or more repeatable. Its references must be adjustable or replaceable, and every screw, clamp, knob, and runner must stay outside the complete cutter path.', sequence: ['Draw the cutter path on the base.', 'Fit the guide or runner without side play.', 'Square the working fence from an actual test cut.', 'Label limits and retire the jig when wear changes the result.'], checks: ['Hardware clears the cutter at every setting.', 'The work cannot pivot or lift during the cut.', 'A scrap test verifies the jig independently.', 'Stops and fences remain tight after repeated use.'], failure: 'Do not compensate for a loose runner or worn kerf by steering the work. Repair or replace the reference before using the jig again.' },
   { test: /cart|rack|organizer|tool wall|storage|charging station|cabinet|dock/i, focus: 'Shop storage should put the heaviest item low, connect every load to a clear structure, preserve ventilation around chargers and motors, and make frequently used tools easy to return.', sequence: ['Measure the actual tools and cases.', 'Map the loaded center of gravity and anchor points.', 'Build the frame or case with a racking-resistant back.', 'Load it gradually and recheck fasteners and caster locks.'], checks: ['Casters and feet are rated for the loaded project.', 'Tall storage is anchored to suitable structure.', 'Chargers and machines retain required airflow.', 'Nothing can fall into an aisle or onto an operator.'], failure: 'A mobile cabinet that is stable while empty can become dangerous when a heavy machine or lumber raises its center of gravity.' },
+  { test: /bird feeder/i, focus: 'A bird feeder should keep seed dry, drain rain, come apart without fighting hidden fasteners, and expose every food-contact surface for regular cleaning. The roof and tray matter less than a cleanable design that does not collect moldy seed.', sequence: ['Choose the seed and feeding style before sizing openings.', 'Build a removable tray or roof that exposes the interior.', 'Add drainage and keep joints from trapping wet seed.', 'Install where the feeder can be taken down and cleaned safely.'], checks: ['Old seed and droppings can be removed from every surface.', 'Rain drains without soaking the seed supply.', 'Edges and fasteners cannot injure visiting birds.', 'The filled feeder remains stable on its mount.'], failure: 'A feeder that looks clean from outside can still hold wet seed and droppings in an inaccessible corner. Redesign the cleanout instead of sealing that pocket permanently.' },
   { test: /birdhouse/i, focus: 'Choose the target bird before cutting the entrance. Floor size, hole diameter, height above the floor, habitat, drainage, ventilation, predator protection, and placement should follow current species guidance.', sequence: ['Select a local cavity-nesting species.', 'Download the current species plan.', 'Cut untreated stock with a rough interior below the entrance.', 'Provide drainage and a clean-out panel, then install in suitable habitat.'], checks: ['Entrance dimensions match the target species.', 'No perch helps predators reach the opening.', 'The interior is unfinished and can drain.', 'The box can be opened and cleaned safely.'], failure: 'A generic hole can exclude the intended bird or admit competitors and predators. The conservation plan—not the decorative style—sets the critical dimensions.' },
   { test: /bat house/i, focus: 'Bat houses are climate-sensitive habitat structures, not ordinary bird boxes. Current guidance favors tall, multi-chamber designs, rough untreated interior surfaces, sealed seams, regional color choices, and carefully planned mounting.', sequence: ['Select a current regional design.', 'Build narrow chambers from untreated wood.', 'Seal exterior seams while leaving landing surfaces grippable.', 'Mount with adequate open space below and monitor temperature and occupancy.'], checks: ['Roosting gaps do not exceed current conservation guidance.', 'Interior surfaces contain no mesh that can trap bats.', 'Color and sun exposure suit the climate.', 'The mounting reaches solid structure and leaves a clear flight path.'], failure: 'A poorly placed or overheated bat house can remain empty or harm bats. Preserve natural habitat and treat a house as a carefully monitored supplement.' },
+  { test: /pollinator hotel/i, focus: 'A pollinator hotel should be small, sheltered, and built around replaceable nesting material. Natural stems, snags, bare ground, and diverse native plants usually provide better habitat; an artificial nest requires regular maintenance to limit mites and disease.', sequence: ['Choose a sheltered location near useful flowering habitat.', 'Use clean replaceable hollow stems or a maintained nesting-block design.', 'Protect openings from rain without sealing ventilation.', 'Replace or clean nesting material on the conservation schedule.'], checks: ['Tunnels are smooth, dry, and closed at the back.', 'Nesting material can be removed without destroying the frame.', 'The structure stays secure while remaining small enough to maintain.', 'No pesticide-treated or contaminated material is used.'], failure: 'A large permanent bundle can concentrate parasites and disease. If the nesting material cannot be replaced or cleaned, the decorative hotel is not a maintainable habitat feature.' },
   { test: /outdoor|garden|patio|planter|raised bed|pergola|porch swing|hammock|firewood|hose hanger|compost/i, focus: 'Outdoor work lasts by shedding water, protecting end grain, keeping vulnerable wood out of ground contact, and using corrosion-resistant hardware compatible with the lumber treatment.', sequence: ['Confirm site, drainage, loads, and local requirements.', 'Choose naturally durable or correctly treated stock.', 'Detail joints so water can leave and air can circulate.', 'Plan inspection and refinishing access before assembly.'], checks: ['Horizontal surfaces slope or drain.', 'End grain and feet avoid standing water.', 'Fasteners are compatible with the wood and exposure.', 'Structural and hanging loads use rated hardware and approved support.'], failure: 'Trapped water causes more failures than rain alone. A beautiful joint that forms a cup, ledge, or sealed pocket outdoors is a maintenance problem.' },
   { test: /cutting board|serving board|cheese board|recipe box/i, focus: 'Kitchen projects should be easy to clean, stable through moisture cycles, and free of inaccessible grooves. Use sound stock, suitable adhesive, and a fully cured finish whose maker supports the intended use.', sequence: ['Arrange stable grain and remove defects.', 'Glue only joints that close without force.', 'Shape handles and edges without creating dirt traps.', 'Finish, cure fully, wash by hand, and dry upright.'], checks: ['No open knot, crack, or seam can hold food or water.', 'The board rests without rocking.', 'Edges are comfortable but do not catch a knife.', 'Care instructions match the finish and construction.'], failure: 'Dishwashers, soaking, and uneven drying accelerate movement and glue-line failure even when the original assembly was sound.' },
   { test: /toy|kids|child|dollhouse|growth chart|pet|dog|cat/i, focus: 'Projects for children or pets require rounded edges, captured hardware, stable geometry, and finishes selected for the actual age, contact, chewing, climbing, and cleaning conditions.', sequence: ['Identify foreseeable climbing, pinching, and detachable-part hazards.', 'Choose stable dimensions and a conservative load path.', 'Round every touch edge before finish.', 'Inspect after cure and periodically during use.'], checks: ['No small detachable part or exposed fastener creates a hazard.', 'The project cannot tip during normal foreseeable use.', 'Wall or window supports are rated and enter suitable structure.', 'Finish and adhesive are fully cured before contact.'], failure: 'A furniture-style joint or decorative fastener is not automatically suitable for a climbing child or moving animal; the actual use controls the design.' },
@@ -76,6 +93,14 @@ const projectRules = [
 const pick = (guide, values, salt = 0) => values[(Number(guide.id) + salt) % values.length]
 const cleanSubject = (title) => title.replace(/^(?:(?:build|make|how to|the beginner(?:’|')?s guide to)\s+)+/i, '').replace(/[.?!:]+$/, '')
 const lowerFirst = (value) => `${value.charAt(0).toLowerCase()}${value.slice(1)}`
+const decisionSubject = (title) => cleanSubject(title).replace(/^choose\s+/i, '').toLowerCase()
+
+function headingFrom(value, maximum = 170) {
+  const sentence = (value.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? value).replace(/[.!?]+$/, '').trim()
+  if (sentence.length <= maximum) return sentence
+  const cut = sentence.lastIndexOf(' ', maximum)
+  return `${sentence.slice(0, cut > 70 ? cut : maximum).replace(/[,;:\s]+$/, '')}…`
+}
 const sentenceSubject = (value) => value.toLowerCase()
   .replace(/\bdewalt\b/g, 'DeWalt').replace(/\bmakita\b/g, 'Makita').replace(/\bsawstop\b/g, 'SawStop')
   .replace(/\bcnc\b/g, 'CNC').replace(/\bmdf\b/g, 'MDF').replace(/\bhepa\b/g, 'HEPA').replace(/\bhvlp\b/g, 'HVLP')
@@ -102,13 +127,39 @@ const specificFacts = {
 }
 const usefulFacts = (guide) => [...(specificFacts[guide.id] ?? []), ...topicFacts(guide).facts.filter((fact) => !/^(Treat |For .+write down|Use a matching scrap)/i.test(fact))].slice(0, 8)
 
+const nonToolOffer = /^(?:current-model retest required|no unsafe retrofit implication|engineering caveats|evidence and licensing review|scenario-based verdicts|independently build sample projects|manufacturer\/agency sources|official safety sources|published test method|safety-source review)$/i
+const legacyToolPurpose = /^(?:Evaluate this option|Supply the dimensions|Set or verify the controlling|Make or refine the cut|Perform the main|Hold and control|Control the dust|Create, reinforce|Prepare, test|Provide representative|Create a repeatable|Support, position|Use this item)/i
+
+function toolPurpose(name, guide) {
+  const value = name.toLowerCase()
+  const activity = activityPhrase(guide)
+  if (/square|rule|ruler|tape|caliper|gauge|indicator|protractor|angle finder|straightedge|level|story stick|center finder|calibration/.test(value)) return `Use ${value} to set or verify the controlling dimension and reference while ${activity}`
+  if (/blade|bit|cutter|knife|knives|iron|chisel|scraper|rasp|file|auger|forstner|dado stack|abrasive|disc|pad|sandpaper|stone|strop/.test(value)) return `Use ${value} to make or refine the required cut, surface, or edge while ${activity}`
+  if (/saw|router|jointer|planer|drill|lathe|cnc|sander|plane|grinder|machine|spindle/.test(value)) return `Use ${value} for the main cutting, shaping, drilling, or surfacing operation in ${guide.title}`
+  if (/clamp|caul|vise|hold-down|push block|push stick|push shoe|featherboard|workholding/.test(value)) return `Use ${value} to hold and control the work through the complete operation in ${guide.title}`
+  if (/dust|vacuum|extractor|collector|filter|respirator|ppe|eye|hearing|face shield|extinguisher|eyewash|first-aid|safety|ventilation|rag can/.test(value)) return `Use ${value} to control the dust, exposure, or emergency hazard identified in ${guide.title}`
+  if (/glue|adhesive|epoxy|dowel|biscuit|domino|screw|fastener|hinge|slide|insert|connector|plug|bow tie|tabletop fastener/.test(value)) return `Use ${value} to create, reinforce, or test the connection described in ${guide.title}`
+  if (/finish|stain|dye|pigment|shellac|oil|wax|applicator|brush|roller|sprayer|compound|conditioner|primer|filler|repair kit/.test(value)) return `Use ${value} to prepare, test, apply, or maintain the finish system in ${guide.title}`
+  if (/lumber|plywood|sheet goods|veneer|wood|sample|material|stock|foam|backer board/.test(value)) return `Use ${value} as representative stock or a safe test piece for ${guide.title}`
+  if (/jig|guide|template|sled|fence|stop|rail|track|setup block|tramm|circle|splinter strip/.test(value)) return `Use ${value} to create a repeatable reference or support the work while ${activity}`
+  if (/plan|course|bundle|membership|chart|calculator|worksheet|design subscription|download|reference/.test(value)) return `Use ${value} for the dimensions, sequence, or comparison details in ${guide.title}`
+  if (/storage|rack|base|stand|table|bench|cart|bin|cabinet|lighting|task light|cord management/.test(value)) return `Use ${value} to support, position, illuminate, or store the setup in ${guide.title}`
+  return `Use ${value} for the setup, test, or comparison described in ${guide.title}`
+}
+
+function cleanEditorialTools(guide) {
+  return (guide.tools ?? [])
+    .filter((tool) => tool?.name && !nonToolOffer.test(tool.name))
+    .map((tool) => legacyToolPurpose.test(tool.purpose ?? '') ? { ...tool, purpose: toolPurpose(tool.name, guide) } : tool)
+}
+
 function activityPhrase(guide) {
   const subject = cleanSubject(guide.title)
   const lower = sentenceSubject(subject)
   if (/\bvs\.?\b|versus|comparison|compared|showdown/i.test(guide.title)) return `comparing ${lower}`
   if (/wood sandpaper grits explained/i.test(subject)) return 'choosing and sequencing sandpaper grits'
   const verbs = [
-    ['Set Up ', 'setting up '], ['Lay Out ', 'laying out '], ['Read ', 'reading '], ['Align ', 'aligning '],
+    ['Set Up ', 'setting up '], ['Lay Out ', 'laying out '], ['Read ', 'reading '], ['Align ', 'aligning '], ['Size ', 'sizing '],
     ['Make ', 'making '], ['Choose ', 'choosing '], ['Drill ', 'drilling '], ['Cut ', 'cutting '],
     ['Use ', 'using '], ['Avoid ', 'avoiding '], ['Prevent ', 'preventing '], ['Create ', 'creating '],
     ['Scale ', 'scaling '], ['Transfer ', 'transferring '], ['Account ', 'accounting '], ['Divide ', 'dividing '],
@@ -149,10 +200,12 @@ function sourcesFor(guide) {
   if (/extension cord|power cord/i.test(title)) selected.push(sources.extensionCord)
   if (/fire extinguisher|oily.?rag|flammable|combustible|finishing-supply/i.test(title)) selected.push(sources.flammable, sources.oilyRags)
   if (/MDF|particleboard|composite wood/i.test(guide.title)) selected.push(sources.composite)
-  if (/dresser|bookcase|wardrobe|cabinet|media console|locker|child|kids|toy|pet|cat window/i.test(title)) selected.push(sources.tipover)
+  if (guide.intent === 'build' && /dresser|bookcase|wardrobe|cabinet|media console|locker|child|kids|toy|pet|cat window/i.test(title)) selected.push(sources.tipover)
   if (/outdoor|garden|patio|planter|raised bed|pergola|porch|hammock|firewood|compost/i.test(title)) selected.push(sources.treated)
-  if (/birdhouse|bird feeder/i.test(title)) selected.push(sources.bird)
+  if (/birdhouse/i.test(title)) selected.push(sources.bird)
+  if (/bird feeder/i.test(title)) selected.push(sources.birdFeeder)
   if (/bat house/i.test(title)) selected.push(sources.bat)
+  if (/pollinator hotel/i.test(title)) selected.push(sources.pollinator)
   if (/dewalt.*makita.*router/i.test(title)) selected.push(sources.dewaltRouter, sources.makitaRouter)
   if (/sawstop/i.test(title)) selected.push(sources.sawstop)
   if (selected.length < 2) selected.push(sources.pti)
@@ -173,7 +226,7 @@ function articleIntro(guide, subject) {
   return pick(guide, [
     `The work gets easier when ${label} is reduced to decisions that can be measured before the first irreversible step.`,
     `Start ${label} by settling the dimensions, references, and likely failure points before buying stock or changing a setup.`,
-    `A reliable result comes from one controlled reference and an inspection after each irreversible step—not from forcing a part that no longer fits.`,
+    `A reliable ${label} result comes from one controlled reference and an inspection after each irreversible step—not from forcing a part that no longer fits.`,
     `Treat ${label} as a shop operation: define the result, prove the uncertain setup in scrap, and carry that evidence into the workpiece.`,
   ])
 }
@@ -248,9 +301,13 @@ function skillMethod(guide) {
 
 function finishAndCommission(guide, subject) {
   const title = guide.title.toLowerCase()
-  if (/birdhouse|bird feeder/i.test(title)) return [
+  if (/bird feeder/i.test(title)) return [
+    `Ease exposed edges on ${subject}, keep drainage paths open, and make the seed tray, roof, or cleanout removable without special tools. Avoid ledges and closed corners that trap wet seed or droppings.`,
+    `Finish only the exterior surfaces with a fully cured outdoor product suited to the wood and exposure, keeping food-contact areas clean. Mount the feeder where it can be taken down safely, then follow current feeder-cleaning guidance and remove it temporarily when disease is observed.`,
+  ]
+  if (/birdhouse/i.test(title)) return [
     `Ease sharp exterior edges on ${subject}, but leave the interior rough enough for the intended species and do not add a perch. Provide the drainage, ventilation, clean-out access, entrance size, and entrance height from the current species plan before assembly closes those surfaces.`,
-    `Leave the interior unfinished. If the conservation plan permits exterior color or coating, test it on an offcut and allow a full cure before installation. Mount the finished box in the specified habitat and height, then clean and monitor it on the recommended schedule.`,
+    `Leave the interior of ${subject} unfinished. If the conservation plan permits exterior color or coating, test it on an offcut and allow a full cure before installation. Mount it in the specified habitat and height, then clean and monitor it on the recommended schedule.`,
   ]
   if (/bat house/i.test(title)) return [
     `Keep every interior surface of ${subject} untreated, rough, and free of plastic mesh or protruding fasteners. Seal exterior seams against rain while preserving the narrow chamber dimensions and open landing surface in the current conservation design.`,
@@ -262,19 +319,19 @@ function finishAndCommission(guide, subject) {
   ]
   if (/outdoor|garden|patio|pergola|porch|hammock|planter|raised bed|compost|firewood|hose/i.test(title)) return [
     `Before finishing ${subject}, ease exposed edges and seal vulnerable end grain without blocking drainage or trapping moisture. Keep weep gaps, fastener inspection points, moving joints, and soil or ground clearances open.`,
-    `Test the exterior schedule on an offcut and follow its preparation and cure requirements. After installation, wet the project once, confirm that water leaves every horizontal pocket, and schedule inspection of finish, splits, fasteners, and supports before seasonal damage becomes structural.`,
+    `Test the exterior schedule for ${subject} on an offcut and follow its preparation and cure requirements. After installation, wet the project once, confirm that water leaves every horizontal pocket, and inspect finish, splits, fasteners, and supports before seasonal damage becomes structural.`,
   ]
   if (/cutting board|serving board|cheese board|recipe box|butcher-block|kitchen island/i.test(title)) return [
     `Remove glue contamination and ease every handling edge on ${subject} without creating a groove that traps food or water. Sand with the grain to the stopping grit specified for the chosen finish, and keep one labeled sample from the same stock.`,
-    `Use only an adhesive and fully cured finish whose maker supports the intended exposure. Wash cutting and serving pieces by hand, dry them upright, and inspect seams and deep knife damage before reuse; soaking and dishwashers accelerate movement and joint failure.`,
+    `Use only an adhesive and fully cured finish whose maker supports the intended exposure of ${subject}. Wash cutting and serving pieces by hand, dry them upright, and inspect seams and deep knife damage before reuse; soaking and dishwashers accelerate movement and joint failure.`,
   ]
   if (/child|kids|toy|dollhouse|growth chart|pet|dog|cat/i.test(title)) return [
     `Round every touch edge on ${subject}, capture or cover hardware, and inspect for splinters, pinch points, detachable pieces, and climbing leverage before applying finish. Prove the complete schedule on an offcut and allow the stated full cure.`,
-    `Commission the project with a cautious, progressive stability check appropriate to its intended use. Anchor top-heavy or climbable work to suitable structure and recheck fasteners, edges, fabric, and finish regularly instead of assuming the first inspection lasts forever.`,
+    `Commission ${subject} with a cautious, progressive stability check appropriate to its intended use. Anchor top-heavy or climbable work to suitable structure and recheck fasteners, edges, fabric, and finish regularly instead of assuming the first inspection lasts forever.`,
   ]
   if (/jig|sled|guide|template|insert|bench hook|shooting board|winding sticks|cauls|stop block|push-block|push-stick|shop|tool cart|workbench|router table|drill press table/i.test(title)) return [
     `Finish ${subject} only where a coating improves durability without changing a reference. Keep fences, stops, insert edges, clamping faces, cutter clearances, and high-friction workholding surfaces clean; wax sliding faces lightly only after the jig passes its test.`,
-    `Label the cutter path, setup limits, date, and accepted calibration directly on the fixture. Before service, repeat the defining test and inspect every runner, screw, knob, guard, stop, and hold-down; retire the fixture when wear changes the result or control.`,
+    `Label the cutter path, setup limits, date, and accepted calibration directly on ${subject}. Before service, repeat the defining test and inspect every runner, screw, knob, guard, stop, and hold-down; retire the fixture when wear changes the result or control.`,
   ]
   return [
     `Before finishing ${subject}, remove milling marks and glue contamination. A common furniture sequence is 100 or 120, then 150 or 180 grit, but the wood and finish instructions control the stopping point. Vacuum between grits and inspect across the grain in raking light instead of sanding by elapsed time.`,
@@ -284,6 +341,8 @@ function finishAndCommission(guide, subject) {
 
 function buildSections(guide) {
   const subject = cleanSubject(guide.title)
+  const projectLabel = subject.toLowerCase().replace(/^(?:a|an|the)\s+/, '')
+  const shortProjectLabel = projectLabel.split(/\s+(?:with|for|from|that|using|in)\s+/i)[0]
   const profile = projectProfile(guide)
   const facts = usefulFacts(guide)
   const plan = guide.dimensions?.imperial ? {
@@ -295,14 +354,14 @@ function buildSections(guide) {
   const parts = (guide.cutList ?? []).slice(0, 6).map((part) => `${part.quantity} ${part.part.toLowerCase()} at ${part.thickness} × ${part.width} × ${part.length}`)
   const hours = Math.max(2, Math.round((guide.activeMinutes ?? 240) / 60))
   const promisedList = guide.sections.find((section) => ['literal-list', 'literal-plan', 'ranked-list'].includes(section.id))
-  const finishParagraphs = finishAndCommission(guide, subject.toLowerCase())
+  const finishParagraphs = finishAndCommission(guide, `the ${shortProjectLabel}`)
   return [
     {
       id: 'plan-at-a-glance',
       heading: `Plan ${subject.toLowerCase()} before cutting`,
       paragraphs: [
-        `${articleIntro(guide, subject)} The working design starts at ${plan.size} (${plan.metric}). Treat that as a buildable baseline: verify the actual object, opening, user, hardware, environment, or installation that controls this project and revise the cut list before material is purchased.`,
-        `${profile.focus} The listed route uses ${plan.stock} and ${plan.joinery}. Set aside about ${hours} active shop hours, then add the full adhesive and finish cure time rather than counting those waiting periods as usable service time.`,
+        `The starting dimensions for ${subject.toLowerCase()} are ${plan.size} (${plan.metric}). Before buying stock, verify the actual opening, user, hardware, environment, or installation that controls the project and revise the cut list where needed.`,
+        `${profile.focus} This ${shortProjectLabel} uses ${plan.stock} and ${plan.joinery}. Plan on about ${hours} active shop hours, plus the adhesive and finish cure time before the piece goes into service.`,
       ],
       bullets: [`Finished starting size: ${plan.size}`, `Metric reference: ${plan.metric}`, `Primary stock: ${plan.stock}`, `Joinery route: ${plan.joinery}`, `Active shop time: about ${hours} hours`],
     },
@@ -310,8 +369,8 @@ function buildSections(guide) {
       id: 'design-decisions',
       heading: `Resolve the details that make ${subject.toLowerCase()} work`,
       paragraphs: [
-        `Identify the dimension or condition that controls function before laying out parts. It may be a required opening, working height, machine or object fit, mounting location, or safe operating clearance. Build outward from that constraint instead of scaling every part from a photograph.`,
-        `Draw the views the project actually needs and mark grain direction, the load path or working reference, moving parts, and hardware where present. If a feature depends on proprietary hardware, keep its current drawing beside the cut list and fit a sample before committing finished parts.`,
+        `Before laying out the ${shortProjectLabel}, identify the dimension or condition that controls function. Use the real opening, working height, object, mounting location, or operating clearance and build outward from it instead of scaling a photograph.`,
+        `Draw the views needed for ${subject.toLowerCase()} and mark grain direction, the load path, moving parts, and hardware. When a feature depends on proprietary hardware, keep its current drawing beside the cut list and fit a sample before cutting finished parts.`,
       ],
       bullets: profile.checks,
       callout: { tone: 'decision', title: 'What this plan can—and cannot—decide', body: `The dimensions are a practical starting point. Building code, structural spans, hanging loads, child safety, wildlife needs, and manufacturer clearances must be resolved from current local or product-specific guidance.` },
@@ -319,15 +378,15 @@ function buildSections(guide) {
     ...(promisedList ? [{
       id: 'literal-list',
       heading: promisedList.heading,
-      paragraphs: [`Treat each item as a small project with its own stock, hardware, safety, and finish requirements. Make one prototype before batching gifts or repeated parts.`],
+      paragraphs: [`Treat every item in this ${shortProjectLabel} list as its own small project with defined stock, hardware, safety, and finish requirements. Make one prototype before batching repeated parts.`],
       bullets: promisedList.bullets,
     }] : []),
     {
       id: 'cut-and-layout',
       heading: `Prepare and cut the parts from shared references`,
       paragraphs: [
-        `Choose the straightest stock for the longest pieces, then mark one reference face and one reference edge. Lay out visible defects before cutting. Make paired parts together or from one stop so a small measuring difference cannot turn into a twisted assembly.`,
-        `Account for kerf and milling allowance when nesting the cut list. Cut the largest parts first, label the show face and orientation immediately, and verify the first repeated part against the drawing before producing the rest. Break unwieldy stock down safely before machining its final dimensions.`,
+        `Choose the straightest stock for the longest ${shortProjectLabel} parts, then mark one reference face and edge. Lay out visible defects before cutting, and make paired parts from one stop so a small measuring difference cannot twist the assembly.`,
+        `Nest the cut list for ${subject.toLowerCase()} with kerf and milling allowance included. Cut the largest parts first, label show faces immediately, and verify the first repeated part against the drawing before producing the rest.`,
       ],
       bullets: parts.length ? parts : ['Prepare the controlling parts first.', 'Leave setup stock for the critical joint.', 'Label every reference face and mating pair.'],
     },
@@ -335,8 +394,8 @@ function buildSections(guide) {
       id: 'joinery-and-dry-fit',
       heading: `Cut the joinery and prove the dry fit`,
       paragraphs: [
-        `Cut the joinery in matching scrap before touching a project part. Use the actual stock thickness because plywood, dressed lumber, and milled hardwood rarely match a nominal dimension exactly. Aim for a joint that seats by hand or ordinary clamp pressure; clamps should hold alignment, not crush a bad fit closed.`,
-        `Assemble the project without adhesive and check the functional dimensions first. Then compare diagonals where the form should be square, place it on a known-flat surface, cycle moving hardware, and rehearse the glue-up in the same order you will actually use.`,
+        `Test the chosen joinery and fastening method in matching scrap before touching project stock. The ${shortProjectLabel} uses ${plan.joinery}; use the actual stock thickness and accept only a joint that seats by hand or ordinary clamp pressure.`,
+        `Dry-assemble the ${shortProjectLabel} and check its functional dimensions first. Compare diagonals where the form should be square, place the assembly on a known-flat surface, cycle its hardware, and rehearse the real glue-up order.`,
       ],
       bullets: profile.sequence,
     },
@@ -344,8 +403,8 @@ function buildSections(guide) {
       id: 'assembly',
       heading: `Assemble in a sequence that preserves access and square`,
       paragraphs: [
-        `Stage clamps, cauls, fasteners, a square, and cleanup supplies before opening the adhesive. Join the smallest stable subassemblies first, recheck them as pressure is applied, and let them reach the adhesive maker’s stated handling strength before connecting the full project.`,
-        `Predrill near ends and edges, verify screw length against the real joint, and stop tightening as soon as the parts seat. Where a wide solid-wood panel crosses a rigid frame, use clips, figure-eight fasteners, or slotted holes that hold it flat while allowing movement across the grain.`,
+        `Before assembling the ${shortProjectLabel}, stage its clamps, cauls, fasteners, square, and cleanup supplies. Join the smallest stable subassemblies first, recheck them under pressure, and respect the adhesive maker’s handling and cure times.`,
+        `Predrill the parts for ${subject.toLowerCase()} near ends and edges, verify every screw length against the real joint, and stop when the parts seat. Where wide solid wood crosses a rigid frame, use hardware or slots that hold it flat while permitting movement across the grain.`,
       ],
       bullets: [`1. Arrange the parts in assembly order.`, `2. Dry-clamp and compare the controlling dimensions.`, `3. Apply a continuous, appropriate adhesive film.`, `4. Close the joints without distorting the assembly.`, `5. Check square, level, and hardware clearance again.`, `6. Leave the assembly undisturbed for the stated clamp and cure schedule.`],
     },
@@ -359,8 +418,8 @@ function buildSections(guide) {
       id: 'troubleshooting',
       heading: `Fix the first cause, not the last symptom`,
       paragraphs: [
-        `${profile.failure} Mark the contact point or measured error, return to the last known-good reference, and change one variable at a time. Random sanding, added clamp pressure, and filler can erase evidence without correcting the reason the parts moved.`,
-        `If the project rocks, binds, racks, or develops an opening joint after cure, take it out of service when the failure affects a load path. Inspect moisture change, fastener engagement, grain direction, hardware alignment, and the supporting floor or wall before deciding on a repair.`,
+        `${profile.failure} On this ${shortProjectLabel}, mark the contact point or measured error, return to the last known reference, and change one variable at a time. Random sanding, added clamp pressure, and filler can erase the evidence without fixing the cause.`,
+        `If the finished ${shortProjectLabel} rocks, binds, racks, or opens a joint after cure, take it out of service when the failure affects a load path. Inspect moisture, fastener engagement, grain direction, hardware alignment, and its floor or wall support before choosing a repair.`,
       ],
       bullets: [...profile.checks.map((check) => `Verify: ${check}`), ...facts.slice(0, 2).map((fact) => `Also check: ${fact}`)].slice(0, 7),
     },
@@ -597,7 +656,7 @@ function optionNote(guide, option, index, facts) {
 
 function buyingVerdict(guide, knowledge) {
   const title = guide.title.toLowerCase()
-  const subject = cleanSubject(guide.title).toLowerCase().split(':')[0]
+  const subject = decisionSubject(guide.title).split(':')[0]
   if (/safety gear/.test(title)) return 'Buy the protection required by the next operation before buying accessories that merely make the shop more comfortable. Add task-specific protection only after the dust, impact, noise, vapor, splash, cut, or entanglement hazard is identified.'
   if (/hand tools? vs\. power tools?/.test(title)) return 'For a first shop, the most useful answer is usually a hybrid: buy one controlled method for cutting and drilling, then use hand tools for fitting and power tools only where they remove a repeated time or capacity constraint.'
   if (/dowels? vs\. biscuits? vs\. dominos?/.test(title)) return 'Choose biscuits when panel registration is the main job, dowels when a carefully indexed jig meets the project frequency and budget, and a Domino-style system when repeated loose-tenon work pays for its speed and proprietary consumables.'
@@ -612,78 +671,61 @@ function buyingVerdict(guide, knowledge) {
 }
 
 function learnSections(guide) {
-  const subject = cleanSubject(guide.title)
-  const activity = activityPhrase(guide)
-  const knowledge = topicFacts(guide)
-  const facts = usefulFacts(guide)
+  const spec = humanLearnGuide(guide)
+  if (!spec) throw new Error(`Missing hand-written learn guide for ${guide.id}: ${guide.title}`)
   const isComparison = /\bvs\.?\b|versus/i.test(guide.title)
   const options = comparisonOptions(guide)
-  const method = skillMethod(guide)
-  const promisedList = guide.sections.find((section) => ['literal-list', 'literal-plan', 'ranked-list'].includes(section.id))
+  const facts = usefulFacts(guide)
+  const promisedList = learnLiteralLists[guide.id] ?? guide.sections.find((section) => ['literal-list', 'literal-plan', 'ranked-list'].includes(section.id))
+  const methodBullets = [
+    ...spec.steps.slice(1).map((step, index) => `${index + 2}. ${step}`),
+    ...spec.checks.slice(0, Math.max(0, 7 - spec.steps.length)).map((check) => `Checkpoint: ${check}`),
+  ]
   return [
     {
       id: 'answer-first',
-      heading: `Start with the useful answer`,
-      paragraphs: [
-        knowledge.answer,
-        `${articleIntro(guide, subject)} At the bench, note the starting condition, the reference that controls the work, and the visible result that means the step is complete.`,
-      ],
+      heading: headingFrom(spec.answer),
+      paragraphs: [spec.answer],
     },
     ...(isComparison ? [{
       id: 'option-by-option',
-      heading: `Where each method earns its place`,
-      paragraphs: [`These methods solve different problems. Compare the reference each one creates, the stock it can safely control, its setup burden, the surface it leaves, and the failure that appears when it is pushed beyond its useful range.`],
+      heading: `Compare ${options.join(' and ')}`,
+      paragraphs: [`The useful difference appears in the work: ${spec.answer}`],
       bullets: options.map((option, index) => optionNote(guide, option, index, facts)),
     }] : []),
     ...(promisedList ? [{
-      id: 'literal-plan',
+      id: promisedList.id,
       heading: promisedList.heading,
-      paragraphs: [`Use the sequence below in order when one skill supports the next. Where the items are independent, begin with the one that removes the clearest constraint in the current project.`],
+      paragraphs: [`Use this promised list as the working checklist for ${cleanSubject(guide.title).toLowerCase()}.`],
       bullets: promisedList.bullets,
     }] : []),
     {
-      id: 'what-matters',
-      heading: `Understand what changes the result`,
-      paragraphs: [
-        `Separate the condition of the stock and setup from the variables you can change. Flatness, grain direction, moisture, cutter or abrasive condition, alignment, support, lighting, and an existing coating can all alter the result. Record the baseline before adjusting more than one thing.`,
-        `Use the current instructions for the exact tool, bit, blade, adhesive, finish, or hardware whenever they establish a limit. General shop practice cannot override a guard, minimum stock size, speed range, cure schedule, or rated load.`,
-      ],
-      bullets: facts.slice(0, 7),
+      id: 'setup',
+      heading: `Set up: ${headingFrom(spec.setup, 150)}`,
+      paragraphs: [spec.setup],
     },
     {
       id: 'working-method',
-      heading: `Use a repeatable shop method`,
-      paragraphs: [
-        method.start('this work'),
-        method.test('this work'),
-      ],
-      bullets: [`1. Define the finished result in a dimension, fit, surface, or decision.`, `2. Choose one reliable reference.`, `3. Inspect stock, cutter, workholding, and protection.`, `4. Rehearse the complete hand and material path.`, `5. Make and label one matching-scrap trial.`, `6. Change one variable and repeat the check.`, `7. Use the proven setup on the project.`, `8. Record the setting and correction for next time.`],
+      heading: `First step: ${headingFrom(spec.steps[0], 150)}`,
+      paragraphs: [`1. ${spec.steps[0]}`],
+      bullets: methodBullets,
     },
     {
       id: 'read-the-result',
-      heading: `Read the evidence left by the operation`,
-      paragraphs: [
-        method.read('this work'),
-        method.confirm('this work'),
-      ],
-      bullets: facts.slice(2, 7),
+      heading: `A correct result: ${headingFrom(spec.checks[0], 150)}`,
+      paragraphs: [spec.checks[0]],
+      bullets: spec.checks.slice(1),
     },
     {
       id: 'troubleshooting',
-      heading: `Troubleshoot from the first changed reference`,
-      paragraphs: [
-        method.troubleshoot('this work'),
-        `Repeat a proposed correction before changing anything else. If the result does not improve, restore the baseline and test the next likely cause. That deliberate loop costs less material than compensating with filler, force, extra sanding, or a more complicated jig.`,
-      ],
-      bullets: facts.slice(0, 6).map((fact) => `Check: ${fact}`),
+      heading: `If it goes wrong: ${headingFrom(spec.fixes[0], 150)}`,
+      paragraphs: [spec.fixes[0]],
+      bullets: spec.fixes.slice(1),
     },
     {
       id: 'next-project',
-      heading: `Practice the skill in a real project`,
-      paragraphs: [
-        method.practice('this work'),
-        `Keep the labeled practice pieces and write one sentence about what changed between the baseline and the accepted result. A physical reference made with the actual stock and tools is more useful than a generic chart when the same decision returns.`,
-      ],
+      heading: `Practice: ${headingFrom(spec.practice, 150)}`,
+      paragraphs: [spec.practice],
     },
   ]
 }
@@ -745,6 +787,8 @@ function buySections(guide) {
   const facts = usefulFacts(guide)
   const options = comparisonOptions(guide)
   const context = buyerContext(guide)
+  const subject = decisionSubject(guide.title)
+  const optionNames = options.length === 2 ? `${options[0]} and ${options[1]}` : `${options.slice(0, -1).join(', ')}, and ${options.at(-1)}`
   const band = ({ 1: '$25–$75', 2: '$75–$200', 3: '$200–$600', 4: '$600+' })[guide.costBand ?? 1]
   const promisedList = guide.sections.find((section) => ['literal-list', 'literal-plan', 'ranked-list'].includes(section.id))
   const workingBudget = guide.sections.find((section) => section.id === 'working-budget')
@@ -752,59 +796,57 @@ function buySections(guide) {
     {
       id: 'short-answer',
       heading: `The short answer`,
-      paragraphs: [
-        buyingVerdict(guide, knowledge),
-        `Write down the next three projects, the repeated problem this purchase must remove, the largest routine workpiece, and the available operating and storage space. If the choice does not change those projects, keep the current method or use a rental, shared shop, or service for the rare operation.`,
-      ],
+      paragraphs: [buyingVerdict(guide, knowledge)],
     },
     {
       id: 'option-by-option',
       heading: `Compare the realistic routes`,
       paragraphs: [
-        context.compare,
-        `Eliminate an option as soon as it fails a required capacity, safety feature, exposure, electrical limit, compatibility need, or space constraint. A sale price should not bring a disqualified option back into the decision.`,
+        `The realistic routes for ${subject} are ${optionNames}. ${context.compare}`,
+        `For ${subject}, remove any route that fails the required capacity, safety feature, exposure, electrical limit, compatibility, or shop space. A discount cannot repair a bad fit.`,
       ],
       bullets: options.map((option, index) => optionNote(guide, option, index, facts)),
     },
     ...(promisedList ? [{
       id: 'ranked-list',
       heading: promisedList.heading,
-      paragraphs: [`The order favors broad usefulness and a complete working system. Remove any item that fails the actual stock, space, safety, exposure, or compatibility requirement.`],
+      paragraphs: [`This list for ${subject} favors broad usefulness and a complete working setup. Remove any item that fails the actual stock, space, safety, exposure, or compatibility requirement.`],
       bullets: promisedList.bullets,
     }] : []),
     ...(workingBudget ? [{
       id: 'working-budget',
       heading: workingBudget.heading,
-      paragraphs: [`This zero-based example gives every dollar a job. Local prices change, so preserve the order of capability and choose a sound used equivalent before quietly exceeding the total.`],
+      paragraphs: [`This budget for ${subject} gives every dollar a job. Local prices change, so preserve the order of capability and consider a sound used equivalent before exceeding the total.`],
       bullets: workingBudget.bullets,
     }] : []),
     {
       id: 'specifications',
       heading: `Specifications that change real work`,
-      paragraphs: context.specifications,
+      paragraphs: [
+        `For ${subject}, ${context.specifications[0].charAt(0).toLowerCase()}${context.specifications[0].slice(1)}`,
+        `${context.specifications[1]} For ${subject}, apply that check to ${optionNames} using the same stock, sample, or operating requirement for each route.`,
+      ],
       bullets: facts.slice(0, 7),
     },
     {
       id: 'full-cost',
       heading: `Price the ready-to-work system`,
       paragraphs: [
-        context.cost,
-        `Use ${band} only as an initial planning band; local prices, promotions, bundles, and availability change. Record the exact configuration and date beside every price so unlike packages are never compared as though they were equivalent.`,
+        `${context.cost} For ${subject}, use ${band} only as a planning band and record the exact configuration and date beside every price.`,
       ],
       bullets: context.costItems,
     },
     {
       id: 'fit-and-skip',
       heading: `Who should buy—and who should wait`,
-      paragraphs: context.fit,
+      paragraphs: [`For ${subject}, ${context.fit[0].charAt(0).toLowerCase()}${context.fit[0].slice(1)} ${context.fit[1]}`],
       callout: { tone: 'decision', title: 'The three-project test', body: `Name three planned jobs, the exact limitation this purchase removes in each one, and the complete ready-to-work cost. If one answer is missing, wait.` },
     },
     {
       id: 'checkout-checklist',
       heading: `Verify the current product before checkout`,
       paragraphs: [
-        context.verify,
-        `Keep the receipt or license terms, exact product or plan identification, instructions, setup notes, and first sample result together. Revisit the recommendation when models, safety notices, formulations, access terms, consumables, or the project mix changes; an affiliate link is never a reason to preserve outdated advice.`,
+        `${context.verify} For ${subject}, keep the exact product or plan identification, receipt or license terms, instructions, setup notes, and first sample result together. Recheck the recommendation when models, safety notices, formulations, access terms, or consumables change.`,
       ],
       bullets: context.verifyItems,
     },
@@ -817,20 +859,19 @@ function seoTitle(title) {
 }
 
 function metaDescription(guide) {
-  const subject = cleanSubject(guide.title).toLowerCase()
   const text = guide.intent === 'build'
-    ? `Build ${subject} with practical dimensions, a cut list, joinery sequence, safety checks, finishing guidance, and repairs for common mistakes.`
+    ? `${guide.title}, with practical dimensions, a cut list, assembly order, safety checks, finishing guidance, and fixes for common problems.`
     : guide.intent === 'buy'
-      ? `Compare ${subject} through real capacity, compatibility, complete ownership cost, limitations, and clear reasons to buy or wait.`
-      : `Learn ${subject} with a direct answer, controlled setup, step-by-step method, visible success checks, and focused troubleshooting.`
+      ? `${guide.title}: compare real capacity, compatibility, complete ownership cost, limitations, and clear reasons to buy or wait.`
+      : `${guide.title}, explained with a clear setup, exact steps, visible success checks, and specific fixes when the result goes wrong.`
   return text.length <= 160 ? text : `${text.slice(0, 157).replace(/\s+\S*$/, '')}…`
 }
 
 function dek(guide) {
-  const subject = cleanSubject(guide.title).toLowerCase()
-  if (guide.intent === 'build') return `A buildable starting plan for ${subject}, with the dimensions, cut logic, assembly order, safety decisions, and checks that matter in a real shop.`
-  if (guide.intent === 'buy') return `Compare ${subject} by the work it changes, the complete cost of using it, its limits, and the projects that justify buying now—or waiting.`
-  return `A practical shop guide to ${subject}, with a direct answer, a repeatable method, visible success checks, and the failures most worth correcting.`
+  const subject = guide.intent === 'buy' ? decisionSubject(guide.title) : cleanSubject(guide.title).toLowerCase()
+  if (guide.intent === 'build') return `A practical plan for ${subject}, with starting dimensions, a cut list, assembly order, safety decisions, and checks for fit and stability.`
+  if (guide.intent === 'buy') return `Compare ${subject} by the work each option changes, the complete setup cost, real limitations, and the reasons to buy now or wait.`
+  return humanLearnGuide(guide).answer
 }
 
 function safetyNotes(guide) {
@@ -848,29 +889,9 @@ function safetyNotes(guide) {
   return notes
 }
 
-function personalizeSections(guide, sections) {
-  const subject = cleanSubject(guide.title).toLowerCase()
-  const subjectLabel = subject.split(':')[0]
-  const prefixes = [
-    `For ${subjectLabel}, `,
-    `In this guide to ${subjectLabel}, `,
-    `The shop-level test for ${subjectLabel} is practical: `,
-    `With ${subjectLabel}, `,
-    `A sound approach to ${subjectLabel} starts here: `,
-    `To keep ${subjectLabel} grounded in the work, `,
-  ]
-  return sections.map((section, sectionIndex) => ({
-    ...section,
-    paragraphs: section.paragraphs.map((paragraph, paragraphIndex) => {
-      const lowerParagraph = paragraph.toLowerCase()
-      if (lowerParagraph.includes(subjectLabel.slice(0, Math.min(36, subjectLabel.length)))) return paragraph
-      const prefix = prefixes[(Number(guide.id) + sectionIndex + paragraphIndex) % prefixes.length]
-      return `${prefix}${lowerFirst(paragraph)}`
-    }),
-  }))
-}
-
 export function publishProductionCorpus(inputGuides, publishedAt = new Date().toISOString()) {
+  const learnCoverage = humanLearnCoverage(inputGuides)
+  if (learnCoverage.missing.length) throw new Error(`Missing hand-written learn guides: ${learnCoverage.missing.join(', ')}`)
   const publishedGuides = inputGuides.map((source) => {
     const guide = structuredClone(source)
     guide.title = titleRevisions[guide.id] ?? guide.title
@@ -881,11 +902,12 @@ export function publishProductionCorpus(inputGuides, publishedAt = new Date().to
       guide.tools = productionTools(guide, plan)
       guide.materials = productionMaterials(plan)
     }
+    guide.tools = guide.intent === 'buy' ? [] : cleanEditorialTools(guide)
     guide.dek = dek(guide)
     guide.seoTitle = seoTitle(guide.title)
     guide.metaDescription = metaDescription(guide)
     const sections = guide.intent === 'build' ? buildSections(guide) : guide.intent === 'buy' ? buySections(guide) : learnSections(guide)
-    guide.sections = personalizeSections(guide, sections)
+    guide.sections = sections
     guide.safetyNotes = safetyNotes(guide)
     guide.affiliateDisclosure = DISCLOSURE
     guide.sources = sourcesFor(guide)
@@ -896,7 +918,7 @@ export function publishProductionCorpus(inputGuides, publishedAt = new Date().to
     guide.reviewerIds = ['built-true-editorial-review']
     guide.updatedAt = publishedAt
     guide.publishedAt = guide.publishedAt ?? publishedAt
-    guide.contentVersion = 4
+    guide.contentVersion = 5
     return guide
   })
   return curateLearnSectionHeadings(publishedGuides).guides
